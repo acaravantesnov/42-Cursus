@@ -1,0 +1,5 @@
+Credentials cache: API:C67534C4-D573-45D7-B841-76FE43D974DF
+        Principal: acaravan@42MADRID.COM
+
+  Issued                Expires               Principal
+Nov 25 19:44:47 2020  Nov 26 05:44:47 2020  krbtgt/42MADRID.COM@42MADRID.COM
