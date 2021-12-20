@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 20:23:40 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/19 20:28:39 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/20 19:44:38 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_freestr(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 20:23:43 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/19 20:28:13 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/20 19:43:55 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*find_path(char *cmd, char *env[])
 {
 	char	*path;
 	char	**vent;
-	int i;
+	int		i;
 
 	i = 0;
 	while ((ft_strnstr(env[i], "PATH", 4) == NULL) || env[i] == NULL)
@@ -27,7 +27,7 @@ char	*find_path(char *cmd, char *env[])
 	i = 0;
 	while (vent[i])
 	{
-		path = ft_strjoin(vent[i], "/"); //Memory leak
+		path = ft_strjoin(vent[i], "/");
 		path = ft_strjoin(path, cmd);
 		if (access(path, F_OK) == 0)
 			return (path);

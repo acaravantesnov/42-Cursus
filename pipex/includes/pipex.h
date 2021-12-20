@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 14:17:19 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/19 20:32:24 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/20 19:42:43 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*find_path(char *cmd, char *env[]);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(char *str);
-void execcmd(char *argv, char **env);
+void	execcmd(char *argv, char **env);
 void	ft_freestr(char **str);
-
 
 #endif
