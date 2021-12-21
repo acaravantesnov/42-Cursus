@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 05:10:36 by acaravan          #+#    #+#             */
-/*   Updated: 2021/09/20 08:19:21 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/21 15:42:39 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 
 int		ft_atoi(char *str);
+int		ft_isdigit(int c);
 int		*ft_realloc(int *ptr, int originSize, int newSize);
 void	build_stacks(int *stackA, int *stackB, int ndigitsA);
 void	sa(int *stackA, int ndigitsA);
