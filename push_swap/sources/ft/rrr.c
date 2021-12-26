@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 07:23:17 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 12:11:45 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 14:17:12 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,26 @@
 
 void	rrr(long *stackA, long *stackB, int ndigitsA, int ndigitsB)
 {
-	rra(stackA, ndigitsA);
-	rrb(stackB, ndigitsB);
+	int	i;
+	long	*temp;
+
+	i = ndigitsA - 1;
+	temp = (long *)malloc(sizeof(long));
+	*temp = stackA[ndigitsA - 1];
+	while (i > 0)
+	{
+		stackA[i] = stackA[i - 1];
+		i--;
+	}
+	stackA[0] = *temp;
+	i = 0;
+	*temp = stackB[0];
+	while (i < ndigitsB)
+	{
+		stackB[i] = stackB[i + 1];
+		i++;
+	}
+	stackB[ndigitsB - 1] = *temp;
+	free(temp);
+	write(1, "rrr\n", 4);
 }

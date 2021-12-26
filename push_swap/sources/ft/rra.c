@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 07:14:56 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 12:11:51 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 14:19:12 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	rra(long *stackA, int ndigitsA)
 	}
 	stackA[0] = *temp;
 	free(temp);
+	write(1, "rra\n", 4);
 }

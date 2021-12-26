@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 04:40:45 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 13:05:10 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 14:24:58 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,13 @@ int main(int argc, char **argv)
 	if (check_sorted(stackA, ndigitsA) == 0)
 		return (0);
 	build_stacks(stackA, stackB, ndigitsA);
-	if (ndigitsA <= 5)
-		sort_small_stack(stackA, stackB, ndigitsA);
-	else
-		sort_big_stack(stackA, stackB, ndigitsA);
+	if (ndigitsA == 3)
+		sort_3digits(stackA, stackB, ndigitsA);
+	else if (ndigitsA == 5)
+		sort_5digits(stackA, stackB, ndigitsA);
+	else if (ndigitsA == 100)
+		sort_100digits(stackA, stackB, ndigitsA);
+	else if (ndigitsA == 500)
+		sort_500digits(stackA, stackB, ndigitsA);
 	return (0);
 }

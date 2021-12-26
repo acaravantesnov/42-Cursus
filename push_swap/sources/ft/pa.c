@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 07:18:48 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 12:12:04 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 14:19:23 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void	pa(long	*stackA, long *stackB, int ndigitsA, int ndigitsB)
 	if (ndigitsB == 0)
 		stackB = NULL;
 	free(temp);
+	write(1, "pa\n", 3);
 }

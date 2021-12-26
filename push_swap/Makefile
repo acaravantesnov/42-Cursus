@@ -14,8 +14,10 @@ SRCS =		main.c \
 			./sources/parsing.c \
 			./sources/check_sorted.c \
 			./sources/ft_isnumber.c \
-			./sources/sort_small_stack.c \
-			./sources/sort_big_stack.c \
+			./sources/sort_3digits.c \
+			./sources/sort_5digits.c \
+			./sources/sort_100digits.c \
+			./sources/sort_500digits.c \
 			./sources/ft/sa.c \
 			./sources/ft/sb.c \
 			./sources/ft/ss.c \
