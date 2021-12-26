@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 05:47:42 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 18:22:42 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 23:00:44 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,19 @@ void	pb(long	*stackA, long *stackB, int *ndigitsA, int *ndigitsB)
 	int		i;
 
 	temp = ft_realloc(stackB, *ndigitsB, *ndigitsB + 1);
-	*ndigitsB++;
+	(*ndigitsB)++;
 	i = 1;
-	while (i < *ndigitsB)
+	if (*ndigitsB > 1)
 	{
-		stackB[i] = stackB[i - 1];
-		i++;
+		while (i < *ndigitsB)
+		{
+			stackB[i] = stackB[i - 1];
+			i++;
+		}
 	}
 	stackB[0] = stackA[0];
 	temp = ft_realloc(stackA, *ndigitsA, *ndigitsA - 1);
-	*ndigitsA--;
+	(*ndigitsA)--;
 	i = 0;
 	while (i < *ndigitsA)
 	{

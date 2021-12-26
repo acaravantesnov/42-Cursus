@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 04:40:45 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 21:43:50 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 23:19:04 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ int main(int argc, char **argv)
 	*ndigitsA = argc - 1;
 	*ndigitsB = 0;
 	stackA = (long *)malloc(sizeof(long) * (*ndigitsA));
-	stackB = (long *)malloc(sizeof(long) * (*ndigitsA));
+	stackB = (long *)malloc(sizeof(long) * (*ndigitsB));
 	parsing(stackA, ndigitsA, argv);
 	if (check_sorted(stackA, ndigitsA) == 0)
 		return (0);
 	build_stacks(stackA, stackB, ndigitsA);
 	if (*ndigitsA == 3)
-		sort_3digits(stackA, stackB);
+		sort_3digits(stackA, stackB, ndigitsA);
 	else if (*ndigitsA == 5)
 		sort_5digits(stackA, stackB, ndigitsA, ndigitsB);
 	else if (*ndigitsA == 100)

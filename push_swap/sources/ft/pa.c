@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 07:18:48 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 18:22:04 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 23:19:47 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,25 @@
 void	pa(long	*stackA, long *stackB, int *ndigitsA, int *ndigitsB)
 {
 	long	*temp;
+	long	save;
 	int		i;
 
 	temp = ft_realloc(stackA, *ndigitsA, *ndigitsA + 1);
-	*ndigitsA++;
+	(*ndigitsA)++;
 	i = 1;
-	while (i < *ndigitsA)
+	if (*ndigitsA > 1)
 	{
-		stackA[i] = stackA[i - 1];
-		i++;
+		save = stackA[2];
+		while (i < *ndigitsA)
+		{
+			stackA[i] = stackA[i - 1];
+			
+			i++;
+		}
 	}
 	stackA[0] = stackB[0];
 	temp = ft_realloc(stackB, *ndigitsB, *ndigitsB - 1);
-	*ndigitsB--;
+	(*ndigitsB)--;
 	i = 0;
 	while (i < *ndigitsB)
 	{
