@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 07:11:18 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 14:17:30 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 14:58:33 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	sa(long *stackA, int ndigitsA)
 	temp = (long *)malloc(sizeof(long));
 	if (ndigitsA > 1)
 	{
-		temp[0] = stackA[ndigitsA - 1];
-		stackA[ndigitsA - 1] = stackA[ndigitsA - 2];
-		stackA[ndigitsA - 2] = temp[0];
+		temp[0] = stackA[0];
+		stackA[0] = stackA[1];
+		stackA[1] = temp[0];
 	}
 	free(temp);
 	write(1, "sa\n", 3);
