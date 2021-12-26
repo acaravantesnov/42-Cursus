@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 04:40:45 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 15:09:49 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 19:00:13 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 /*	COSAS POR HACER
 
-	#pa
-	#pb
+	#pa		*
+	#pb		*
 	#ra
 	#rb
 	#rr
@@ -58,5 +58,7 @@ int main(int argc, char **argv)
 	else if (ndigitsA == 500)
 		sort_500digits(stackA, stackB);
 	build_stacks(stackA, stackB, ndigitsA);
+	free(stackA);
+	free(stackB);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 05:10:36 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 14:52:37 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 18:21:03 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	sort_500digits(long *sA, long *sB);
 void	sa(long *stackA, int ndigitsA);
 void	sb(long *stackB, int ndigitsB);
 void	ss(long *stackA, long *stackB, int ndigitsA, int ndigitsB);
-void	pa(long *stackA, long *stackB, int ndigitsA, int ndigitsB);
-void	pb(long *stackA, long *stackB, int ndigitsA, int ndigitsB);
+void	pa(long *stackA, long *stackB, int *ndigitsA, int *ndigitsB);
+void	pb(long *stackA, long *stackB, int *ndigitsA, int *ndigitsB);
 void	ra(long *stackA, int ndigitsA);
 void	rb(long *stackB, int ndigitsB);
 void	rr(long *stackA, long *stackB, int ndigitsA, int ndigitsB);

@@ -18,6 +18,7 @@ SRCS =		main.c \
 			./sources/sort_5digits.c \
 			./sources/sort_100digits.c \
 			./sources/sort_500digits.c \
+			./sources/ft/pb.c \
 			./sources/ft/sa.c \
 			./sources/ft/sb.c \
 			./sources/ft/ss.c \

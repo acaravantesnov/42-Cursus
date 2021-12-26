@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 13:01:54 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 15:07:43 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 18:29:55 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	sort_3digits(long *sA, long *sB)
 		sa(sA, 3);
 		rra(sA, 3);
 	}
-	if ((sA[0] > sA[1]) && (sA[1] < sA[2]) && (sA[0] < sA[2]))
+	if ((sA[0] > sA[1]) && (sA[1] < sA[2]) && (sA[0] > sA[2]))
 		ra(sA, 3);
-	if ((sA[0] > sA[1]) && (sA[1] < sA[2]) && (sA[0] < sA[2]))
+	if ((sA[0] < sA[1]) && (sA[1] > sA[2]) && (sA[0] < sA[2]))
 	{
 		sa(sA, 3);
 		ra(sA, 3);
 	}
-	if ((sA[0] > sA[1]) && (sA[1] < sA[2]) && (sA[0] < sA[2]))
+	if ((sA[0] < sA[1]) && (sA[1] > sA[2]) && (sA[0] > sA[2]))
 		rra(sA, 3);
 }

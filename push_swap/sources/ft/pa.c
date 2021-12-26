@@ -6,27 +6,35 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 07:18:48 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 15:04:54 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 18:22:04 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	pa(long	*stackA, long *stackB, int ndigitsA, int ndigitsB)
+void	pa(long	*stackA, long *stackB, int *ndigitsA, int *ndigitsB)
 {
 	long	*temp;
 	int		i;
 
-	temp = ft_realloc(stackA, ndigitsA, ndigitsA + 1);
+	temp = ft_realloc(stackA, *ndigitsA, *ndigitsA + 1);
+	*ndigitsA++;
 	i = 1;
-	while (i < ndigitsA)
+	while (i < *ndigitsA)
 	{
 		stackA[i] = stackA[i - 1];
 		i++;
 	}
 	stackA[0] = stackB[0];
-	if (ndigitsB == 0)
+	temp = ft_realloc(stackB, *ndigitsB, *ndigitsB - 1);
+	*ndigitsB--;
+	i = 0;
+	while (i < *ndigitsB)
+	{
+		stackB[i] = stackB[i + 1];
+		i++;
+	}
+	if (*ndigitsB == 0)
 		stackB = NULL;
-	free(temp);
 	write(1, "pa\n", 3);
 }
