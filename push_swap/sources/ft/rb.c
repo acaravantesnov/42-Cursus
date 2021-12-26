@@ -6,19 +6,19 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 05:58:17 by acaravan          #+#    #+#             */
-/*   Updated: 2021/09/20 08:24:40 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 12:11:56 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	rb(int	*stackB, int ndigitsB)
+void	rb(long	*stackB, int ndigitsB)
 {
 	int	i;
-	int	*temp;
+	long	*temp;
 
 	i = 0;
-	temp = (int *)malloc(sizeof(int));
+	temp = (long *)malloc(sizeof(long));
 	*temp = stackB[0];
 	while (i < ndigitsB)
 	{

@@ -6,17 +6,17 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 12:26:30 by acaravan          #+#    #+#             */
-/*   Updated: 2021/05/05 19:50:48 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 12:27:44 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_zero(int *a);
+void	ft_zero(long *a);
 
-int	ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
-	int	e[4];
+	long	e[4];
 
 	ft_zero(e);
 	while ((str[e[0]] == ' ') || (str[e[0]] == '\t') || (str[e[0]] == '\n')
@@ -41,9 +41,9 @@ int	ft_atoi(char *str)
 	return (e[3]);
 }
 
-void	ft_zero(int *a)
+void	ft_zero(long *a)
 {
-	int	i;
+	long	i;
 
 	i = 0;
 	while (i < 4)

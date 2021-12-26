@@ -6,19 +6,19 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 05:51:25 by acaravan          #+#    #+#             */
-/*   Updated: 2021/09/20 08:24:39 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 12:11:59 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	ra(int	*stackA, int ndigitsA)
+void	ra(long	*stackA, int ndigitsA)
 {
 	int	i;
-	int	*temp;
+	long	*temp;
 
 	i = 0;
-	temp = (int *)malloc(sizeof(int));
+	temp = (long *)malloc(sizeof(long));
 	*temp = stackA[0];
 	while (i < ndigitsA)
 	{

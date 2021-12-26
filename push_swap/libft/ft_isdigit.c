@@ -6,11 +6,11 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 12:27:13 by acaravan          #+#    #+#             */
-/*   Updated: 2021/02/04 12:36:30 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/26 12:32:57 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+long	ft_isdigit(long c)
 {
 	if ((c > 47) && (c < 58))
 		return (1);

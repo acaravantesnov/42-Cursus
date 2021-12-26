@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   check_sorted.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/19 07:18:48 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 12:12:04 by acaravan         ###   ########.fr       */
+/*   Created: 2021/12/26 12:54:39 by acaravan          #+#    #+#             */
+/*   Updated: 2021/12/26 12:54:52 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-void	pa(long	*stackA, long *stackB, int ndigitsA, int ndigitsB)
+int check_sorted(long *stackA, int ndigitsA)
 {
-	long	*temp;
+	int i;
+	int j;
+	long max;
 
-	temp = ft_realloc(stackA, ndigitsA, ndigitsA + 1);
-	temp[ndigitsA + 1] = stackB[ndigitsB];
-	if (ndigitsB == 0)
-		stackB = NULL;
-	free(temp);
+	i = 1;
+	j = 0;
+	max = stackA[0];
+	while (i < ndigitsA)
+	{
+		if (stackA[i] > max)
+		{
+			max = stackA[i];
+			j++;
+		}
+		i++;
+	}
+	if (j == ndigitsA - 1)
+		return (0);
+	return (-1);
 }

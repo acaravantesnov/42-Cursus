@@ -8,6 +8,14 @@ RESIDUES =	push_swap.dSYM \
 SRCS =		main.c \
 			./sources/ft_realloc.c \
 			./sources/build_stacks.c \
+			./sources/check_params.c \
+			./sources/check_numeric_limits.c \
+			./sources/check_repeated_numbers.c \
+			./sources/parsing.c \
+			./sources/check_sorted.c \
+			./sources/ft_isnumber.c \
+			./sources/sort_small_stack.c \
+			./sources/sort_big_stack.c \
 			./sources/ft/sa.c \
 			./sources/ft/sb.c \
 			./sources/ft/ss.c \
@@ -37,6 +45,7 @@ all: $(NAME)
 
 clean:
 	@rm -rf *.o
+	@rm -rf ./sources/ft/*.o
 	@echo "cleaning .o files"
 
 fclean: clean

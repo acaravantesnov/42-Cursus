@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/19 07:18:48 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 12:12:04 by acaravan         ###   ########.fr       */
+/*   Created: 2021/12/26 12:53:57 by acaravan          #+#    #+#             */
+/*   Updated: 2021/12/26 12:54:09 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-void	pa(long	*stackA, long *stackB, int ndigitsA, int ndigitsB)
+void parsing(long *stackA, int ndigitsA, char **argv)
 {
-	long	*temp;
+	int i;
 
-	temp = ft_realloc(stackA, ndigitsA, ndigitsA + 1);
-	temp[ndigitsA + 1] = stackB[ndigitsB];
-	if (ndigitsB == 0)
-		stackB = NULL;
-	free(temp);
+	i = 0;
+	while (i < ndigitsA)
+	{
+		if (ft_isnumber(argv[i + 1]) == 1)
+			stackA[i] = ft_atoi(argv[i + 1]);
+		else
+		{
+			write(1, "Error\n", 6);
+			exit(0);
+		}
+		i++;
+	}
+	check_repeated_numbers(stackA, ndigitsA);
+	check_numeric_limits(stackA, ndigitsA);
 }

@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   check_numeric_limits.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/19 07:18:48 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 12:12:04 by acaravan         ###   ########.fr       */
+/*   Created: 2021/12/26 12:53:08 by acaravan          #+#    #+#             */
+/*   Updated: 2021/12/26 12:53:22 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-void	pa(long	*stackA, long *stackB, int ndigitsA, int ndigitsB)
+void check_numeric_limits(long *stackA, int ndigitsA)
 {
-	long	*temp;
+	int i;
 
-	temp = ft_realloc(stackA, ndigitsA, ndigitsA + 1);
-	temp[ndigitsA + 1] = stackB[ndigitsB];
-	if (ndigitsB == 0)
-		stackB = NULL;
-	free(temp);
+	i = 0;
+	while (i < ndigitsA)
+	{
+		if ((stackA[i] > 2147483647) || (stackA[i] < -2147483648))
+		{
+			write(1, "Error\n", 6);
+			exit(0);
+		}
+		i++;
+	}
 }

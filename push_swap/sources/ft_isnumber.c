@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   ft_isnumber.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/19 07:18:48 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 12:12:04 by acaravan         ###   ########.fr       */
+/*   Created: 2021/12/26 12:50:52 by acaravan          #+#    #+#             */
+/*   Updated: 2021/12/26 12:51:27 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-void	pa(long	*stackA, long *stackB, int ndigitsA, int ndigitsB)
+int ft_isnumber(char *num)
 {
-	long	*temp;
+	int i;
+	int minus;
 
-	temp = ft_realloc(stackA, ndigitsA, ndigitsA + 1);
-	temp[ndigitsA + 1] = stackB[ndigitsB];
-	if (ndigitsB == 0)
-		stackB = NULL;
-	free(temp);
+	i = 0;
+	minus = 0;
+	while (num[i])
+	{
+		if (num[i] == 45)
+			minus++;
+		else if (ft_isdigit(num[i]) == 0)
+			return (0);
+		i++;
+	}
+	if (minus > 1)
+		return (0);
+	return (1);
 }
