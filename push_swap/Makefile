@@ -21,14 +21,14 @@ SRCS =		main.c \
 
 LIB = ./libft/*.c
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS =
 
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc -g
 
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -g -c $< -o $@
 
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(SRCS) $(LIB) -Iincludes -o $(NAME)
