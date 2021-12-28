@@ -4,6 +4,7 @@ RESIDUES =	push_swap.dSYM \
 			main.o.dSYM \
 			./sources/*.o \
 			./libft/*.o \
+			main.o \
 
 SRCS =		main.c \
 			./sources/ft_realloc.c \

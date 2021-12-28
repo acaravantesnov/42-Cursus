@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 14:24:01 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/28 07:58:33 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/28 18:15:10 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	selectionsort(long *array, int *size)
 	i = 0;
 	j = 0;
 
-	while (i < *size)
+	while (i < size[0])
 	{
 		j = i + 1;
-		while (j < *size)
+		while (j < size[0])
 		{
 			if (array[i] > array[j])
 			{
@@ -39,36 +39,35 @@ void	selectionsort(long *array, int *size)
 	}
 }
 
-void	sort_big_stack(long *sA, long *sB, int *ndigitsA, int *ndigitsB,
-		int *size)
+void	sort_big_stack(long *sA, long *sB, int *ndigitsA, int *ndigitsB)
 {
 	int	max_num;
 	int	max_bits;
 	int i;
 	int	j;
 	int num;
-	long *copy = (long*)malloc(*size * sizeof(long));
-	long *copy_sA = (long*)malloc(*size * sizeof(long));
+	long *copy = (long*)malloc(ndigitsA[0] * sizeof(long));
+	long *copy_sA = (long*)malloc(ndigitsA[0] * sizeof(long));
 
 	i = 0;
-	while (i < *size)
+	while (i < ndigitsA[0])
 	{
 		copy[i] = sA[i];
 		i++;
 	}
 	i = 0;
-	while (i < *size)
+	while (i < ndigitsA[0])
 	{
 		copy_sA[i] = sA[i];
 		i++;
 	}
-	selectionsort(copy, size);
+	selectionsort(copy, ndigitsA);
 	i = 0;
 	j = 0;
-	while (i < *ndigitsA)
+	while (i < ndigitsA[1])
 	{
 		j = 0;
-		while (j < *size)
+		while (j < ndigitsA[0])
 		{
 			if (copy_sA[i] == copy[j])
 				sA[i] = j;
@@ -77,7 +76,7 @@ void	sort_big_stack(long *sA, long *sB, int *ndigitsA, int *ndigitsB,
 		++i;
 	}
 
-	max_num = *ndigitsA - 1;
+	max_num = ndigitsA[1] - 1;
 	max_bits = 0;
 	i = 0;
 	j = 0;
@@ -86,7 +85,7 @@ void	sort_big_stack(long *sA, long *sB, int *ndigitsA, int *ndigitsB,
 	while (i < max_bits)
 	{
 		j = 0;
-		while (j < *size)
+		while (j < ndigitsA[0])
 		{
 			num = sA[0];
 			if (((num >> i)&1) == 1)
