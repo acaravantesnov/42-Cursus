@@ -7,7 +7,6 @@ RESIDUES =	push_swap.dSYM \
 
 SRCS =		main.c \
 			./sources/ft_realloc.c \
-			./sources/build_stacks.c \
 			./sources/check_params.c \
 			./sources/check_numeric_limits.c \
 			./sources/check_repeated_numbers.c \
@@ -16,8 +15,7 @@ SRCS =		main.c \
 			./sources/ft_isnumber.c \
 			./sources/sort_3digits.c \
 			./sources/sort_5digits.c \
-			./sources/sort_100digits.c \
-			./sources/sort_500digits.c \
+			./sources/sort_big_stack.c \
 			./sources/ft/pb.c \
 			./sources/ft/sa.c \
 			./sources/ft/sb.c \
