@@ -6,16 +6,16 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 12:50:52 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 12:51:27 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/29 03:43:41 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int ft_isnumber(char *num)
+int	ft_isnumber(char *num)
 {
-	int i;
-	int minus;
+	int	i;
+	int	minus;
 
 	i = 0;
 	minus = 0;

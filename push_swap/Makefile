@@ -8,7 +8,6 @@ RESIDUES =	push_swap.dSYM \
 
 SRCS =		main.c \
 			./sources/ft_realloc.c \
-			./sources/check_params.c \
 			./sources/check_numeric_limits.c \
 			./sources/check_repeated_numbers.c \
 			./sources/parsing.c \

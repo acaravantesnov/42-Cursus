@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 07:23:17 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/28 18:13:03 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/29 03:42:14 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rrr(long *stackA, long *stackB, int *ndigitsA, int *ndigitsB)
 {
-	int	i;
+	int		i;
 	long	*temp;
 
 	i = ndigitsA[1] - 1;

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 05:10:36 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/28 19:20:16 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/29 04:07:58 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ long	ft_atoi(char *str);
 int		ft_isdigit(int c);
 int		ft_isnumber(char *num);
 long	*ft_realloc(long *ptr, int originSize, int newSize);
-int		check_params(int argc);
 void	check_repeated_numbers(long *stackA, int ndigitsA);
 void	check_numeric_limits(long *stackA, int ndigitsA);
 void	parsing(long *stackA, int *ndigitsA, char **argv);

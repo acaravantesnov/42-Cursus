@@ -6,15 +6,15 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 12:53:08 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 12:53:22 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/29 03:43:12 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void check_numeric_limits(long *stackA, int ndigitsA)
+void	check_numeric_limits(long *stackA, int ndigitsA)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < ndigitsA)

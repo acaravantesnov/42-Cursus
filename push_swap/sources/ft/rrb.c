@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 07:21:36 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/28 18:12:44 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/29 03:41:50 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rrb(long *stackB, int *ndigitsB)
 {
-	int	i;
+	int		i;
 	long	*temp;
 
 	i = *ndigitsB - 1;

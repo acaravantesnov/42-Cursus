@@ -6,27 +6,75 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 13:03:00 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/28 18:49:41 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/29 04:16:16 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-long	max(long *sA, int *ndigitsA)
+void	first(long *sA, long *sB, int *ndigitsA, int *ndigitsB)
 {
-	int i;
-	long maximum;
-
-	i = 1;
-	if (sA[0])
-		maximum = sA[0];
-	while (i < ndigitsA[1])
+	if (sB[0] < sA[0])
+		pa(sA, sB, ndigitsA, ndigitsB);
+	else if ((sB[0] > sA[0]) && (sB[0] < sA[1]))
 	{
-		if (sA[i] > maximum)
-			maximum = sA[i];
-		i++;
+		ra(sA, ndigitsA);
+		pa(sA, sB, ndigitsA, ndigitsB);
+		rra(sA, ndigitsA);
 	}
-	return (maximum);
+	else if ((sB[0] > sA[1]) && (sB[0] < sA[2]))
+	{
+		rra(sA, ndigitsA);
+		pa(sA, sB, ndigitsA, ndigitsB);
+		rra(sA, ndigitsA);
+		rra(sA, ndigitsA);
+	}
+	else if (sB[0] > sA[2])
+	{
+		pa(sA, sB, ndigitsA, ndigitsB);
+		ra(sA, ndigitsA);
+	}
+}
+
+void	rax2(long *sA, int *ndigitsA)
+{
+	ra(sA, ndigitsA);
+	ra(sA, ndigitsA);
+}
+
+void	rrax2(long *sA, int *ndigitsA)
+{
+	rra(sA, ndigitsA);
+	rra(sA, ndigitsA);
+}
+
+void	second(long *sA, long *sB, int *ndigitsA, int *ndigitsB)
+{
+	if (sB[0] < sA[0])
+		pa(sA, sB, ndigitsA, ndigitsB);
+	else if ((sB[0] > sA[0]) && (sB[0] < sA[1]))
+	{
+		ra(sA, ndigitsA);
+		pa(sA, sB, ndigitsA, ndigitsB);
+		rra(sA, ndigitsA);
+	}
+	else if ((sB[0] > sA[1]) && (sB[0] < sA[2]))
+	{
+		rax2(sA, ndigitsA);
+		pa(sA, sB, ndigitsA, ndigitsB);
+		rrax2(sA, ndigitsA);
+	}
+	else if ((sB[0] > sA[2]) && (sB[0] < sA[3]))
+	{
+		rra(sA, ndigitsA);
+		pa(sA, sB, ndigitsA, ndigitsB);
+		rax2(sA, ndigitsA);
+	}
+	else if (sB[0] > sA[3])
+	{
+		pa(sA, sB, ndigitsA, ndigitsB);
+		ra(sA, ndigitsA);
+	}
 }
 
 void	sort_5digits(long *sA, long *sB, int *ndigitsA, int *ndigitsB)
@@ -34,23 +82,11 @@ void	sort_5digits(long *sA, long *sB, int *ndigitsA, int *ndigitsB)
 	pb(sA, sB, ndigitsA, ndigitsB);
 	pb(sA, sB, ndigitsA, ndigitsB);
 	sort_3digits(sA, sB, ndigitsA);
-	long	max_in_A;
-	max_in_A = max(sA, ndigitsA);
 	while (*ndigitsB != 0)
 	{
-		if (sB[0] < sA[0])
-		{
-			pa(sA, sB, ndigitsA, ndigitsB);
-			rra(sA, ndigitsA);	
-		}
-		else if ((sB[0] > sA[0]) && (sB[0] > max_in_A) && (sA[ndigitsA[1] - 1] == max_in_A))
-		{
-			pa(sA, sB, ndigitsA, ndigitsB);
-			ra(sA, ndigitsA);
-		}
-		else
-			ra(sA, ndigitsA);
+		if (ndigitsA[1] == 3)
+			first(sA, sB, ndigitsA, ndigitsB);
+		else if (ndigitsA[1] == 4)
+			second(sA, sB, ndigitsA, ndigitsB);
 	}
-	while (sA[0] > sA[ndigitsA[1] - 1])
-		ra(sA, ndigitsA);
 }

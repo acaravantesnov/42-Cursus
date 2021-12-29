@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 14:24:01 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/28 18:15:10 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/29 04:26:36 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 void	selectionsort(long *array, int *size)
 {
-	long i;
-	long j;
-	long count;
-	long temp;
-	
+	long	i;
+	long	j;
+	long	count;
+	long	temp;
+
 	i = 0;
 	j = 0;
-
 	while (i < size[0])
 	{
 		j = i + 1;
@@ -41,24 +40,21 @@ void	selectionsort(long *array, int *size)
 
 void	sort_big_stack(long *sA, long *sB, int *ndigitsA, int *ndigitsB)
 {
-	int	max_num;
-	int	max_bits;
-	int i;
-	int	j;
-	int num;
-	long *copy = (long*)malloc(ndigitsA[0] * sizeof(long));
-	long *copy_sA = (long*)malloc(ndigitsA[0] * sizeof(long));
+	int		max_num;
+	int		max_bits;
+	int		i;
+	int		j;
+	int		num;
+	long	*copy;
+	long	*copy_sa;
 
+	copy = (long *)malloc(ndigitsA[0] * sizeof(long));
+	copy_sa = (long *)malloc(ndigitsA[0] * sizeof(long));
 	i = 0;
 	while (i < ndigitsA[0])
 	{
 		copy[i] = sA[i];
-		i++;
-	}
-	i = 0;
-	while (i < ndigitsA[0])
-	{
-		copy_sA[i] = sA[i];
+		copy_sa[i] = sA[i];
 		i++;
 	}
 	selectionsort(copy, ndigitsA);
@@ -69,13 +65,12 @@ void	sort_big_stack(long *sA, long *sB, int *ndigitsA, int *ndigitsB)
 		j = 0;
 		while (j < ndigitsA[0])
 		{
-			if (copy_sA[i] == copy[j])
+			if (copy_sa[i] == copy[j])
 				sA[i] = j;
 			++j;
 		}
 		++i;
 	}
-
 	max_num = ndigitsA[1] - 1;
 	max_bits = 0;
 	i = 0;
@@ -88,7 +83,7 @@ void	sort_big_stack(long *sA, long *sB, int *ndigitsA, int *ndigitsB)
 		while (j < ndigitsA[0])
 		{
 			num = sA[0];
-			if (((num >> i)&1) == 1)
+			if (((num >> i) & 1) == 1)
 				ra(sA, ndigitsA);
 			else
 				pb(sA, sB, ndigitsA, ndigitsB);

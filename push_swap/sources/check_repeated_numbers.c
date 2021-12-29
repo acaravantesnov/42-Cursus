@@ -6,16 +6,16 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 12:52:16 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/26 12:52:36 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/29 03:44:30 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void check_repeated_numbers(long *stackA, int ndigitsA)
+void	check_repeated_numbers(long *stackA, int ndigitsA)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;

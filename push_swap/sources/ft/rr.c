@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 06:45:09 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/28 18:14:58 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/29 03:40:50 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	rr(long *stackA, long *stackB, int *ndigitsA, int *ndigitsB)
 {
-	int i;
-	long *temp;
+	int		i;
+	long	*temp;
 
 	i = 0;
 	temp = (long *)malloc(sizeof(long));
