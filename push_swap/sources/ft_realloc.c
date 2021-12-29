@@ -6,28 +6,36 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 07:09:12 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/29 03:43:30 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/29 14:18:30 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-long	*ft_realloc(long *ptr, int originSize, int newSize)
+void	ft_realloc(long *ptr, int originSize, int newSize)
 {
 	int		i;
 	long	*temp;
 
 	i = 0;
-	if (ptr != NULL)
+	if ((ptr != NULL) && (originSize < newSize))
 	{
-		temp = ptr;
+		temp = malloc(sizeof(long) * (newSize));
 		while (i < originSize)
 		{
-			ptr++;
+			temp[i] = ptr[i];
 			i++;
 		}
-		ptr = malloc(sizeof(long) * (newSize - originSize));
-		return (temp);
+		ptr = temp;
 	}
-	return (NULL);
+	else if ((ptr != NULL) && (originSize > newSize))
+	{
+		temp = malloc(sizeof(long) * (newSize));
+		while (i < newSize)
+		{
+			temp[i] = ptr[i];
+			i++;
+		}
+		ptr = temp;
+	}
 }

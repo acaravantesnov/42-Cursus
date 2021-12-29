@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 14:24:01 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/29 04:26:36 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/29 14:11:23 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	sort_big_stack(long *sA, long *sB, int *ndigitsA, int *ndigitsB)
 		}
 		++i;
 	}
+	free(copy);
+	free(copy_sa);
 	max_num = ndigitsA[1] - 1;
 	max_bits = 0;
 	i = 0;

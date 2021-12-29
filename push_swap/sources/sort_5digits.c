@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 13:03:00 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/29 04:16:16 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/29 13:26:04 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,10 @@ void	second(long *sA, long *sB, int *ndigitsA, int *ndigitsB)
 	}
 	else if ((sB[0] > sA[1]) && (sB[0] < sA[2]))
 	{
-		rax2(sA, ndigitsA);
+		ra(sA, ndigitsA);
 		pa(sA, sB, ndigitsA, ndigitsB);
-		rrax2(sA, ndigitsA);
+		sa(sA, ndigitsA);
+		rra(sA, ndigitsA);
 	}
 	else if ((sB[0] > sA[2]) && (sB[0] < sA[3]))
 	{
