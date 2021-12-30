@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_sorted.c                                     :+:      :+:    :+:   */
+/*   freeall.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/26 12:54:39 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/29 03:51:13 by acaravan         ###   ########.fr       */
+/*   Created: 2021/12/30 21:58:40 by acaravan          #+#    #+#             */
+/*   Updated: 2021/12/30 22:37:27 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	check_sorted(long *stackA, int *ndigitsA)
+void	freeall(long *stackA, long *stackB, int *ndigitsA, int *ndigitsB)
 {
-	int		i;
-	int		j;
-	long	max;
-
-	i = 1;
-	j = 0;
-	max = stackA[0];
-	while (i < ndigitsA[1])
-	{
-		if (stackA[i] > max)
-		{
-			max = stackA[i];
-			j++;
-		}
-		i++;
-	}
-	if (j == ndigitsA[1] - 1)
-		return (0);
-	return (-1);
+	free(stackA);
+	free(stackB);
+	free(ndigitsA);
+	free(ndigitsB);
+	exit(0);
 }

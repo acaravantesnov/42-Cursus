@@ -6,16 +6,20 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 04:40:45 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/30 21:20:11 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/30 22:37:33 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-void	check_params(int argc)
+void	check_params(int argc, int *ndigitsA, int *ndigitsB)
 {
 	if (argc < 2)
+	{
+		free(ndigitsA);
+		free(ndigitsB);
 		exit(0);
+	}
 }
 
 void	setndigits(int *ndigitsA, int *ndigitsB, int argc)
@@ -25,38 +29,29 @@ void	setndigits(int *ndigitsA, int *ndigitsB, int argc)
 	*ndigitsB = 0;
 }
 
-void	freeall(long *stackA, long *stackB, int *ndigitsA, int *ndigitsB)
-{
-	free(stackA);
-	free(stackB);
-	free(ndigitsA);
-	free(ndigitsB);
-}
-
 int	main(int argc, char **argv)
 {
-	long	*stacka;
-	long	*stackb;
-	int		*ndigitsa;
-	int		*ndigitsb;
+	long	*stcka;
+	long	*stckb;
+	int		*ndgtsa;
+	int		*ndgtsb;
 
-	ndigitsa = (int *)malloc(2 * sizeof(int));
-	ndigitsb = (int *)malloc(sizeof(int));
-	check_params(argc);
-	setndigits(ndigitsa, ndigitsb, argc);
-	stacka = (long *)malloc(sizeof(long) * size(argc, argv));
-	stackb = (long *)malloc(sizeof(long) * size(argc, argv));
-	parsing(stacka, ndigitsa, argv);
-	if (check_sorted(stacka, ndigitsa) == 0)
-		return (0);
-	if ((ndigitsa[1] == 2) && (stacka[0] > stacka[1]))
-		ra(stacka, ndigitsa);
-	else if (ndigitsa[1] == 3)
-		sort_3digits(stacka, stackb, ndigitsa);
-	else if (ndigitsa[1] == 5)
-		sort_5digits(stacka, stackb, ndigitsa, ndigitsb);
+	ndgtsa = (int *)malloc(2 * sizeof(int));
+	ndgtsb = (int *)malloc(sizeof(int));
+	check_params(argc, ndgtsa, ndgtsb);
+	setndigits(ndgtsa, ndgtsb, argc);
+	stcka = (long *)malloc(sizeof(long) * size(argc, argv));
+	stckb = (long *)malloc(sizeof(long) * size(argc, argv));
+	if ((parsing(stcka, ndgtsa, argv) == -1) || (issorted(stcka, ndgtsa) == 0))
+		freeall(stcka, stckb, ndgtsa, ndgtsb);
+	if ((ndgtsa[1] == 2) && (stcka[0] > stcka[1]))
+		ra(stcka, ndgtsa);
+	else if (ndgtsa[1] == 3)
+		sort_3digits(stcka, stckb, ndgtsa);
+	else if (ndgtsa[1] == 5)
+		sort_5digits(stcka, stckb, ndgtsa, ndgtsb);
 	else
-		sort_big_stack(stacka, stackb, ndigitsa, ndigitsb);
-	freeall(stacka, stackb, ndigitsa, ndigitsb);
+		sort_big_stack(stcka, stckb, ndgtsa, ndgtsb);
+	freeall(stcka, stckb, ndgtsa, ndgtsb);
 	return (0);
 }

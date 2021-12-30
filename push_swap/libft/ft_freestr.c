@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_numeric_limits.c                             :+:      :+:    :+:   */
+/*   ft_freestr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/26 12:53:08 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/30 22:13:12 by acaravan         ###   ########.fr       */
+/*   Created: 2021/12/30 22:19:00 by acaravan          #+#    #+#             */
+/*   Updated: 2021/12/30 22:19:13 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	check_numeric_limits(long *stackA, int ndigitsA)
+void	ft_freestr(char **str)
 {
 	int	i;
 
 	i = 0;
-	while (i < ndigitsA)
+	while (str[i])
 	{
-		if ((stackA[i] > 2147483647) || (stackA[i] < -2147483648))
-		{
-			write(1, "Error\n", 6);
-			return (-1);
-		}
+		free(str[i]);
 		i++;
 	}
-	return (0);
 }

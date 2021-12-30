@@ -7,13 +7,14 @@ RESIDUES =	push_swap.dSYM \
 			main.o \
 
 SRCS =		main.c \
+			./sources/freeall.c \
 			./sources/ft_realloc.c \
 			./sources/check_numeric_limits.c \
 			./sources/check_repeated_numbers.c \
 			./sources/parsing.c \
 			./sources/size.c \
 			./sources/para.c \
-			./sources/check_sorted.c \
+			./sources/issorted.c \
 			./sources/ft_isnumber.c \
 			./sources/sort_3digits.c \
 			./sources/sort_5digits.c \

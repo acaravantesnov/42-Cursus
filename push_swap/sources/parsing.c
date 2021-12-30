@@ -6,16 +6,18 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 12:53:57 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/30 17:56:12 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/30 22:58:28 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	stringimput(long *stackA, int *ndigitsA, char **argv, char **numbersinc)
+int	stringimput(long *stackA, int *ndigitsA, char **argv, char **numbersinc)
 {
 	int	i;
 
+	if (argv[1][1] != 32)
+		return (-1);
 	i = 0;
 	while (argv[1][i])
 	{
@@ -33,9 +35,12 @@ void	stringimput(long *stackA, int *ndigitsA, char **argv, char **numbersinc)
 		stackA[i] = ft_atoi(numbersinc[i]);
 		i++;
 	}
+	ft_freestr(numbersinc);
+	free(numbersinc);
+	return (0);
 }
 
-void	normalimput(long *stackA, int *ndigitsA, char **argv)
+int	normalimput(long *stackA, int *ndigitsA, char **argv)
 {
 	int	i;
 
@@ -47,20 +52,30 @@ void	normalimput(long *stackA, int *ndigitsA, char **argv)
 		else
 		{
 			write(1, "Error\n", 6);
-			exit(0);
+			return (-1);
 		}
 		i++;
 	}
+	return (0);
 }
 
-void	parsing(long *stackA, int *ndigitsA, char **argv)
+int	parsing(long *stackA, int *ndigitsA, char **argv)
 {
 	char	**numbersinc;
 
 	if (ndigitsA[0] == 1)
-		stringimput(stackA, ndigitsA, argv, numbersinc);
+	{
+		if (stringimput(stackA, ndigitsA, argv, numbersinc) == -1)
+			return (-1);
+	}
 	else
-		normalimput(stackA, ndigitsA, argv);
-	check_repeated_numbers(stackA, ndigitsA[1]);
-	check_numeric_limits(stackA, ndigitsA[1]);
+	{
+		if (normalimput(stackA, ndigitsA, argv) == -1)
+			return (-1);
+	}
+	if (check_repeated_numbers(stackA, ndigitsA[1]) == -1)
+		return (-1);
+	if (check_numeric_limits(stackA, ndigitsA[1]) == -1)
+		return (-1);
+	return (0);
 }

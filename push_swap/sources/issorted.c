@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_numeric_limits.c                             :+:      :+:    :+:   */
+/*   issorted.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/26 12:53:08 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/30 22:13:12 by acaravan         ###   ########.fr       */
+/*   Created: 2021/12/26 12:54:39 by acaravan          #+#    #+#             */
+/*   Updated: 2021/12/30 22:37:30 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	check_numeric_limits(long *stackA, int ndigitsA)
+int	issorted(long *stackA, int *ndigitsA)
 {
-	int	i;
+	int		i;
+	int		j;
+	long	max;
 
-	i = 0;
-	while (i < ndigitsA)
+	i = 1;
+	j = 0;
+	max = stackA[0];
+	while (i < ndigitsA[1])
 	{
-		if ((stackA[i] > 2147483647) || (stackA[i] < -2147483648))
+		if (stackA[i] > max)
 		{
-			write(1, "Error\n", 6);
-			return (-1);
+			max = stackA[i];
+			j++;
 		}
 		i++;
 	}
-	return (0);
+	if (j == ndigitsA[1] - 1)
+		return (0);
+	return (-1);
 }
