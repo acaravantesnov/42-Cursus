@@ -1,9 +1,5 @@
 NAME = pipex
 
-RESIDUES =	pipex.dSYM \
-			pipex.a \
-			a.out \
-
 SRCS =		main.c \
 			./sources/ft_split.c \
 			./sources/check_args.c \
@@ -20,7 +16,7 @@ FLAGS = -Wall -Wextra -Werror
 
 OBJS = $(SRCS:.c=.o)
 
-CC = gcc -g
+CC = gcc
 
 %.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
@@ -31,12 +27,11 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 clean:
-	@rm -rf *.o
-	@rm -rf ./sources/*.o
+	@rm -rf $(OBJS)
 	@echo "Cleaning .o files"
 
 fclean: clean
-	@rm -rf $(NAME) $(RESIDUES)
+	@rm -rf $(NAME)
 	@echo "Cleaning residues"
 
 re: fclean all

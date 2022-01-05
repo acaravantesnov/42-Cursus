@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 13:45:59 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/20 20:49:55 by acaravan         ###   ########.fr       */
+/*   Updated: 2021/12/29 20:01:11 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,12 @@ int	if2(char **argv, char **env, int *fd)
 		exitwitherror("PID ERROR");
 	if (pid1 == 0)
 	{
+		close(fd[0]);
 		if (fdreadfile == -1)
 			exitwitherror("Error while opening file");
 		dup2(fdreadfile, STDIN_FILENO);
 		dup2(fd[1], STDOUT_FILENO);
-		close(fd[0]);
+		close(fd[1]);
 		execcmd(argv[2], env);
 	}
 	close(fdreadfile);
@@ -46,17 +47,18 @@ int	if3(char **argv, char **env, int *fd)
 	int	pid2;
 	int	fdwritefile;
 
-	fdwritefile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	fdwritefile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	pid2 = fork();
 	if (pid2 < 0)
 		exitwitherror("PID ERROR");
 	if (pid2 == 0)
 	{
+		close(fd[1]);
 		if (fdwritefile == -1)
 			exitwitherror("Error while opening file");
 		dup2(fd[0], STDIN_FILENO);
 		dup2(fdwritefile, STDOUT_FILENO);
-		close(fd[1]);
+		close(fd[0]);
 		execcmd(argv[3], env);
 	}
 	close(fdwritefile);
