@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 07:18:48 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/30 17:53:49 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/01/05 14:20:40 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	pa(long	*stackA, long *stackB, int *ndigitsA, int *ndigitsB)
 {
-	long	save;
 	int		i;
 
 	(ndigitsA[1])++;

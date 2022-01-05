@@ -6,13 +6,13 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 13:01:54 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/29 02:38:28 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/01/05 14:19:46 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_3digits(long *sA, long *sB, int *ndigitsA)
+void	sort_3digits(long *sA, int *ndigitsA)
 {
 	if ((sA[0] > sA[1]) && (sA[1] < sA[2]) && (sA[0] < sA[2]))
 		sa(sA, ndigitsA);

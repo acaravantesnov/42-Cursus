@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 12:53:57 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/30 22:58:28 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/01/05 14:19:21 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	parsing(long *stackA, int *ndigitsA, char **argv)
 {
 	char	**numbersinc;
 
+	numbersinc = NULL;
 	if (ndigitsA[0] == 1)
 	{
 		if (stringimput(stackA, ndigitsA, argv, numbersinc) == -1)

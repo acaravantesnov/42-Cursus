@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 13:03:00 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/30 21:16:50 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/01/05 14:20:20 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	sort_5digits(long *sA, long *sB, int *ndigitsA, int *ndigitsB)
 {
 	pb(sA, sB, ndigitsA, ndigitsB);
 	pb(sA, sB, ndigitsA, ndigitsB);
-	sort_3digits(sA, sB, ndigitsA);
+	sort_3digits(sA, ndigitsA);
 	while (*ndigitsB != 0)
 	{
 		if (ndigitsA[1] == 3)

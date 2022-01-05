@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 14:24:01 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/30 21:12:17 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/01/05 14:20:30 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	selectionsort(long *array, int *size)
 {
 	long	i;
 	long	j;
-	long	count;
 	long	temp;
 
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 05:10:36 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/30 22:34:40 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/01/05 14:20:00 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		check_numeric_limits(long *stackA, int ndigitsA);
 int		parsing(long *stackA, int *ndigitsA, char **argv);
 int		size(int argc, char **argv);
 int		issorted(long *stackA, int *ndigitsA);
-void	sort_3digits(long *sA, long *sB, int *ndigitsA);
+void	sort_3digits(long *sA, int *ndigitsA);
 void	sort_5digits(long *sA, long *sB, int *ndigitsA, int *ndigitsB);
 void	sort_big_stack(long *sA, long *sB, int *ndigitsA, int *ndigitsB);
 void	sa(long *stackA, int *ndigitsA);

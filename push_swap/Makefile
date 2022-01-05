@@ -33,7 +33,7 @@ SRCS =		main.c \
 
 LIB = ./libft/*.c
 
-FLAGS =
+FLAGS = -Wall -Wextra -Werror
 
 OBJS = $(SRCS:.c=.o)
 

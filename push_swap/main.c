@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 04:40:45 by acaravan          #+#    #+#             */
-/*   Updated: 2021/12/30 22:37:33 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/01/05 15:33:49 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 	if ((ndgtsa[1] == 2) && (stcka[0] > stcka[1]))
 		ra(stcka, ndgtsa);
 	else if (ndgtsa[1] == 3)
-		sort_3digits(stcka, stckb, ndgtsa);
+		sort_3digits(stcka, ndgtsa);
 	else if (ndgtsa[1] == 5)
 		sort_5digits(stcka, stckb, ndgtsa, ndgtsb);
 	else
