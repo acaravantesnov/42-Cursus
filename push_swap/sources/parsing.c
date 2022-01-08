@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 12:53:57 by acaravan          #+#    #+#             */
-/*   Updated: 2022/01/05 14:19:21 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/01/08 19:50:42 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,18 @@
 int	stringimput(long *stackA, int *ndigitsA, char **argv, char **numbersinc)
 {
 	int	i;
+	int	digits;
 
-	if (argv[1][1] != 32)
-		return (-1);
 	i = 0;
-	while (argv[1][i])
+	digits = 0;
+	numbersinc = ft_split(argv[1], 32);
+	while (numbersinc[i])
 	{
-		if (argv[1][i] == 32)
-		{
-			(ndigitsA[0])++;
-			(ndigitsA[1])++;
-		}
+		digits++;
 		i++;
 	}
-	numbersinc = ft_split(argv[1], 32);
+	ndigitsA[0] = digits;
+	ndigitsA[1] = ndigitsA[0];
 	i = 0;
 	while (i < ndigitsA[0])
 	{
