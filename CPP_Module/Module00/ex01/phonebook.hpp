@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 23:44:08 by acaravan          #+#    #+#             */
-/*   Updated: 2022/01/10 02:13:39 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/01/10 20:48:33 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,14 +123,42 @@ void	phonebook::add()
 
 int		phonebook::search()
 {
+	std::string	string;
 	if (_numberofContacts > 0)
 	{
 		std::cout << "\n*-------------------------------------------*" << std::endl;
+		std::cout << "|     INDEX| FIRSTNAME|  LASTNAME|  NICKNAME|" << std::endl;
+		std::cout << "*-------------------------------------------*" << std::endl;
 		for(int i = 0; i < _numberofContacts; i++)
 		{
-			std::cout << "|         " << i + 1 << '|' << this->arr[i].get_firstName();
-			std::cout << '|' << this->arr[i].get_lastName() << '|' << this->arr[i].get_nickName();
-			std::cout << '|' << std::endl;
+			std::cout << "|         " << i + 1 << '|';
+			if (this->arr[i].get_firstName().length() <= 10)
+				std::cout << this->arr[i].get_firstName() << '|';
+			else
+			{
+				string = this->arr[i].get_firstName();
+				string.resize(0,9);
+				this->arr[i].set_firstName(string);
+				std::cout << this->arr[i].get_firstName() << ".|";
+			}
+			if (this->arr[i].get_lastName().length() <= 10)
+				std::cout << this->arr[i].get_lastName() << '|';
+			else
+			{
+				string = this->arr[i].get_lastName();
+				string.resize(0,9);
+				this->arr[i].set_lastName(string);
+				std::cout << this->arr[i].get_lastName() << ".|";
+			}	
+			if (this->arr[i].get_nickName().length() <= 10)
+				std::cout << this->arr[i].get_nickName() << '|' << std::endl;
+			else
+			{
+				string = this->arr[i].get_nickName();
+				string.resize(0,9);
+				this->arr[i].set_nickName(string);
+				std::cout << this->arr[i].get_nickName() << ".|";
+			}
 		}
 		std::cout << "*-------------------------------------------*" << std::endl;
 	}

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 23:42:30 by acaravan          #+#    #+#             */
-/*   Updated: 2022/01/10 02:12:41 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/01/10 20:31:55 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ int	main(void)
 		}
 		else if (command.compare("EXIT") == 0)
 			book.exitcmd();
+		else
+			std::cout << "    Error: Invalid Command\n";
 	}
 }
