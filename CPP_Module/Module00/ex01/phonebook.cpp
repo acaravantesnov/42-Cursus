@@ -5,75 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 16:14:37 by acaravan          #+#    #+#             */
-/*   Updated: 2021/09/15 00:23:08 by acaravan         ###   ########.fr       */
+/*   Created: 2022/01/09 23:42:30 by acaravan          #+#    #+#             */
+/*   Updated: 2022/01/10 02:12:41 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
+void	header()
+{
+	std::cout << "*-------------------------------------------*" << std::endl;
+	std::cout << "|                PHONEBOOK                  |" << std::endl;
+	std::cout << "*-------------------------------------------*" << std::endl;
+}
+
 int	main(void)
 {
-	std::string input = "";
-	PhoneBook * u = new PhoneBook[8];
-	for (int i = 0; i < 8; i++)
-	{
-		PhoneBook u = PhoneBook("","","","","");
-	}
+	std::string	command;
+	phonebook	book;
 
-	int index;
-	int nContacto;
-
-	index = 0;
-	nContacto = 0;
-	while (nContacto <= 8)
+	header();
+	while(book.get_exit() != 1)
 	{
-		std::cout << "\n* Introduce a valid command [ADD, SEARCH or EXIT] *\n\n\t\t     ";
-		std::cin >> input;
 		std::cout << std::endl;
-		if (input.compare("ADD") == 0)
+		std::cout << "    Command: "; std::cin >> command;
+	
+		if (command.compare("ADD") == 0)
+			book.add();
+		else if (command.compare("SEARCH") == 0)
 		{
-			if (nContacto < 8 && nContacto >= 0)
-			{
-				u[nContacto].addContact();
-				nContacto++;
-			}
-			else
-			{
-				std::cout << "ERROR: MAX NUMBER OF CONTACTS" << std::endl <<
-				"Last Contact will be overwritten...\n\n" << std::endl;
-				u[nContacto].~PhoneBook();
-				nContacto--;
-				u[nContacto].addContact();
-				nContacto++;
-			}
+			if (book.search() == 1)
+				std::cout << "\n    No contacts available yet " << std::endl;
 		}
-		else if (input.compare("SEARCH") == 0)
-		{
-			int i = 0;
-			std::cout << "/-------------------------------------------\\";
-			std::cout << "\n|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" <<
-			std::endl;
-			std::cout << "|----------|----------|----------|----------|" <<
-			std::endl;
-			while (i < nContacto)
-			{
-				u[i].printContact(i);
-				i++;
-			}
-			i = 0;
-			std::cout << "\\-------------------------------------------/\n";
-			std::cout << "\n-->	INDEX: "; std::cin >> index; std::cout << '\n';
-			while ((index >= 1) && (index <= nContacto))
-			{
-				u[index - 1].printIndex();
-				i++;
-				index = 0;
-			}
-		}
-		else if (input.compare("EXIT") == 0)
-			return (0);
-		input.empty();
+		else if (command.compare("EXIT") == 0)
+			book.exitcmd();
 	}
-	return (0);
 }

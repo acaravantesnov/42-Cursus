@@ -5,130 +5,149 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/14 06:16:08 by acaravan          #+#    #+#             */
-/*   Updated: 2021/09/15 00:27:28 by acaravan         ###   ########.fr       */
+/*   Created: 2022/01/09 23:44:08 by acaravan          #+#    #+#             */
+/*   Updated: 2022/01/10 02:13:39 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
+// PRAGMA ONCE
 
 # include <iostream>
 # include <string.h>
 
-class PhoneBook
+class	contact
 {
 	private:
-		std::string	firstName;
-		std::string	lastName;
-		std::string	nickName;
-		std::string	phoneNumber;
-		std::string darkestSecret;
+		std::string _firstName;
+		std::string _lastName;
+		std::string _nickName;
+		std::string _phone;
+		std::string	_darkestSecret;
 	public:
-		PhoneBook(std::string,std::string,std::string,std::string,std::string);
-		PhoneBook();
-		~PhoneBook();
-		void	addContact();
-		void	printContact(int);
-		void	printIndex();
+		std::string get_firstName();
+		std::string get_lastName();
+		std::string get_nickName();
+		std::string get_phone();
+		std::string	get_darkestSecret();
+
+		void		set_firstName(std::string &firstName);
+		void		set_lastName(std::string &lastName);
+		void		set_nickName(std::string &nickName);
+		void		set_phone(std::string &phone);
+		void		set_darkestSecret(std::string &darkestSecret);
+
+		contact() {}
+		contact(std::string firstName, std::string lastName, std::string nickName,
+		std::string phone, std::string darkestSecret)
+		{
+			_firstName = firstName;
+			_lastName = lastName;
+			_nickName = nickName;
+			_phone = phone;
+			_darkestSecret = darkestSecret;
+		}
 };
 
-PhoneBook::PhoneBook(std::string fN, std::string lN, std::string nN, std::string pN,
-std::string dS)
+class	phonebook
 {
-	fN = firstName;
-	lN = lastName;
-	nN = nickName;
-	pN = phoneNumber;
-	dS = darkestSecret;
-}
-
-PhoneBook::PhoneBook()
-{
-
-}
-
-PhoneBook::~PhoneBook()
-{
-
-}
-
-void	PhoneBook::addContact()
-{
-	std::cout << "First Name: ";
-	std::cin >> firstName;
-	std::cout << "Last Name: ";
-	std::cin >> lastName;
-	std::cout << "Nickname: ";
-	std::cin >> nickName;
-	std::cout << "Phone Number: ";
-	std::cin >> phoneNumber;
-	std::cout << "Darkest Secret: ";
-	std::cin >> darkestSecret;
-}
-
-void	PhoneBook::printContact(int nContact)
-{
-	std::cout << "|         " << nContact + 1 << '|';
-	for(int i = 0; i < 3; i++)
-	{
-		switch (i)
+	private:
+		contact	arr[8];
+		int		_numberofContacts;
+		int		_exit;
+	public:
+		void	add();
+		int		search();
+		void	exitcmd();
+		int		&get_exit() {return (_exit);}
+		
+		phonebook()
 		{
-			case 0:
-				if (firstName.length() <= 10)
-				{
-					for (unsigned long spc = 0; spc < (10 - firstName.length()); spc++)
-						std::cout << ' ';
-					std::cout << firstName;
-				}
-				else
-				{
-					for (unsigned long c = 0; c < 9; c++)
-						std::cout << firstName[c];
-					std::cout << '.';
-				}
-				break;
-			case 1:
-				if (lastName.length() <= 10)
-				{
-					for (unsigned long spc = 0; spc < (10 - lastName.length()); spc++)
-						std::cout << ' ';
-					std::cout << lastName;
-				}
-				else
-				{
-					for (unsigned long c = 0; c < 9; c++)
-						std::cout << lastName[c];
-					std::cout << '.';
-				}
-				break;
-			case 2:
-				if (nickName.length() <= 10)
-				{
-					for (unsigned long spc = 0; spc < (10 - nickName.length()); spc++)
-						std::cout << ' ';
-					std::cout << nickName;
-				}
-				else
-				{
-					for (unsigned long c = 0; c < 9; c++)
-						std::cout << nickName[c];
-					std::cout << '.';
-				}
-				break;
+			_numberofContacts = 0;
+			_exit = 0;
 		}
-		std::cout << '|';
-	}
-	std::cout << std::endl;
+};
+
+std::string contact::get_firstName()
+{
+	std::string	string;
+	for (int i = 0; i < (10 - _firstName.length()); i++)
+		string += ' ';
+	string += _firstName;
+	return (string);
+}
+std::string contact::get_lastName()
+{
+	std::string	string;
+	for (int i = 0; i < (10 - _lastName.length()); i++)
+		string += ' ';
+	string += _lastName;
+	return (string);
+}
+std::string contact::get_nickName()
+{
+	std::string	string;
+	for (int i = 0; i < (10 - _nickName.length()); i++)
+		string += ' ';
+	string += _nickName;
+	return (string);
+}
+std::string contact::get_phone()
+{
+	return (_phone);
+}
+std::string	contact::get_darkestSecret()
+{
+	return (_darkestSecret);
 }
 
-void	PhoneBook::printIndex()
+void		contact::set_firstName(std::string &firstName) {_firstName = firstName;}
+void		contact::set_lastName(std::string &lastName) {_lastName = lastName;}
+void		contact::set_nickName(std::string &nickName) {_nickName = nickName;}
+void		contact::set_phone(std::string &phone) {_phone = phone;}
+void		contact::set_darkestSecret(std::string &darkestSecret) {_darkestSecret = darkestSecret;}
+
+void	phonebook::add()
 {
-	std::cout << "First Name: " << firstName << std::endl;
-	std::cout << "Last Name: " << lastName << std::endl;
-	std::cout << "Nickname: " << nickName << std::endl;
-	std::cout << "Phone Number: " << phoneNumber << std::endl;
-	std::cout << "Darkest Secret: " << darkestSecret << std::endl;
+	_numberofContacts++;
+	std::string string;
+	std::cout << "\n*-------------------------------------------*" << std::endl;
+	std::cout << "\n    First Name: "; std::cin >> string; this->arr[_numberofContacts - 1].set_firstName(string);
+	std::cout << "    Last Name: "; std::cin >> string; this->arr[_numberofContacts - 1].set_lastName(string);
+	std::cout << "    Nickname: "; std::cin >> string; this->arr[_numberofContacts - 1].set_nickName(string);
+	std::cout << "    Phone Number: "; std::cin >> string; this->arr[_numberofContacts - 1].set_phone(string);
+	std::cout << "    Darkest Secret: "; std::cin >> string; this->arr[_numberofContacts - 1].set_darkestSecret(string);
+	std::cout << "\n*-------------------------------------------*" << std::endl;
+}
+
+int		phonebook::search()
+{
+	if (_numberofContacts > 0)
+	{
+		std::cout << "\n*-------------------------------------------*" << std::endl;
+		for(int i = 0; i < _numberofContacts; i++)
+		{
+			std::cout << "|         " << i + 1 << '|' << this->arr[i].get_firstName();
+			std::cout << '|' << this->arr[i].get_lastName() << '|' << this->arr[i].get_nickName();
+			std::cout << '|' << std::endl;
+		}
+		std::cout << "*-------------------------------------------*" << std::endl;
+	}
+	else
+		return (1);
+	return (0);
+}
+
+void	phonebook::exitcmd()
+{
+	_exit = 1;
+
+	std::cout << "|-------------------------------------------|" << std::endl;
+	std::cout << "|                                           |" << std::endl;
+	std::cout << "|               SEE YOU SOON!               |" << std::endl;
+	std::cout << "|                                           |" << std::endl;
+	std::cout << "*-------------------------------------------*" << std::endl;
 }
 
 #endif

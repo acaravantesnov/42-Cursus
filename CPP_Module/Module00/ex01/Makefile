@@ -1,14 +1,25 @@
-SOURCES =	./phonebook.cpp \
+SRCS			= phonebook.cpp
+OBJS			= $(SRCS:.cpp=.o)
 
-CLANG = clang++
+GCC				= clang++
+RM				= rm -f
+FLAGS			= -Wall -Wextra -Werror -I.
 
-FLAGS = -Wall -Wextra -Werror
+NAME			= phonebook
 
-RESIDUES =	phonebook \
-			a.out \
+all:			$(NAME)
 
-all:
-	$(CLANG) $(FLAGS) $(SOURCES) -o "phonebook"
+$(NAME):		$(OBJS)
+				$(GCC) $(FLAGS) -g -o $(NAME) $(OBJS)
 
-fclean:
-	rm -rf $(RESIDUES)
+clean:
+				$(RM) $(OBJS)
+
+fclean:			clean
+				$(RM) $(NAME)
+
+re:				fclean $(NAME)
+
+test:			$(NAME)
+
+.PHONY:			all clean fclean re test
