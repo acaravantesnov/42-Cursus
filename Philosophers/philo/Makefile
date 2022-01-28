@@ -1,9 +1,10 @@
 NAME = philo
 
 RESIDUES =	a.out \
+			philo.dSYM \
 
 SRCS =		main.c \
-					./sources/ft_atoi.c \
+			./sources/ft_atoi.c \
 
 FLAGS = -Wall -Wextra -Werror -pthread
 
