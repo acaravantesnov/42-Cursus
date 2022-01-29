@@ -2,15 +2,15 @@
 
 int*	ft_calloc(int size)
 {
-	int i;
+	int x;
 	int *ptr;
 	
-	i = 0;
+	x = 0;
 	ptr = malloc(sizeof(int) * size);
-	while (i < size)
+	while (x < size)
 	{
-		ptr[i] = 0;
-		i++;
+		ptr[x] = 0;
+		x++;
 	}
 	return (ptr);
 }
@@ -24,7 +24,7 @@ int		freephandexit(pthread_t *ph)
 void*	philosopher(void* arg)
 {
 	struct Rules *rules = arg;
-	int	N;
+	//int	N;
 	/*
 		+ activity = 0 -> Taking a fork
 		+ activity = 1 -> Eating
@@ -33,40 +33,49 @@ void*	philosopher(void* arg)
 		+ activity = 4 -> Died
 	*/
 	int	activity = 0;
-	N = *(rules->iter) + 1;
+	//N = *(rules->iter) + 1;
 	while (activity != 4)
 	{
 		if (*(rules->iter) < rules->number_of_philosophers - 1)
 		{
 			if (rules->forks[*(rules->iter)] == 0)
 			{
-				printf("I took a fork.\n");
+				printf("%d took a fork.\n", *(rules->iter));
+				pthread_mutex_lock(&(rules->mutex));
 				rules->manos[*(rules->iter)][0] = 1;
 				rules->forks[*(rules->iter)] = 1;
+				pthread_mutex_unlock(&(rules->mutex));
 			}
 			if (rules->forks[*(rules->iter) + 1] == 0)
 			{
-				printf("I took a fork.\n");
+				printf("%d took a fork.\n", *(rules->iter));
+				pthread_mutex_lock(&(rules->mutex));
 				rules->manos[*(rules->iter)][1] = 1;
 				rules->forks[*(rules->iter) + 1] = 1;
+				pthread_mutex_unlock(&(rules->mutex));
 			}
 		}
 		else if (*(rules->iter) == (rules->number_of_philosophers - 1))
 		{
 			if (rules->forks[*(rules->iter)] == 0)
 			{
-				printf("I took a fork.\n");
+				printf("%d took a fork.\n", *(rules->iter));
+				pthread_mutex_lock(&(rules->mutex));
 				rules->manos[*(rules->iter)][0] = 1;
 				rules->forks[*(rules->iter)] = 1;
+				pthread_mutex_unlock(&(rules->mutex));
 			}
 			if (rules->forks[0] == 0)
 			{
-				printf("I took a fork.\n");
+				printf("%d took a fork.\n", *(rules->iter));
+				pthread_mutex_lock(&(rules->mutex));
 				rules->manos[*(rules->iter)][1] = 1;
 				rules->forks[0] = 1;
+				pthread_mutex_unlock(&(rules->mutex));
 			}
 		}
-		activity = 4;
+		//printf("%i", N);
+		activity++;
 	}
 	return (0);
 }
@@ -74,10 +83,10 @@ void*	philosopher(void* arg)
 int		main(int argc, char **argv)
 {
 	struct Rules *rules = malloc(sizeof(struct Rules));
-	pthread_mutex_t	mutex;
-	pthread_mutex_init(&mutex, NULL);
+	pthread_mutex_init(&(rules->mutex), NULL);
 	
 	int i = 0;
+	int j;
 	rules->iter = &i;
 	if ((argc != 5) && (argc != 6))
 		return (1);
@@ -105,10 +114,8 @@ int		main(int argc, char **argv)
 	for (int i = 0; i < rules->number_of_philosophers; i++)
 	{
 		for (int j = 0; j < 2; j++)
-		{
-			printf("%i", rules->manos[i][j]);
-		}
-		printf("\n");
+			ft_printf("%d", rules->manos[i][j]);
+		write(1, "\n", 1);
 	}
 
 	i = 0;
@@ -119,21 +126,19 @@ int		main(int argc, char **argv)
 		i++;
 	}
 
-	i = 0;
-	while (i < rules->number_of_philosophers)
+	j = 0;
+	while (j < rules->number_of_philosophers)
 	{
-		if (pthread_join(rules->ph[i], NULL) != 0)
+		if (pthread_join(rules->ph[j], NULL) != 0)
 			return (freephandexit(rules->ph));
-		i++;
+		j++;
 	}
-	for (int i = 0; i < rules->number_of_philosophers; i++)
+	for (int j = 0; j < rules->number_of_philosophers; j++)
 	{
-		for (int j = 0; j < 2; j++)
-		{
-			printf("%i", rules->manos[i][j]);
-		}
-		printf("\n");
+		for (int k = 0; k < 2; k++)
+			ft_printf("%d", rules->manos[j][k]);
+		write(1, "\n", 1);
 	}
-	pthread_mutex_destroy(&mutex);
+	pthread_mutex_destroy(&(rules->mutex));
 	return (0);
 }

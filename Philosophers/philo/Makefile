@@ -2,9 +2,12 @@ NAME = philo
 
 RESIDUES =	a.out \
 			philo.dSYM \
+			./sources/*.o \
 
-SRCS =		main.c \
-			./sources/ft_atoi.c \
+SRCS =	main.c \
+		./sources/ft_atoi.c \
+
+LIB = ./sources/ft_printf/*.c
 
 FLAGS = -Wall -Wextra -Werror -pthread
 
@@ -16,7 +19,7 @@ CC = gcc -g
 	$(CC) $(FLAGS) -g -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(SRCS) -Iincludes -o $(NAME)
+	$(CC) $(FLAGS) $(SRCS) $(LIB) -Iincludes -o $(NAME)
 
 all: $(NAME)
 
