@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*   freeandreturn.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/12 20:27:59 by acaravan          #+#    #+#             */
-/*   Updated: 2022/01/29 02:42:18 by acaravan         ###   ########.fr       */
+/*   Created: 2022/01/31 17:05:59 by acaravan          #+#    #+#             */
+/*   Updated: 2022/01/31 17:09:07 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes/philo.h"
 
-int	ft_putunbr(unsigned int n)
+int	freeandreturn(struct Rules *rules)
 {
-	int	cont;
+	int	f;
 
-	cont = 0;
-	if (n < 4294967295)
+	f = 0;
+	free(rules->ph);
+	free(rules->forks);
+	while (f < rules->number_of_philosophers)
 	{
-		if (n >= 10)
-		{
-			cont += ft_putnbr(n / 10);
-			cont += ft_putnbr(n % 10);
-		}
-		else
-			cont += ft_putchar(n + 48);
+		free(rules->manos[f]);
+		f++;
 	}
-	return (cont);
+	free(rules->manos);
+	free(rules);
+	return (0);
 }

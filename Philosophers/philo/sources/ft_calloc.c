@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/12 20:25:55 by acaravan          #+#    #+#             */
-/*   Updated: 2021/08/14 19:47:19 by acaravan         ###   ########.fr       */
+/*   Created: 2022/01/31 17:06:40 by acaravan          #+#    #+#             */
+/*   Updated: 2022/01/31 17:09:04 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes/philo.h"
 
-int	ft_putchar(char c)
+int*	ft_calloc(int size)
 {
-	write(1, &c, 1);
-	return (1);
+	int x;
+	int *ptr;
+	
+	x = 0;
+	ptr = malloc(sizeof(int) * size);
+	while (x < size)
+	{
+		ptr[x] = 0;
+		x++;
+	}
+	return (ptr);
 }

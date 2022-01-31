@@ -5,9 +5,11 @@ RESIDUES =	a.out \
 			./sources/*.o \
 
 SRCS =	main.c \
+		./sources/init_var.c \
 		./sources/ft_atoi.c \
-
-LIB = ./sources/ft_printf/*.c
+		./sources/ft_calloc.c \
+		./sources/info.c \
+		./sources/freeandreturn.c \
 
 FLAGS = -Wall -Wextra -Werror -pthread
 
@@ -19,7 +21,7 @@ CC = gcc -g
 	$(CC) $(FLAGS) -g -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(SRCS) $(LIB) -Iincludes -o $(NAME)
+	$(CC) $(FLAGS) $(SRCS) -Iincludes -o $(NAME)
 
 all: $(NAME)
 

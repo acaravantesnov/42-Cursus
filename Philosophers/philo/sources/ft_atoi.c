@@ -5,16 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 12:26:30 by acaravan          #+#    #+#             */
-/*   Updated: 2022/01/28 00:28:06 by acaravan         ###   ########.fr       */
+/*   Created: 2022/01/31 17:06:23 by acaravan          #+#    #+#             */
+/*   Updated: 2022/01/31 21:40:57 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_zero(int *a);
+#include "../includes/philo.h"
 
-int	ft_atoi(char *str)
+void	ft_zero(long *a)
 {
-	int	e[4];
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		a[i] = 0;
+		i++;
+	}
+}
+
+long	ft_atoi(char *str)
+{
+	long	e[4];
 
 	ft_zero(e);
 	while ((str[e[0]] == ' ') || (str[e[0]] == '\t') || (str[e[0]] == '\n')
@@ -37,16 +49,4 @@ int	ft_atoi(char *str)
 	if (e[2] % 2 != 0)
 		e[3] = e[3] * (-1);
 	return (e[3]);
-}
-
-void	ft_zero(int *a)
-{
-	int	i;
-
-	i = 0;
-	while (i < 4)
-	{
-		a[i] = 0;
-		i++;
-	}
 }
