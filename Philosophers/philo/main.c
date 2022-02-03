@@ -6,11 +6,16 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 23:43:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/03 15:43:40 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/03 17:14:24 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/philo.h"
+
+/*
+**	opt == 0 -> Have not eaten yet
+**	opt == 1 -> Already eaten
+*/
 
 suseconds_t	elapsed_time(struct s_rules *rules, struct timeval *last_time_i_ate, int opt)
 {
@@ -36,45 +41,52 @@ suseconds_t	elapsed_time(struct s_rules *rules, struct timeval *last_time_i_ate,
 	return (elapsed_time);
 }
 
-void*	philosopher(void *arg)
+/*
+**	activity == 0 -> Waiting to eat
+**	activity == 1 -> Eating
+**	activity == 2 -> Sleeping
+**	activity == 3 -> Thinking
+*/
+
+void	*philosopher(void *arg)
 {
 	int				n;
 	int				activity;
 	int				has_eaten;
 	struct s_rules	*rules;
 	struct timeval	last_time_i_ate;
-	suseconds_t		time_since_sim_start = 0;
-	suseconds_t		time_since_last_time_i_ate = 0;
+	suseconds_t		time_since_sim_start;
+	suseconds_t		time_since_last_time_i_ate;
 
 	rules = arg;
 	pthread_mutex_lock(&(rules->mutex));
 	n = *(rules->iter);
 	pthread_mutex_unlock(&rules->mutex);
-	activity = 0; // Esperando a comer
-	// if (activity == 1) --> Comiendo
-	// if (activity == 2) --> Durmiendo
-	// if (activity == 3) --> Pensando
+	activity = 0;
 	has_eaten = 0;
 	time_since_sim_start = elapsed_time(rules, &(rules->sim_start), 0);
+	time_since_last_time_i_ate = 0;
 	while (1)
 	{
 		pthread_mutex_lock(&(rules->mutex));
 		if ((time_since_sim_start > (rules->time_to_die)) && (time_since_sim_start != 0))
 		{
-			printf("%d has died\n", *(rules->iter) + 1);
+			printf("%d %d has died\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, *(rules->iter) + 1);
 			return (NULL);
 		}
-		if (has_eaten == 1)
+		if (has_eaten > 0)
 		{
 			time_since_last_time_i_ate = elapsed_time (rules, &(last_time_i_ate), 1);
 			if ((time_since_last_time_i_ate > (rules->time_to_die)) && (time_since_last_time_i_ate != 0))
 			{
-				printf("%d has died\n", *(rules->iter) + 1);
+				printf("%d %d has died\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, *(rules->iter) + 1);
 				return (NULL);
 			}
+			if (has_eaten >= rules->number_of_times_each_philosopher_must_eat)
+				return (NULL);
 		}
 		pthread_mutex_unlock(&rules->mutex);
-		if (activity == 0) //Waiting to eat
+		if (activity == 0)
 		{
 			pthread_mutex_lock(&(rules->mutex));
 			if ((rules->forks[n] == 0) && (rules->forks[n + 1] == 0) \
@@ -85,9 +97,8 @@ void*	philosopher(void *arg)
 				rules->manos[n][0] = 1;
 				rules->manos[n][1] = 1;
 				activity = 1;
-
-				printf("%d has taken a fork\n", n + 1);
-				printf("%d has taken a fork\n", n + 1);
+				printf("%d %d has taken a fork\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
+				printf("%d %d has taken a fork\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
 			}
 			else if ((rules->forks[n] == 0) && (rules->forks[0] == 0) \
 			&& (n == (rules->number_of_philosophers - 1)))
@@ -97,22 +108,21 @@ void*	philosopher(void *arg)
 				rules->manos[n][0] = 1;
 				rules->manos[n][1] = 1;
 				activity = 1;
-
-				printf("%d has taken a fork\n", n + 1);
-				printf("%d has taken a fork\n", n + 1);
+				printf("%d %d has taken a fork\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
+				printf("%d %d has taken a fork\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
 			}
 			pthread_mutex_unlock(&(rules->mutex));
 		}
-		if (activity == 1) //Eating
+		if (activity == 1)
 		{
-			printf("%d is eating\n", n + 1);
+			printf("%d %d is eating\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
 			usleep(rules->time_to_eat);
 			pthread_mutex_lock(&(rules->mutex));
 			gettimeofday(&(rules->t), NULL);
 			last_time_i_ate.tv_sec = rules->t.tv_sec;
 			last_time_i_ate.tv_usec = rules->t.tv_usec;
 			time_since_sim_start = 0;
-			has_eaten = 1;
+			has_eaten++;
 			if (n != (rules->number_of_philosophers - 1))
 			{
 				rules->forks[n] = 0;
@@ -130,15 +140,15 @@ void*	philosopher(void *arg)
 			pthread_mutex_unlock(&(rules->mutex));
 			activity = 2;
 		}
-		if (activity == 2) //Sleeping
+		if (activity == 2)
 		{
-			printf("%d is sleeping\n", n + 1);
+			printf("%d %d is sleeping\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
 			usleep(rules->time_to_sleep);
 			activity = 3;
 		}
-		if (activity == 3) //Thinking
+		if (activity == 3)
 		{
-			printf("%d is thinking\n", n + 1);
+			printf("%d %d is thinking\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
 			activity = 0;
 		}
 	}
@@ -147,7 +157,7 @@ void*	philosopher(void *arg)
 
 int	main(int argc, char **argv)
 {
-	int	*i;
+	int				*i;
 	struct s_rules	*rules;
 
 	i = malloc(sizeof(int));
