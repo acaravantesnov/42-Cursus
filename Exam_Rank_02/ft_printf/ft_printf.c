@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 23:34:02 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/03 13:33:36 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/03 20:57:36 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,7 @@ int	ft_printf(const char *input, ...)
 			}
 			if (input[i + 1] == 'x')
 			{
-				int num = va_arg(ap, int);
-				if (num < 0)
-				{
-					size += write(1, "-", 1);
-					num *= (-1);
-				}
+				int num = va_arg(ap, unsigned);
 				size += ft_intlen(num, 16);
 				ft_printnum(num, 16, "0123456789abcdef");
 				i++;

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 23:43:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/03 17:14:24 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/03 22:18:40 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,11 @@ void	*philosopher(void *arg)
 	has_eaten = 0;
 	time_since_sim_start = elapsed_time(rules, &(rules->sim_start), 0);
 	time_since_last_time_i_ate = 0;
+	rules->number_of_times_each_philosopher_must_eat = 1000000;
 	while (1)
 	{
 		pthread_mutex_lock(&(rules->mutex));
-		if ((time_since_sim_start > (rules->time_to_die)) && (time_since_sim_start != 0))
+		if ((time_since_sim_start > (rules->time_to_die * 1000)) && (time_since_sim_start != 0))
 		{
 			printf("%d %d has died\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, *(rules->iter) + 1);
 			return (NULL);
@@ -77,7 +78,7 @@ void	*philosopher(void *arg)
 		if (has_eaten > 0)
 		{
 			time_since_last_time_i_ate = elapsed_time (rules, &(last_time_i_ate), 1);
-			if ((time_since_last_time_i_ate > (rules->time_to_die)) && (time_since_last_time_i_ate != 0))
+			if ((time_since_last_time_i_ate > (rules->time_to_die * 1000)) && (time_since_last_time_i_ate != 0))
 			{
 				printf("%d %d has died\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, *(rules->iter) + 1);
 				return (NULL);
@@ -116,7 +117,7 @@ void	*philosopher(void *arg)
 		if (activity == 1)
 		{
 			printf("%d %d is eating\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
-			usleep(rules->time_to_eat);
+			usleep(rules->time_to_eat * 1000);
 			pthread_mutex_lock(&(rules->mutex));
 			gettimeofday(&(rules->t), NULL);
 			last_time_i_ate.tv_sec = rules->t.tv_sec;
@@ -143,7 +144,7 @@ void	*philosopher(void *arg)
 		if (activity == 2)
 		{
 			printf("%d %d is sleeping\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
-			usleep(rules->time_to_sleep);
+			usleep(rules->time_to_sleep * 1000);
 			activity = 3;
 		}
 		if (activity == 3)
