@@ -6,13 +6,13 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:05:59 by acaravan          #+#    #+#             */
-/*   Updated: 2022/01/31 17:09:07 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/03 14:18:26 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int	freeandreturn(struct Rules *rules)
+int	freeandreturn(struct s_rules *rules)
 {
 	int	f;
 

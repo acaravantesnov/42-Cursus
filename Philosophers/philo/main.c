@@ -6,16 +6,17 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 23:43:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/01 13:51:36 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/03 15:43:40 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/philo.h"
 
-suseconds_t	elapsed_time(struct Rules *rules, struct timeval *last_time_i_ate, int opt)
+suseconds_t	elapsed_time(struct s_rules *rules, struct timeval *last_time_i_ate, int opt)
 {
 	suseconds_t	elapsed_time;
 
+	elapsed_time = 0;
 	if (gettimeofday(&(rules->t), NULL) != 0)
 		return (0);
 	if (opt == 0)
@@ -30,36 +31,37 @@ suseconds_t	elapsed_time(struct Rules *rules, struct timeval *last_time_i_ate, i
 		if ((last_time_i_ate->tv_sec <= rules->t.tv_sec) && (last_time_i_ate->tv_usec <= rules->t.tv_usec))
 			elapsed_time = ((rules->t.tv_sec - last_time_i_ate->tv_sec) * 1000000) + (rules->t.tv_usec - last_time_i_ate->tv_usec);
 		else if ((last_time_i_ate->tv_sec <= rules->t.tv_sec) && (last_time_i_ate->tv_usec > rules->t.tv_usec))
-				elapsed_time = ((rules->t.tv_sec - last_time_i_ate->tv_sec) * 1000000) - (last_time_i_ate->tv_usec - rules->t.tv_usec);
+			elapsed_time = ((rules->t.tv_sec - last_time_i_ate->tv_sec) * 1000000) - (last_time_i_ate->tv_usec - rules->t.tv_usec);
 	}
 	return (elapsed_time);
 }
 
 void*	philosopher(void *arg)
 {
+	int				n;
+	int				activity;
 	int				has_eaten;
-	struct	Rules	*rules;
-	struct	timeval	last_time_i_ate;
+	struct s_rules	*rules;
+	struct timeval	last_time_i_ate;
 	suseconds_t		time_since_sim_start = 0;
 	suseconds_t		time_since_last_time_i_ate = 0;
 
 	rules = arg;
 	pthread_mutex_lock(&(rules->mutex));
-	int n = *(rules->iter);
+	n = *(rules->iter);
 	pthread_mutex_unlock(&rules->mutex);
-	int activity = 0; // Esperando a comer
+	activity = 0; // Esperando a comer
 	// if (activity == 1) --> Comiendo
 	// if (activity == 2) --> Durmiendo
 	// if (activity == 3) --> Pensando
 	has_eaten = 0;
+	time_since_sim_start = elapsed_time(rules, &(rules->sim_start), 0);
 	while (1)
 	{
 		pthread_mutex_lock(&(rules->mutex));
-		time_since_sim_start = elapsed_time(rules, &(last_time_i_ate), 0);
 		if ((time_since_sim_start > (rules->time_to_die)) && (time_since_sim_start != 0))
 		{
 			printf("%d has died\n", *(rules->iter) + 1);
-			pthread_detach(rules->ph[*(rules->iter)]);
 			return (NULL);
 		}
 		if (has_eaten == 1)
@@ -68,7 +70,6 @@ void*	philosopher(void *arg)
 			if ((time_since_last_time_i_ate > (rules->time_to_die)) && (time_since_last_time_i_ate != 0))
 			{
 				printf("%d has died\n", *(rules->iter) + 1);
-				pthread_detach(rules->ph[*(rules->iter)]);
 				return (NULL);
 			}
 		}
@@ -147,9 +148,11 @@ void*	philosopher(void *arg)
 int	main(int argc, char **argv)
 {
 	int	*i;
+	struct s_rules	*rules;
+
 	i = malloc(sizeof(int));
 	*i = 0;
-	struct	Rules *rules = malloc(sizeof(struct Rules));
+	rules = malloc(sizeof(struct s_rules));
 	if ((argc >= 5) && (argc <= 6))
 	{
 		init_var(rules, argv);
@@ -169,9 +172,9 @@ int	main(int argc, char **argv)
 	*i = 0;
 	while (*i < rules->number_of_philosophers)
 	{
-		
 		if (pthread_create(&rules->ph[*i], NULL, &philosopher, rules) != 0)
 			return (freeandreturn(rules));
+		usleep(100);
 		(*i)++;
 	}
 	*i = 0;

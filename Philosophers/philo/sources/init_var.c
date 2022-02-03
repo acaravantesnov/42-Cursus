@@ -6,13 +6,13 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 18:03:20 by acaravan          #+#    #+#             */
-/*   Updated: 2022/01/31 22:09:53 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/03 14:18:29 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void*	init_var(struct Rules *rules, char **argv)
+void	*init_var(struct s_rules *rules, char **argv)
 {
 	int	k;
 
@@ -24,13 +24,13 @@ void*	init_var(struct Rules *rules, char **argv)
 	if (gettimeofday(&(rules->t), NULL) == 0)
 	{
 		rules->sim_start.tv_sec = rules->t.tv_sec;
-		rules->sim_start.tv_usec = rules->t.tv_usec;		
+		rules->sim_start.tv_usec = rules->t.tv_usec;
 	}
 	else
 		return (NULL);
 	rules->ph = malloc(rules->number_of_philosophers * sizeof(pthread_t));
 	rules->forks = ft_calloc(rules->number_of_philosophers);
-	rules->manos = (int**) malloc(rules->number_of_philosophers* sizeof(int*));
+	rules->manos = (int **) malloc(rules->number_of_philosophers * sizeof(int *));
 	while (k < rules->number_of_philosophers)
 	{
 		rules->manos[k] = ft_calloc(2);
