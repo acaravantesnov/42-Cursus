@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:07:02 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/03 14:18:26 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/05 16:22:31 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@ struct	s_rules
 	suseconds_t			time_to_eat;
 	suseconds_t			time_to_sleep;
 	int					number_of_times_each_philosopher_must_eat;
+	int					*sb_has_died;
 	pthread_t			*ph;
 	int					*forks;
 	int					*iter;
-	int					**manos;
-	pthread_mutex_t		mutex;
+	pthread_mutex_t		*mutex;
+	pthread_mutex_t		*mutex_general;
 	struct timeval		t;
 	struct timeval		sim_start;
 };

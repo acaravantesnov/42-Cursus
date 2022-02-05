@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 18:03:20 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/03 22:14:19 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/05 16:47:31 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,5 @@ void	*init_var(struct s_rules *rules, char **argv)
 		return (NULL);
 	rules->ph = malloc(rules->number_of_philosophers * sizeof(pthread_t));
 	rules->forks = ft_calloc(rules->number_of_philosophers);
-	rules->manos = (int **) malloc(rules->number_of_philosophers * sizeof(int *));
-	while (k < rules->number_of_philosophers)
-	{
-		rules->manos[k] = ft_calloc(2);
-		k++;
-	}
 	return (rules);
 }

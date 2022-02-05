@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 23:43:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/03 22:18:40 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/05 16:54:53 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ void	*philosopher(void *arg)
 	suseconds_t		time_since_last_time_i_ate;
 
 	rules = arg;
-	pthread_mutex_lock(&(rules->mutex));
 	n = *(rules->iter);
-	pthread_mutex_unlock(&rules->mutex);
 	activity = 0;
 	has_eaten = 0;
 	time_since_sim_start = elapsed_time(rules, &(rules->sim_start), 0);
@@ -69,10 +67,14 @@ void	*philosopher(void *arg)
 	rules->number_of_times_each_philosopher_must_eat = 1000000;
 	while (1)
 	{
-		pthread_mutex_lock(&(rules->mutex));
 		if ((time_since_sim_start > (rules->time_to_die * 1000)) && (time_since_sim_start != 0))
 		{
-			printf("%d %d has died\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, *(rules->iter) + 1);
+			
+			printf("%d %d has died\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
+			printf("Muerto = %d\n", *(rules->sb_has_died));
+			pthread_mutex_lock(rules->mutex_general);
+			*(rules->sb_has_died) = 1;
+			pthread_mutex_unlock(rules->mutex_general);
 			return (NULL);
 		}
 		if (has_eaten > 0)
@@ -80,46 +82,54 @@ void	*philosopher(void *arg)
 			time_since_last_time_i_ate = elapsed_time (rules, &(last_time_i_ate), 1);
 			if ((time_since_last_time_i_ate > (rules->time_to_die * 1000)) && (time_since_last_time_i_ate != 0))
 			{
-				printf("%d %d has died\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, *(rules->iter) + 1);
+				printf("%d %d has died\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
+				printf("Muerto = %d\n", *(rules->sb_has_died));
+				pthread_mutex_lock(rules->mutex_general);
+				*(rules->sb_has_died) = 1;
+				pthread_mutex_unlock(rules->mutex_general);
 				return (NULL);
 			}
 			if (has_eaten >= rules->number_of_times_each_philosopher_must_eat)
 				return (NULL);
 		}
-		pthread_mutex_unlock(&rules->mutex);
 		if (activity == 0)
 		{
-			pthread_mutex_lock(&(rules->mutex));
 			if ((rules->forks[n] == 0) && (rules->forks[n + 1] == 0) \
 			&& (n != (rules->number_of_philosophers - 1)))
 			{
+				pthread_mutex_lock(&(rules->mutex[n]));
 				rules->forks[n] = 1;
+				pthread_mutex_lock(&(rules->mutex[n + 1]));
 				rules->forks[n + 1] = 1;
-				rules->manos[n][0] = 1;
-				rules->manos[n][1] = 1;
 				activity = 1;
+				if (*(rules->sb_has_died) == 1)
+					return (NULL);
 				printf("%d %d has taken a fork\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
 				printf("%d %d has taken a fork\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
 			}
 			else if ((rules->forks[n] == 0) && (rules->forks[0] == 0) \
 			&& (n == (rules->number_of_philosophers - 1)))
 			{
+				pthread_mutex_lock(&(rules->mutex[n]));
 				rules->forks[n] = 1;
+				pthread_mutex_lock(&(rules->mutex[0]));
 				rules->forks[0] = 1;
-				rules->manos[n][0] = 1;
-				rules->manos[n][1] = 1;
 				activity = 1;
+				if (*(rules->sb_has_died) == 1)
+					return (NULL);
 				printf("%d %d has taken a fork\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
 				printf("%d %d has taken a fork\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
 			}
-			pthread_mutex_unlock(&(rules->mutex));
 		}
 		if (activity == 1)
 		{
+			if (*(rules->sb_has_died) == 1)
+					return (NULL);
 			printf("%d %d is eating\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
 			usleep(rules->time_to_eat * 1000);
-			pthread_mutex_lock(&(rules->mutex));
+			pthread_mutex_lock(rules->mutex_general);
 			gettimeofday(&(rules->t), NULL);
+			pthread_mutex_unlock(rules->mutex_general);
 			last_time_i_ate.tv_sec = rules->t.tv_sec;
 			last_time_i_ate.tv_usec = rules->t.tv_usec;
 			time_since_sim_start = 0;
@@ -127,28 +137,31 @@ void	*philosopher(void *arg)
 			if (n != (rules->number_of_philosophers - 1))
 			{
 				rules->forks[n] = 0;
+				pthread_mutex_unlock(&(rules->mutex[n]));
 				rules->forks[n + 1] = 0;
-				rules->manos[n][0] = 0;
-				rules->manos[n][1] = 0;
+				pthread_mutex_unlock(&(rules->mutex[n + 1]));
 			}
 			else
 			{
 				rules->forks[n] = 0;
+				pthread_mutex_unlock(&(rules->mutex[n]));
 				rules->forks[0] = 0;
-				rules->manos[n][0] = 0;
-				rules->manos[n][1] = 0;
+				pthread_mutex_unlock(&(rules->mutex[0]));
 			}
-			pthread_mutex_unlock(&(rules->mutex));
 			activity = 2;
 		}
 		if (activity == 2)
 		{
+			if (*(rules->sb_has_died) == 1)
+					return (NULL);
 			printf("%d %d is sleeping\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
 			usleep(rules->time_to_sleep * 1000);
 			activity = 3;
 		}
 		if (activity == 3)
 		{
+			if (*(rules->sb_has_died) == 1)
+					return (NULL);
 			printf("%d %d is thinking\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, n + 1);
 			activity = 0;
 		}
@@ -159,11 +172,16 @@ void	*philosopher(void *arg)
 int	main(int argc, char **argv)
 {
 	int				*i;
+	int				j;
 	struct s_rules	*rules;
 
 	i = malloc(sizeof(int));
 	*i = 0;
 	rules = malloc(sizeof(struct s_rules));
+	rules->mutex = (pthread_mutex_t*)malloc (rules->number_of_philosophers * sizeof(pthread_mutex_t));
+	rules->mutex_general = (pthread_mutex_t*)malloc (sizeof(pthread_mutex_t));
+	rules->sb_has_died = (int*)malloc (sizeof(int));
+	*(rules->sb_has_died) = 0;
 	if ((argc >= 5) && (argc <= 6))
 	{
 		init_var(rules, argv);
@@ -178,7 +196,18 @@ int	main(int argc, char **argv)
 		free(rules);
 		return (0);
 	}
-	pthread_mutex_init(&(rules->mutex), NULL);
+	if (rules->number_of_philosophers == 1)
+	{
+		printf("%d %d has died\n", rules->time_to_die, 1);
+		return (0);
+	}
+	j = 0;
+	while (j < rules->number_of_philosophers)
+	{
+			pthread_mutex_init(&(rules->mutex[j]), NULL);
+			j++;
+	}
+	pthread_mutex_init(rules->mutex_general, NULL);
 	rules->iter = i;
 	*i = 0;
 	while (*i < rules->number_of_philosophers)
@@ -196,6 +225,12 @@ int	main(int argc, char **argv)
 		(*i)++;
 	}
 	info(rules);
-	pthread_mutex_destroy(&(rules->mutex));
+	j = 0;
+	while (j < rules->number_of_philosophers)
+	{
+			pthread_mutex_destroy(&(rules->mutex[j]));
+			j++;
+	}
+	pthread_mutex_destroy(rules->mutex_general);
 	return (freeandreturn(rules));
 }
