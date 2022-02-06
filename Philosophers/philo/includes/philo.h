@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:07:02 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/05 16:22:31 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/06 16:19:35 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ struct	s_rules
 
 void	*init_var(struct s_rules *rules, char **argv);
 long	ft_atoi(char *str);
-int		freeandreturn(struct s_rules *rules);
+int		freeandreturn(struct s_rules *rules, int *i);
 int		*ft_calloc(int size);
 void	info(struct s_rules *rules);
 
