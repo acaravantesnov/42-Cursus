@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 00:26:38 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/07 01:17:23 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/07 23:39:26 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@
 int	may_die(struct timeval *last_t_i_ate, suseconds_t *t_snc_sim_start, \
 suseconds_t *t_snc_last_t_i_ate, struct s_rules *rules, int *i)
 {
-	if ((*t_snc_sim_start > (rules->time_to_die * 1000)) && (*t_snc_sim_start != 0))
+	if ((*t_snc_sim_start > (rules->time_to_die * 1000)) && \
+	(*t_snc_sim_start != 0))
 	{
-		printf("%d %d has died\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
+		printf("%d %d has died\n", \
+		elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
 		pthread_mutex_lock(rules->mutex_general);
 		*(rules->sb_has_died) = 1;
 		pthread_mutex_unlock(rules->mutex_general);
@@ -37,9 +39,11 @@ suseconds_t *t_snc_last_t_i_ate, struct s_rules *rules, int *i)
 	if (i[2] > 0)
 	{
 		*t_snc_last_t_i_ate = elapsed_time (rules, last_t_i_ate, 1);
-		if ((*t_snc_last_t_i_ate > (rules->time_to_die * 1000)) && (*t_snc_last_t_i_ate != 0))
+		if ((*t_snc_last_t_i_ate > (rules->time_to_die * 1000)) && \
+		(*t_snc_last_t_i_ate != 0))
 		{
-			printf("%d %d has died\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
+			printf("%d %d has died\n", \
+			elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
 			pthread_mutex_lock(rules->mutex_general);
 			*(rules->sb_has_died) = 1;
 			pthread_mutex_unlock(rules->mutex_general);
@@ -65,8 +69,10 @@ int	waiting_to_eat(struct s_rules *rules, int *i)
 			i[1] = 1;
 			if (*(rules->sb_has_died) == 1)
 				return (1);
-			printf("%d %d has taken a fork\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
-			printf("%d %d has taken a fork\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
+			printf("%d %d has taken a fork\n", \
+			elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
+			printf("%d %d has taken a fork\n", \
+			elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
 		}
 		else if ((rules->forks[i[0]] == 0) && (rules->forks[0] == 0) \
 		&& (i[0] == (rules->number_of_philosophers - 1)))
@@ -78,8 +84,10 @@ int	waiting_to_eat(struct s_rules *rules, int *i)
 			i[1] = 1;
 			if (*(rules->sb_has_died) == 1)
 				return (1);
-			printf("%d %d has taken a fork\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
-			printf("%d %d has taken a fork\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
+			printf("%d %d has taken a fork\n", \
+			elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
+			printf("%d %d has taken a fork\n", \
+			elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
 		}
 	}
 	return (0);
@@ -92,14 +100,15 @@ struct s_rules *rules, int *i)
 	{
 		if (*(rules->sb_has_died) == 1)
 			return (1);
-		printf("%d %d is eating\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
-		usleep(rules->time_to_eat * 1000);
 		pthread_mutex_lock(rules->mutex_general);
 		gettimeofday(&(rules->t), NULL);
 		pthread_mutex_unlock(rules->mutex_general);
 		last_t_i_ate->tv_sec = rules->t.tv_sec;
 		last_t_i_ate->tv_usec = rules->t.tv_usec;
 		*t_snc_sim_start = 0;
+		printf("%d %d is eating\n", \
+		elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
+		usleep(rules->time_to_eat * 1000);
 		i[2]++;
 		if (i[0] != (rules->number_of_philosophers - 1))
 		{
@@ -126,7 +135,8 @@ int	sleeping_and_thinking(struct s_rules *rules, int *i)
 	{
 		if (*(rules->sb_has_died) == 1)
 			return (1);
-		printf("%d %d is sleeping\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
+		printf("%d %d is sleeping\n", \
+		elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
 		usleep(rules->time_to_sleep * 1000);
 		i[1] = 3;
 	}
@@ -134,7 +144,8 @@ int	sleeping_and_thinking(struct s_rules *rules, int *i)
 	{
 		if (*(rules->sb_has_died) == 1)
 			return (1);
-		printf("%d %d is thinking\n", elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
+		printf("%d %d is thinking\n", \
+		elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
 		i[1] = 0;
 	}
 	return (0);
@@ -159,7 +170,8 @@ void	*philosopher(void *arg)
 		usleep(100);
 	while (1)
 	{
-		if (may_die(&(last_t_i_ate), &(t_snc_sim_start), &(t_snc_last_t_i_ate), rules, i) == 1)
+		if (may_die(&(last_t_i_ate), &(t_snc_sim_start), \
+		&(t_snc_last_t_i_ate), rules, i) == 1)
 			return (NULL);
 		if (waiting_to_eat(rules, i) == 1)
 			return (NULL);
@@ -170,4 +182,3 @@ void	*philosopher(void *arg)
 	}
 	return (NULL);
 }
-

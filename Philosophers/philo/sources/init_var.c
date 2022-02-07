@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 18:03:20 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/06 16:12:56 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/07 21:55:53 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ void	*init_var(struct s_rules *rules, char **argv)
 		return (NULL);
 	rules->ph = malloc(rules->number_of_philosophers * sizeof(pthread_t));
 	rules->forks = ft_calloc(rules->number_of_philosophers);
-	rules->mutex_general = (pthread_mutex_t*)malloc (sizeof(pthread_mutex_t));
-	rules->mutex = (pthread_mutex_t*)malloc (rules->number_of_philosophers * sizeof(pthread_mutex_t));
-	rules->sb_has_died = (int*)malloc (sizeof(int));
+	rules->mutex_general = (pthread_mutex_t *)malloc (sizeof(pthread_mutex_t));
+	rules->mutex = (pthread_mutex_t *)malloc (rules->number_of_philosophers * \
+	sizeof(pthread_mutex_t));
+	rules->sb_has_died = (int *)malloc (sizeof(int));
 	*(rules->sb_has_died) = 0;
 	return (rules);
 }
