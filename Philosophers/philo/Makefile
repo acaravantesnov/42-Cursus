@@ -10,6 +10,9 @@ SRCS =	main.c \
 		./sources/ft_calloc.c \
 		./sources/info.c \
 		./sources/freeandreturn.c \
+		./sources/elapsed_time.c \
+		./sources/philosopher.c \
+
 
 FLAGS = -Wall -Wextra -Werror -pthread
 
