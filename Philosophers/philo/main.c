@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 23:43:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/07 01:14:08 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/12 17:38:16 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main(int argc, char **argv)
 		init_var(rules, argv);
 		if (argc == 6)
 			rules->number_of_times_each_philosopher_must_eat = ft_atoi(argv[5]);
+		else
+			rules->number_of_times_each_philosopher_must_eat = 2147483647;
 	}
 	else
 	{

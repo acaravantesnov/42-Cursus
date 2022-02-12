@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 00:26:38 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/07 23:39:26 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/12 17:39:59 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ struct s_rules *rules, int *i)
 		*t_snc_sim_start = 0;
 		printf("%d %d is eating\n", \
 		elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
-		usleep(rules->time_to_eat * 1000);
+		mysleep(rules->time_to_eat * 1000);
 		i[2]++;
 		if (i[0] != (rules->number_of_philosophers - 1))
 		{
@@ -137,7 +137,7 @@ int	sleeping_and_thinking(struct s_rules *rules, int *i)
 			return (1);
 		printf("%d %d is sleeping\n", \
 		elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
-		usleep(rules->time_to_sleep * 1000);
+		mysleep(rules->time_to_sleep * 1000);
 		i[1] = 3;
 	}
 	if (i[1] == 3)
@@ -165,9 +165,8 @@ void	*philosopher(void *arg)
 	i[2] = 0;
 	t_snc_sim_start = elapsed_time(rules, &(rules->sim_start), 0);
 	t_snc_last_t_i_ate = 0;
-	rules->number_of_times_each_philosopher_must_eat = 1000000;
 	if (i[0] % 2 != 0)
-		usleep(100);
+		mysleep(100);
 	while (1)
 	{
 		if (may_die(&(last_t_i_ate), &(t_snc_sim_start), \

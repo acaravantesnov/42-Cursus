@@ -12,7 +12,7 @@ SRCS =	main.c \
 		./sources/freeandreturn.c \
 		./sources/elapsed_time.c \
 		./sources/philosopher.c \
-
+		./sources/mysleep.c \
 
 FLAGS = -Wall -Wextra -Werror -pthread
 
