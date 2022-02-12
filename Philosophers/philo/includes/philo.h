@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:07:02 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/12 18:35:36 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/12 19:52:38 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,11 @@ suseconds_t	elapsed_time(struct s_rules *rules, \
 struct timeval *last_time_i_ate, int opt);
 void		*philosopher(void *arg);
 void		mysleep(suseconds_t	time);
+int			may_die(struct timeval *last_t_i_ate, suseconds_t *t_snc_sim_start, \
+suseconds_t *t_snc_last_t_i_ate, struct s_rules *rules, int *i);
+int			waiting_to_eat(struct s_rules *rules, int *i);
+int			eating(struct timeval *last_t_i_ate, suseconds_t *t_snc_sim_start, \
+struct s_rules *rules, int *i);
+int			sleeping_and_thinking(struct s_rules *rules, int *i);
 
 #endif

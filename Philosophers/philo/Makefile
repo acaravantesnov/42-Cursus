@@ -12,6 +12,10 @@ SRCS =	main.c \
 		./sources/elapsed_time.c \
 		./sources/philosopher.c \
 		./sources/mysleep.c \
+		./sources/activities/may_die.c \
+		./sources/activities/waiting_to_eat.c \
+		./sources/activities/eating.c \
+		./sources/activities/sleeping_and_thinking.c \
 
 FLAGS = -Wall -Wextra -Werror -pthread
 
@@ -30,6 +34,7 @@ all: $(NAME)
 clean:
 	@rm -rf *.o
 	@rm -rf ./sources/ft/*.o
+	@rm -rf ./sources/activities/*.o
 	@echo "cleaning .o files"
 
 fclean: clean
