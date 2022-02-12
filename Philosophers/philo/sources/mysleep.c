@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:24:20 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/12 16:51:21 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/12 18:36:28 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	mysleep(suseconds_t	time)
 	{
 		gettimeofday(&t_actual, NULL);
 		dif = (t_actual.tv_sec - t_inicial.tv_sec) * 1000000;
-		dif += (t_actual.tv_usec - t_inicial.tv_usec);	
+		dif += (t_actual.tv_usec - t_inicial.tv_usec);
 	}
 }

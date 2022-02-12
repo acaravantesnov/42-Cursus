@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:07:02 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/12 17:17:51 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/12 18:35:36 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int			*ft_calloc(int size);
 suseconds_t	elapsed_time(struct s_rules *rules, \
 struct timeval *last_time_i_ate, int opt);
 void		*philosopher(void *arg);
-void		info(struct s_rules *rules);
-void	mysleep(suseconds_t	time);
+void		mysleep(suseconds_t	time);
 
 #endif

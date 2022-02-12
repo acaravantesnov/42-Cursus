@@ -8,7 +8,6 @@ SRCS =	main.c \
 		./sources/init_var.c \
 		./sources/ft_atoi.c \
 		./sources/ft_calloc.c \
-		./sources/info.c \
 		./sources/freeandreturn.c \
 		./sources/elapsed_time.c \
 		./sources/philosopher.c \

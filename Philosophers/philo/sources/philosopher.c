@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 00:26:38 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/12 17:39:59 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/12 18:44:08 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,30 +151,34 @@ int	sleeping_and_thinking(struct s_rules *rules, int *i)
 	return (0);
 }
 
+/*
+**	times[0] -> t_snc_sim_start
+**	times[1] -> t_snc_last_t_i_ate
+*/
+
 void	*philosopher(void *arg)
 {
 	int				i[3];
 	struct s_rules	*rules;
 	struct timeval	last_t_i_ate;
-	suseconds_t		t_snc_sim_start;
-	suseconds_t		t_snc_last_t_i_ate;
+	suseconds_t		times[2];
 
 	rules = arg;
 	i[0] = *(rules->iter);
 	i[1] = 0;
 	i[2] = 0;
-	t_snc_sim_start = elapsed_time(rules, &(rules->sim_start), 0);
-	t_snc_last_t_i_ate = 0;
+	times[0] = elapsed_time(rules, &(rules->sim_start), 0);
+	times[1] = 0;
 	if (i[0] % 2 != 0)
 		mysleep(100);
 	while (1)
 	{
-		if (may_die(&(last_t_i_ate), &(t_snc_sim_start), \
-		&(t_snc_last_t_i_ate), rules, i) == 1)
+		if (may_die(&(last_t_i_ate), &(times[0]), \
+		&(times[1]), rules, i) == 1)
 			return (NULL);
 		if (waiting_to_eat(rules, i) == 1)
 			return (NULL);
-		if (eating(&(last_t_i_ate), &(t_snc_sim_start), rules, i) == 1)
+		if (eating(&(last_t_i_ate), &(times[0]), rules, i) == 1)
 			return (NULL);
 		if (sleeping_and_thinking(rules, i) == 1)
 			return (NULL);
