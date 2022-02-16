@@ -5,6 +5,7 @@ RESIDUES =	a.out \
 			./sources/*.o \
 
 SRCS =	main.c \
+		./sources/parsing.c \
 		./sources/init_var.c \
 		./sources/ft_atoi.c \
 		./sources/ft_calloc.c \

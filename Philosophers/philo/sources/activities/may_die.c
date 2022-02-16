@@ -6,14 +6,14 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 19:16:28 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/12 19:52:27 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/17 00:07:51 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/philo.h"
 
-int	may_die(struct timeval *last_t_i_ate, suseconds_t *t_snc_sim_start, \
-suseconds_t *t_snc_last_t_i_ate, struct s_rules *rules, int *i)
+int	may_die1(suseconds_t *t_snc_sim_start, \
+struct s_rules *rules, int *i)
 {
 	if ((*t_snc_sim_start > (rules->time_to_die * 1000)) && \
 	(*t_snc_sim_start != 0))
@@ -25,6 +25,12 @@ suseconds_t *t_snc_last_t_i_ate, struct s_rules *rules, int *i)
 		pthread_mutex_unlock(rules->mutex_general);
 		return (1);
 	}
+	return (0);
+}
+
+int	may_die2(struct timeval *last_t_i_ate, suseconds_t *t_snc_last_t_i_ate, \
+struct s_rules *rules, int *i)
+{
 	if (i[2] > 0)
 	{
 		*t_snc_last_t_i_ate = elapsed_time (rules, last_t_i_ate, 1);

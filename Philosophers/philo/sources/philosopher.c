@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 00:26:38 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/12 19:51:59 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/17 00:07:48 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	*philosopher(void *arg)
 	initial_sleep(i);
 	while (1)
 	{
-		if (may_die(&(last_t_i_ate), &(times[0]), \
-		&(times[1]), rules, i) == 1)
+		if ((may_die1(&(times[0]), rules, i) == 1) || \
+		(may_die2(&(last_t_i_ate), &(times[1]), rules, i) == 1))
 			return (NULL);
 		if (waiting_to_eat(rules, i) == 1)
 			return (NULL);

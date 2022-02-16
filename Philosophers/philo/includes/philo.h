@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:07:02 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/12 19:52:38 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/17 00:07:45 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ struct	s_rules
 	struct timeval		sim_start;
 };
 
+int			parsing(int argc, char **argv, struct s_rules *rules, int *i);
 void		*init_var(struct s_rules *rules, char **argv);
 long		ft_atoi(char *str);
 int			freeandreturn(struct s_rules *rules, int *i);
@@ -44,7 +45,9 @@ suseconds_t	elapsed_time(struct s_rules *rules, \
 struct timeval *last_time_i_ate, int opt);
 void		*philosopher(void *arg);
 void		mysleep(suseconds_t	time);
-int			may_die(struct timeval *last_t_i_ate, suseconds_t *t_snc_sim_start, \
+int			may_die1(suseconds_t *t_snc_sim_start, \
+struct s_rules *rules, int *i);
+int			may_die2(struct timeval *last_t_i_ate, \
 suseconds_t *t_snc_last_t_i_ate, struct s_rules *rules, int *i);
 int			waiting_to_eat(struct s_rules *rules, int *i);
 int			eating(struct timeval *last_t_i_ate, suseconds_t *t_snc_sim_start, \

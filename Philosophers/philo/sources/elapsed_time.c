@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 00:23:57 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/07 22:05:56 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/17 00:07:50 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,15 @@
 
 void	opt1(struct s_rules *rules, suseconds_t *t)
 {
-	if ((rules->sim_start.tv_sec <= rules->t.tv_sec) && \
-	(rules->sim_start.tv_usec <= rules->t.tv_usec))
-		*t = ((rules->t.tv_sec - rules->sim_start.tv_sec) * 1000000) + \
-		(rules->t.tv_usec - rules->sim_start.tv_usec);
-	else if ((rules->sim_start.tv_sec <= rules->t.tv_sec) && \
-	(rules->sim_start.tv_usec > rules->t.tv_usec))
-		*t = ((rules->t.tv_sec - rules->sim_start.tv_sec) * 1000000) - \
-		(rules->sim_start.tv_usec - rules->t.tv_usec);
+	*t = ((rules->t.tv_sec - rules->sim_start.tv_sec) * 1000000) + \
+	(rules->t.tv_usec - rules->sim_start.tv_usec);
 }
 
 void	opt2(struct s_rules *rules, struct timeval *last_t_i_ate, \
 suseconds_t *t)
 {
-	if ((last_t_i_ate->tv_sec <= rules->t.tv_sec) && \
-	(last_t_i_ate->tv_usec <= rules->t.tv_usec))
-		*t = ((rules->t.tv_sec - last_t_i_ate->tv_sec) * 1000000) + \
-		(rules->t.tv_usec - last_t_i_ate->tv_usec);
-	else if ((last_t_i_ate->tv_sec <= rules->t.tv_sec) && \
-	(last_t_i_ate->tv_usec > rules->t.tv_usec))
-		*t = ((rules->t.tv_sec - last_t_i_ate->tv_sec) * 1000000) - \
-		(last_t_i_ate->tv_usec - rules->t.tv_usec);
+	*t = ((rules->t.tv_sec - last_t_i_ate->tv_sec) * 1000000) + \
+	(rules->t.tv_usec - last_t_i_ate->tv_usec);
 }
 
 suseconds_t	elapsed_time(struct s_rules *rules, struct timeval *last_t_i_ate, \
