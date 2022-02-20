@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 00:26:38 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/19 21:56:08 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/20 23:46:27 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 void	initial_sleep(int *i)
 {
 	if (i[0] % 2 != 0)
-		mysleep(100);
+		mysleep(1000);
 }
 
 void	*philosopher(void *arg)
