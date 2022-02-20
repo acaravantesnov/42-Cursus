@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 23:43:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/17 00:24:15 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/19 20:37:16 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	threads(struct s_rules *rules, int *i)
 	{
 		if (pthread_create(&rules->ph[*i], NULL, &philosopher, rules) != 0)
 			return (1);
-		usleep(100);
+		mysleep(100);
 		(*i)++;
 	}
 	*i = 0;

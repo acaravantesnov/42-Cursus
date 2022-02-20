@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 15:43:26 by acaravan          #+#    #+#             */
-/*   Updated: 2021/09/03 03:12:46 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/19 17:05:45 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	ft_toupper(char c)
 	return (c);
 }
 
-int	main(int argc, char *argv[])
+int	main(int argc, char **argv)
 {
 	int i;
 	int j;
