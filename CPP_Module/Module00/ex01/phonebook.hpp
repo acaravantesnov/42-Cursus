@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 23:44:08 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/19 18:03:23 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/21 01:15:22 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 # include <iostream>
 # include <string.h>
+# include <iomanip>
 
 class	contact
 {
@@ -54,6 +55,7 @@ class	phonebook
 {
 	private:
 		contact	arr[8];
+		int		_oldestindex;
 		int		_numberofContacts;
 		int		_exit;
 	public:
@@ -65,62 +67,95 @@ class	phonebook
 		phonebook()
 		{
 			_numberofContacts = 0;
+			_oldestindex = 0;
 			_exit = 0;
 		}
 };
 
 void	phonebook::add()
 {
-	_numberofContacts++;
-	std::string string;
-	std::cout << "\n*-------------------------------------------*" << std::endl;
-	std::cout << "\n    First Name: "; std::getline(std::cin, string); this->arr[_numberofContacts - 1].set_firstName(string);
-	std::cout << "    Last Name: "; std::getline(std::cin, string); this->arr[_numberofContacts - 1].set_lastName(string);
-	std::cout << "    Nickname: "; std::getline(std::cin, string); this->arr[_numberofContacts - 1].set_nickName(string);
-	std::cout << "    Phone Number: "; std::getline(std::cin, string); this->arr[_numberofContacts - 1].set_phone(string);
-	std::cout << "    Darkest Secret: "; std::getline(std::cin, string); this->arr[_numberofContacts - 1].set_darkestSecret(string);
-	std::cout << "\n*-------------------------------------------*" << std::endl;
+	if (_numberofContacts <= 8)
+		_numberofContacts++;
+	if (_oldestindex == 8)
+		_oldestindex = 0;
+	if (_numberofContacts > 8)
+	{
+		std::string string;
+		std::cout << "\n*-------------------------------------------*" << std::endl;
+		std::cout << "\n    First Name: "; getline(std::cin, string); this->arr[_oldestindex].set_firstName(string);
+		std::cout << "    Last Name: "; getline(std::cin, string); this->arr[_oldestindex].set_lastName(string);
+		std::cout << "    Nickname: "; getline(std::cin, string); this->arr[_oldestindex].set_nickName(string);
+		std::cout << "    Phone Number: ";getline(std::cin, string); this->arr[_oldestindex].set_phone(string);
+		std::cout << "    Darkest Secret: "; getline(std::cin, string); this->arr[_oldestindex].set_darkestSecret(string);
+		std::cout << "\n*-------------------------------------------*" << std::endl;
+		_oldestindex++;
+	}
+	else
+	{
+		std::string string;
+		std::cout << "\n*-------------------------------------------*" << std::endl;
+		std::cout << "\n    First Name: "; getline(std::cin, string); this->arr[_numberofContacts - 1].set_firstName(string);
+		std::cout << "    Last Name: "; getline(std::cin, string); this->arr[_numberofContacts - 1].set_lastName(string);
+		std::cout << "    Nickname: "; getline(std::cin, string); this->arr[_numberofContacts - 1].set_nickName(string);
+		std::cout << "    Phone Number: "; getline(std::cin, string); this->arr[_numberofContacts - 1].set_phone(string);
+		std::cout << "    Darkest Secret: "; getline(std::cin, string); this->arr[_numberofContacts - 1].set_darkestSecret(string);
+		std::cout << "\n*-------------------------------------------*" << std::endl;
+	}
 }
 
 int		phonebook::search()
 {
 	std::string	string;
+	int			index;
 	if (_numberofContacts > 0)
 	{
 		std::cout << "\n*-------------------------------------------*" << std::endl;
 		std::cout << "|     INDEX| FIRSTNAME|  LASTNAME|  NICKNAME|" << std::endl;
 		std::cout << "*-------------------------------------------*" << std::endl;
-		for(int i = 0; i < _numberofContacts; i++)
-		{			
-			std::cout << "|"; std::cout.width(10); std::cout << std::right << i + 1;
+		for(int i = 0; (i < _numberofContacts) && (i < 8); i++)
+		{	
+			std::cout << "|"; std::cout << std::setw(10) << std::right << i + 1;
 			
 			if (this->arr[i].get_firstName().length() > 9)
 			{
 				string = this->arr[i].get_firstName().substr(0, 9);
-				std::cout << "|"; std::cout.width(10);  std::cout << std::right << string << ".";
+				std::cout << "|"; std::cout << std::setw(10) << std::right << string.append(".");
 			}
 			else
-				std::cout << "|"; std::cout.width(10);  std::cout << std::right << this->arr[i].get_firstName();
+				std::cout << "|"; std::cout << std::setw(10) << std::right << this->arr[i].get_firstName();
 
-			string = this->arr[i].get_lastName().substr(0, 9);
+			
 			if (this->arr[i].get_lastName().length() > 9)
 			{
-				std::cout << "|"; std::cout.width(10); std::cout <<  std::right << string << ".";
+				string = this->arr[i].get_lastName().substr(0, 9);
+				std::cout << "|"; std::cout << std::setw(10) << std::right << string.append(".");
 			}
 			else
-				std::cout << "|"; std::cout.width(10); std::cout <<  std::right << this->arr[i].get_lastName();
-			string = this->arr[i].get_nickName().substr(0, 9);
+				std::cout << "|"; std::cout << std::setw(10) << std::right << this->arr[i].get_lastName();
 			
 			if (this->arr[i].get_nickName().length() > 9)
 			{
-				std::cout << "|"; std::cout.width(10); std::cout <<  std::right << string << ".";
+				string = this->arr[i].get_nickName().substr(0, 9);
+				std::cout << "|"; std::cout << std::setw(10) << std::right << string.append(".");
 			}
 			else
-				std::cout << "|"; std::cout.width(10); std::cout <<  std::right << this->arr[i].get_nickName();
-			std::cout << "|"; std::cout.width(1); std::cout << "\n";
+				std::cout << "|"; std::cout << std::setw(10) <<  std::right << this->arr[i].get_nickName();
+			std::cout << "|"; std::setw(1); std::cout << "\n";
 			
 		}
-		std::cout << "*-------------------------------------------*" << std::endl;
+		std::cout << "*-------------------------------------------*\n" << std::endl;
+		std::cout << "Select a valid index: "; std::cin >> index;
+		while ((!std::cin.good()) || (index < 1) || (index > _numberofContacts))
+		{
+			std::cout << "ERROR: Introduce valid numeric value\n";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+			std::cout << "\nSelect a valid index: "; std::cin >> index;
+			std::cin.clear();
+		}
+		std::cout << "\n|	     INFO ABOUT CONTACT " << index << "           |\n";
+
+		
 	}
 	else
 		return (1);

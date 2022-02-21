@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 23:42:30 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/19 17:37:29 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/21 01:15:22 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	main(void)
 	while(book.get_exit() != 1)
 	{
 		std::cout << std::endl;
-		std::cout << "    Command: "; std::getline(std::cin, command);
+		std::cin.clear();
+		std::cout << "    Command: "; getline(std::cin, command);
 	
 		if (command.compare("ADD") == 0)
 			book.add();
