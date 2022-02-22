@@ -13,7 +13,7 @@ CC = clang++ -g
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+	$(CC) $(FLAGS) $(SRCS)
 
 all: $(NAME)
 
