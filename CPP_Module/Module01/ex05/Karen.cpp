@@ -20,7 +20,7 @@ void	Karen::_error( void )
 	std::cout << "[ERROR] This is unacceptable, I want to speak to the manager now." << std::endl;
 }
 
-void	Karen::complain( std::string level )
+/*void	Karen::complain( std::string level )
 {
 	t_search	options[4] = {
 		{"DEBUG", &Karen::_debug},
@@ -37,4 +37,9 @@ void	Karen::complain( std::string level )
 			break ;
 		}
 	}
+}*/
+
+void	Karen::complain( std::string level )
+{
+	
 }

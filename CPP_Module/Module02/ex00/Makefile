@@ -1,10 +1,9 @@
-NAME = a.out
-
-RESIDUES = a.out.dSYM \
+NAME = Fixed
 
 SRCS =	main.cpp \
-		Zombie.cpp \
-		ZombieHorde.cpp \
+		Fixed.cpp \
+
+RESIDUES =	./Fixed.dSYM \
 
 FLAGS = -Wall -Wextra -Werror
 
