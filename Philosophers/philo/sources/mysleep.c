@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:24:20 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/20 23:51:25 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/22 18:07:55 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ suseconds_t	gettime(struct timeval time)
 
 void	mysleep(suseconds_t time)
 {
-	struct	timeval	t_actual;
+	struct timeval	t_actual;
 	suseconds_t		end_time;
 
 	gettimeofday(&t_actual, NULL);
