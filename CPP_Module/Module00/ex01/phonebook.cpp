@@ -28,9 +28,8 @@ int	main(void)
 	while(book.get_exit() != 1)
 	{
 		std::cout << std::endl;
-		std::cin.clear();
-		std::cout << "    Command: "; getline(std::cin, command);
-	
+		std::cout << "    Command: "; std::cin >> command;
+		std::cin.ignore();
 		if (command.compare("ADD") == 0)
 			book.add();
 		else if (command.compare("SEARCH") == 0)

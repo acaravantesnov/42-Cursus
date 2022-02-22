@@ -63,7 +63,7 @@ class	phonebook
 		int		search();
 		void	exitcmd();
 		int		&get_exit() {return (_exit);}
-		
+
 		phonebook()
 		{
 			_numberofContacts = 0;
@@ -113,35 +113,40 @@ int		phonebook::search()
 		std::cout << "|     INDEX| FIRSTNAME|  LASTNAME|  NICKNAME|" << std::endl;
 		std::cout << "*-------------------------------------------*" << std::endl;
 		for(int i = 0; (i < _numberofContacts) && (i < 8); i++)
-		{	
+		{
 			std::cout << "|"; std::cout << std::setw(10) << std::right << i + 1;
-			
+
 			if (this->arr[i].get_firstName().length() > 9)
 			{
 				string = this->arr[i].get_firstName().substr(0, 9);
 				std::cout << "|"; std::cout << std::setw(10) << std::right << string.append(".");
 			}
 			else
+			{
 				std::cout << "|"; std::cout << std::setw(10) << std::right << this->arr[i].get_firstName();
+			}
 
-			
 			if (this->arr[i].get_lastName().length() > 9)
 			{
 				string = this->arr[i].get_lastName().substr(0, 9);
 				std::cout << "|"; std::cout << std::setw(10) << std::right << string.append(".");
 			}
 			else
+			{
 				std::cout << "|"; std::cout << std::setw(10) << std::right << this->arr[i].get_lastName();
-			
+			}
+
 			if (this->arr[i].get_nickName().length() > 9)
 			{
 				string = this->arr[i].get_nickName().substr(0, 9);
 				std::cout << "|"; std::cout << std::setw(10) << std::right << string.append(".");
 			}
 			else
+			{
 				std::cout << "|"; std::cout << std::setw(10) <<  std::right << this->arr[i].get_nickName();
+			}
 			std::cout << "|"; std::setw(1); std::cout << "\n";
-			
+
 		}
 		std::cout << "*-------------------------------------------*\n" << std::endl;
 		std::cout << "Select a valid index: "; std::cin >> index;
@@ -153,9 +158,13 @@ int		phonebook::search()
 			std::cout << "\nSelect a valid index: "; std::cin >> index;
 			std::cin.clear();
 		}
-		std::cout << "\n|	     INFO ABOUT CONTACT " << index << "           |\n";
+		std::cout << "\n*	     INFO ABOUT CONTACT " << index << "           *\n" << std::endl;
+		std::cout << "  First Name: " << this->arr[index - 1].get_firstName() << std::endl;
+		std::cout << "  Last Name: " << this->arr[index - 1].get_lastName() << std::endl;
+		std::cout << "  Nickname: " << this->arr[index - 1].get_nickName() << std::endl;
+		std::cout << "  Phone Number: " << this->arr[index - 1].get_phone() << std::endl;
+		std::cout << "  Darkest Secret: " << this->arr[index - 1].get_darkestSecret() << std::endl;
 
-		
 	}
 	else
 		return (1);

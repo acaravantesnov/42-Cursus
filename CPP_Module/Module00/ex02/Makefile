@@ -5,8 +5,8 @@ CLANG = clang++
 
 FLAGS = -Wall -Wextra -Werror
 
-RESIDUES =	phonebook \
-			a.out \
+RESIDUES =	a.out \
+			Account.hpp.gch \
 
 all:
 	$(CLANG) $(FLAGS) $(SOURCES)
