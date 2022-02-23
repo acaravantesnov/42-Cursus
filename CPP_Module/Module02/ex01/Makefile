@@ -1,3 +1,5 @@
+NAME = a.out
+
 SRCS =	main.cpp \
 		Fixed.cpp \
 

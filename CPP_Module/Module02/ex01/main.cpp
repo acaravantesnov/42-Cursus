@@ -6,14 +6,20 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:16 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/23 00:07:57 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:53:28 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
 
-int main( void ) {
+int	main()
+{
+	Fixed const c(42.42f);
+	return (0);
+}
+
+/*int main( void ) {
 
 	Fixed a;
 	Fixed const b( 10 );
@@ -33,7 +39,7 @@ int main( void ) {
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 
 	return 0;
-}
+}*/
 
 /*
 Default constructor called

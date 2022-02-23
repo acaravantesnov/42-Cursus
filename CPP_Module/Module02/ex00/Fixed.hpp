@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:14 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/22 23:54:55 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:55:26 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class	Fixed
 {
 	private:
-		int	_value;
+		int					_RawBits;
 		static const int	_bits = 8;
 	public:
 		Fixed(); //Default Constructor
