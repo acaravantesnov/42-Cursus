@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:12 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/23 18:25:50 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/25 00:39:00 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ Fixed	Fixed::operator=(const Fixed &f2)
 
 int	Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (_RawBits);
 }
 
@@ -60,21 +59,20 @@ Fixed::Fixed(const float floating_point)
 {
 	std::cout << "Float constructor called" << std::endl;
 	this->_RawBits = roundf(floating_point * (1 << Fixed::_bits));
-	std::cout << this->_RawBits << std::endl;
 }
 
 float	Fixed::toFloat( void ) const
 {
-	return (0);
+	return ((float)this->_RawBits / (float)(1 << Fixed::_bits));
 }
 
 int		Fixed::toInt( void ) const
 {
-	return (0);
+	return (this->_RawBits >> Fixed::_bits);
 }
 
 std::ostream	&operator<<(std::ostream &stream, Fixed const &f)
 {
-	stream << f.getRawBits();
+	stream << f.toFloat();
 	return (stream);
 }

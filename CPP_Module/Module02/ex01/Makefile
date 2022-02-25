@@ -4,6 +4,7 @@ SRCS =	main.cpp \
 		Fixed.cpp \
 
 RESIDUES =	./Fixed.dSYM \
+			./a.out.dSYM \
 
 FLAGS = -Wall -Wextra -Werror
 
