@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:12 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/25 11:09:52 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/02/25 21:13:42 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,92 @@ std::ostream	&operator<<(std::ostream &stream, Fixed const &f)
 
 /*-----------------ex02-----------------*/
 
+bool	Fixed::operator>(Fixed const &f) const
+{
+	if (this->_RawBits > f.getRawBits())
+		return (true);
+	return (false);
+}
 
+bool	Fixed::operator<(Fixed const &f) const
+{
+	if (this->_RawBits < f.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator>=(Fixed const &f) const
+{
+	if (this->_RawBits >= f.getRawBits())
+		return (true);
+	return (false);	
+}
+
+bool	Fixed::operator<=(Fixed const &f) const
+{
+	if (this->_RawBits <= f.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator==(Fixed const &f) const
+{
+	if (this->_RawBits == f.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator!=(Fixed const &f) const
+{
+	if (this->_RawBits != f.getRawBits())
+		return (true);
+	return (false);
+}
+
+Fixed	Fixed::operator+(Fixed const &f)
+{
+	this->_RawBits += f._RawBits;
+	return (*this);
+}
+
+Fixed	Fixed::operator-(Fixed const &f)
+{
+	this->_RawBits -= f._RawBits;
+	return (*this);
+}
+
+Fixed	Fixed::operator*(Fixed const &f)
+{
+	this->_RawBits *= f._RawBits;
+	return (*this);
+}
+
+Fixed	Fixed::operator/(Fixed const &f)
+{
+	this->_RawBits /= f._RawBits;
+	return (*this);
+}
+
+Fixed	Fixed::operator++() //Pre-increment
+{
+	this->_RawBits++;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int) //Post-increment
+{
+	this->_RawBits++;
+	return (*this);
+}
+
+Fixed	Fixed::operator--() //Pre-decrement
+{
+	this->_RawBits--;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int) //Post-decrement
+{
+	this->_RawBits--;
+	return (*this);
+}
