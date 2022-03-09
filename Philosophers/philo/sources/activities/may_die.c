@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 19:16:28 by acaravan          #+#    #+#             */
-/*   Updated: 2022/03/09 22:16:29 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/03/09 22:45:14 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	may_die1(suseconds_t *t_snc_sim_start, \
 struct s_rules *rules, int *i)
 {
+	if (*(rules->sb_has_died) == 1)
+		return (1);
 	if ((*t_snc_sim_start > (rules->time_to_die * 1000)) && \
 	(*t_snc_sim_start != 0))
 	{

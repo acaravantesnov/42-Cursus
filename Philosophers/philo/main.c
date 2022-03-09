@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 23:43:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/03/09 22:39:48 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/03/09 23:06:19 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,11 @@ void	destroy_mutexes(struct s_rules *rules)
 	pthread_mutex_destroy(rules->sb_has_died_mutex);
 }
 
-void	leaks()
-{
-	system("leaks philo");
-}
-
 int	main(int argc, char **argv)
 {
 	int				*i;
 	struct s_rules	*rules;
 
-	atexit(leaks);
 	i = malloc(sizeof(int));
 	*i = 0;
 	rules = malloc(sizeof(struct s_rules));

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 00:06:49 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/17 00:43:14 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/03/09 23:02:46 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	freeall(struct s_rules *rules, int *i)
 	free(rules->mutex_general);
 	free(rules->mutex);
 	free(rules->sb_has_died);
+	free(rules->sb_has_died_mutex);
 	free(i);
 	free(rules);
 	return (1);
