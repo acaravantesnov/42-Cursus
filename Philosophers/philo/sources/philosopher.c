@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 00:26:38 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/22 17:54:39 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/03/09 22:15:12 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@
 **	times[1] -> t_snc_last_t_i_ate
 */
 
-void	initial_sleep(int *i)
+void	initial_sleep(int *i, struct s_rules *rules)
 {
 	if (i[0] % 2 != 0)
-		mysleep(1000);
+		mysleep(1000, rules);
 }
 
 void	*philosopher(void *arg)
@@ -45,7 +45,7 @@ void	*philosopher(void *arg)
 	i[2] = 0;
 	times[0] = elapsed_time(rules, &(rules->sim_start), 0);
 	times[1] = 0;
-	initial_sleep(i);
+	initial_sleep(i, rules);
 	while (1)
 	{
 		if ((may_die1(&(times[0]), rules, i) == 1) || \

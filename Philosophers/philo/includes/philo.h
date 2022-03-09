@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:07:02 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/17 00:07:45 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/03/09 22:13:36 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ struct	s_rules
 	int					*iter;
 	pthread_mutex_t		*mutex;
 	pthread_mutex_t		*mutex_general;
+	pthread_mutex_t		*sb_has_died_mutex;
 	struct timeval		t;
 	struct timeval		sim_start;
 };
@@ -44,7 +45,7 @@ int			*ft_calloc(int size);
 suseconds_t	elapsed_time(struct s_rules *rules, \
 struct timeval *last_time_i_ate, int opt);
 void		*philosopher(void *arg);
-void		mysleep(suseconds_t	time);
+void		mysleep(suseconds_t	time, struct s_rules *rules);
 int			may_die1(suseconds_t *t_snc_sim_start, \
 struct s_rules *rules, int *i);
 int			may_die2(struct timeval *last_t_i_ate, \

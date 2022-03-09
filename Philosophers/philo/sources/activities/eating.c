@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 19:18:15 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/12 19:38:16 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/03/09 22:15:11 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ struct s_rules *rules, int *i)
 		*t_snc_sim_start = 0;
 		printf("%d %d is eating\n", \
 		elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
-		mysleep(rules->time_to_eat * 1000);
+		mysleep(rules->time_to_eat * 1000, rules);
 		i[2]++;
 		if (i[0] != (rules->number_of_philosophers - 1))
 			anyfilo_eating(rules, i);

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 19:16:28 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/17 00:07:51 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/03/09 22:16:29 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ struct s_rules *rules, int *i)
 	{
 		printf("%d %d has died\n", \
 		elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
-		pthread_mutex_lock(rules->mutex_general);
+		pthread_mutex_lock(rules->sb_has_died_mutex);
 		*(rules->sb_has_died) = 1;
-		pthread_mutex_unlock(rules->mutex_general);
+		pthread_mutex_unlock(rules->sb_has_died_mutex);
 		return (1);
 	}
 	return (0);
@@ -39,9 +39,9 @@ struct s_rules *rules, int *i)
 		{
 			printf("%d %d has died\n", \
 			elapsed_time(rules, &(rules->sim_start), 0) / 1000, i[0] + 1);
-			pthread_mutex_lock(rules->mutex_general);
+			pthread_mutex_lock(rules->sb_has_died_mutex);
 			*(rules->sb_has_died) = 1;
-			pthread_mutex_unlock(rules->mutex_general);
+			pthread_mutex_unlock(rules->sb_has_died_mutex);
 			return (1);
 		}
 		if (i[2] >= rules->number_of_times_each_philosopher_must_eat)

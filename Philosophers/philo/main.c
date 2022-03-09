@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 23:43:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/22 18:02:38 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/03/09 22:39:48 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	init_mutexes(struct s_rules *rules)
 		j++;
 	}
 	pthread_mutex_init(rules->mutex_general, NULL);
+	pthread_mutex_init(rules->sb_has_died_mutex, NULL);
 }
 
 int	threads(struct s_rules *rules, int *i)
@@ -33,7 +34,7 @@ int	threads(struct s_rules *rules, int *i)
 	{
 		if (pthread_create(&rules->ph[*i], NULL, &philosopher, rules) != 0)
 			return (1);
-		mysleep(1000);
+		mysleep(1000, rules);
 		(*i)++;
 	}
 	*i = 0;
@@ -57,6 +58,12 @@ void	destroy_mutexes(struct s_rules *rules)
 		j++;
 	}
 	pthread_mutex_destroy(rules->mutex_general);
+	pthread_mutex_destroy(rules->sb_has_died_mutex);
+}
+
+void	leaks()
+{
+	system("leaks philo");
 }
 
 int	main(int argc, char **argv)
@@ -64,6 +71,7 @@ int	main(int argc, char **argv)
 	int				*i;
 	struct s_rules	*rules;
 
+	atexit(leaks);
 	i = malloc(sizeof(int));
 	*i = 0;
 	rules = malloc(sizeof(struct s_rules));

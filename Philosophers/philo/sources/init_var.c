@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 18:03:20 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/07 21:55:53 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/03/09 22:34:56 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ void	*init_var(struct s_rules *rules, char **argv)
 	sizeof(pthread_mutex_t));
 	rules->sb_has_died = (int *)malloc (sizeof(int));
 	*(rules->sb_has_died) = 0;
+	rules->sb_has_died_mutex = (pthread_mutex_t *) \
+	malloc (sizeof(pthread_mutex_t));
 	return (rules);
 }
