@@ -3,7 +3,7 @@ SOURCES =	./tests.cpp \
 
 CLANG = clang++
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 RESIDUES =	a.out \
 			Account.hpp.gch \
