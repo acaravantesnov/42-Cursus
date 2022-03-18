@@ -1,13 +1,16 @@
-NAME = a.out
+NAME = BraiiiiiiinnnzzzZ
+
+RESIDUES =	*.dSYM \
+			a.out
 
 SRCS =		main.cpp \
 			Zombie.cpp \
 			newZombie.cpp \
 			randomChump.cpp \
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-OBJS = $(SRCS:.cpp=.o)
+OBJS =	$(SRCS:.cpp=.o)
 
 CC = clang++ -g
 

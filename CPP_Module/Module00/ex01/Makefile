@@ -6,7 +6,7 @@ OBJS			= $(SRCS:.cpp=.o)
 
 GCC				= clang++
 RM				= rm -f
-FLAGS			= -Wall -Wextra -Werror -std=c++98 -pedantic -I.
+FLAGS			= -Wall -Wextra -Werror -std=c++98 -pedantic
 
 NAME			= phonebook
 

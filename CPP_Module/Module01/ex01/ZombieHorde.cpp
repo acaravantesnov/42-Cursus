@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:16:13 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/22 20:00:42 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/03/18 21:42:08 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,3 @@ Zombie* zombieHorde( int N, std::string name )
 		z[i] = Zombie(name);
 	return (z);
 }
- 
