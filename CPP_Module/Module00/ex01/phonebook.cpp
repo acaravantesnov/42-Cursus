@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 23:42:30 by acaravan          #+#    #+#             */
-/*   Updated: 2022/03/17 23:35:33 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/03/18 20:46:41 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		&phonebook::get_exit()
 
 void	phonebook::add()
 {
-	if (_numberofContacts <= 8)
+	if (_numberofContacts < 8)
 		_numberofContacts++;
 	if (_oldestindex == 8)
 		_oldestindex = 0;
