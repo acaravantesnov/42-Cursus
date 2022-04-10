@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 03:36:17 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/10 03:29:42 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/04/10 04:23:46 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ Replace::~Replace()
 int	Replace::replace()
 {
 	std::string		text;
-	std::string		text_copy;
 	std::string		*aux = &text;
 	int				pos;
 	std::ifstream	fileRead;
@@ -45,7 +44,6 @@ int	Replace::replace()
 	if (!(fileWrite.good()))
 		return (1);
 	std::getline (fileRead, text, '\0');
-	text_copy = text;
 	if ((text.find(_s1) < 0) || (text.find(_s1) >= text.length()))
 		fileWrite << text;
 	else
@@ -55,7 +53,6 @@ int	Replace::replace()
 		{
 			text.erase(pos, _s1.length());
 			text.insert(pos, _s2);
-			text_copy += pos + _s1.length();
 			pos = text.find(_s1);
 		}
 		fileWrite << *aux;
