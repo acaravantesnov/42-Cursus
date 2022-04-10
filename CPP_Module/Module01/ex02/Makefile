@@ -1,26 +1,26 @@
-NAME = a.out
+SRCS			=	main.cpp
 
-SRCS =		main.cpp \
+OBJS			= $(SRCS:.cpp=.o)
 
-FLAGS = -Wall -Wextra -Werror
+GCC				= clang++
+RM				= rm -f
+FLAGS			= -Wall -Wextra -Werror -std=c++98 -pedantic
 
-OBJS = $(SRCS:.cpp=.o)
+NAME			= HI_THIS_IS_BRAIN
 
-CC = clang++ -g
+all:			$(NAME)
 
-%.o: %.cpp
-	$(CC) $(FLAGS) -c $< -o $@
-
-$(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(SRCS) -o $(NAME)
-
-all: $(NAME)
+$(NAME):		$(OBJS)
+				$(GCC) $(FLAGS) -g -o $(NAME) $(OBJS)
 
 clean:
-	@rm -rf $(OBJS)
-	@echo "cleaning .o files"
+				$(RM) $(OBJS)
 
-fclean: clean
-	@rm -rf $(NAME) $(RESIDUES)
+fclean:			clean
+				$(RM) $(NAME)
 
-re: fclean all
+re:				fclean $(NAME)
+
+test:			$(NAME)
+
+.PHONY:			all clean fclean re test

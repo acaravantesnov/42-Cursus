@@ -6,11 +6,16 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 02:10:44 by acaravan          #+#    #+#             */
-/*   Updated: 2022/03/18 21:23:51 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/04/10 01:41:51 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+Zombie::Zombie()
+{
+	std::cout << "Zombie constructor called!" << std::endl;
+}
 
 Zombie::Zombie(std::string name)
 {

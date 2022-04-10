@@ -1,31 +1,28 @@
-NAME = Moar_brainz!
+SRCS			=	main.cpp \
+					Zombie.cpp \
+					ZombieHorde.cpp
 
-RESIDUES =	*.dSYM \
-			a.out
+OBJS			= $(SRCS:.cpp=.o)
 
-SRCS =	main.cpp \
-		Zombie.cpp \
-		ZombieHorde.cpp \
+GCC				= clang++
+RM				= rm -f
+FLAGS			= -Wall -Wextra -Werror -std=c++98 -pedantic
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+NAME			= Moar_brainz!
 
-OBJS =	$(SRCS:.cpp=.o) \
+all:			$(NAME)
 
-CC = clang++ -g
-
-%.o: %.cpp
-	$(CC) $(FLAGS) -c $< -o $@
-
-$(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(SRCS) -o $(NAME)
-
-all: $(NAME)
+$(NAME):		$(OBJS)
+				$(GCC) $(FLAGS) -g -o $(NAME) $(OBJS)
 
 clean:
-	@rm -rf $(OBJS)
-	@echo "cleaning .o files"
+				$(RM) $(OBJS)
 
-fclean: clean
-	@rm -rf $(NAME) $(RESIDUES)
+fclean:			clean
+				$(RM) $(NAME)
 
-re: fclean all
+re:				fclean $(NAME)
+
+test:			$(NAME)
+
+.PHONY:			all clean fclean re test
