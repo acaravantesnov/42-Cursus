@@ -1,29 +1,27 @@
-NAME = a.out
+SRCS			=	main.cpp \
+					ClapTrap.cpp
 
-SRCS =	main.cpp \
-		ClapTrap.cpp \
+OBJS			= $(SRCS:.cpp=.o)
 
-RESIDUES =	./a.out.dSYM \
+GCC				= clang++
+RM				= rm -f
+FLAGS			= -Wall -Wextra -Werror -std=c++98 -pedantic
 
-FLAGS = -Wall -Wextra -Werror
+NAME			= ClapTrap
 
-OBJS = $(SRCS:.cpp=.o)
+all:			$(NAME)
 
-CC = clang++ -g
-
-%.o: %.cpp
-	$(CC) $(FLAGS) -c $< -o $@
-
-$(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(SRCS)
-
-all: $(NAME)
+$(NAME):		$(OBJS)
+				$(GCC) $(FLAGS) -g -o $(NAME) $(OBJS)
 
 clean:
-	@rm -rf $(OBJS)
-	@echo "cleaning .o files"
+				$(RM) $(OBJS)
 
-fclean: clean
-	@rm -rf $(NAME) $(RESIDUES)
+fclean:			clean
+				$(RM) $(NAME)
 
-re: fclean all
+re:				fclean $(NAME)
+
+test:			$(NAME)
+
+.PHONY:			all clean fclean re test

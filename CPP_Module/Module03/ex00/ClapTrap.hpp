@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 01:32:20 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/26 04:33:10 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/04/10 19:04:30 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,19 @@ class	ClapTrap
 		std::string			&getName();
 		void				setName(std::string &Name);
 		int					&getHitpoints();
-		void				setHitpoints(int &Hitpoints);
+		void				setHitpoints(int Hitpoints);
 		int					&getEnergyPoints();
-		void				setEnergyPoints(int &EnergyPoints);
+		void				setEnergyPoints(int EnergyPoints);
 		int					&getAttackDamage();
-		void				setAttackDamage(int &AttackDamage);
-		
+		void				setAttackDamage(int AttackDamage);
+
 		ClapTrap			&operator=(ClapTrap const &clapTrap2);
-		friend std::ostream	&operator<<(std::ostream &stream, ClapTrap const &clapTrap2);
-		
+
 		void				attack(std::string const & target);
 		void				takeDamage(unsigned int amount);
 		void				beRepaired(unsigned int amount);
 };
+
+std::ostream	&operator<<(std::ostream &stream, ClapTrap &clapTrap2);
 
 #endif

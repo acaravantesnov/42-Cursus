@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:46 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/10 19:20:04 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/04/10 19:30:50 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap()
+FragTrap::FragTrap()
 {
 	ClapTrap();
-	std::cout << "DEFAULT SCAVTRAP CONSTRUCTOR CALLED" << std::endl;
+	std::cout << "DEFAULT FRAGTRAP CONSTRUCTOR CALLED" << std::endl;
 }
 
-ScavTrap::ScavTrap(const std::string &Name) : ClapTrap(Name)
+FragTrap::FragTrap(const std::string &Name) : ClapTrap(Name)
 {
-	std::cout << "SCAVTRAP CONSTRUCTOR CALLED" << std::endl;
+	std::cout << "FRAGTRAP CONSTRUCTOR CALLED" << std::endl;
 	setHitpoints(100);
-	setEnergyPoints(50);
-	setAttackDamage(20);
+	setEnergyPoints(100);
+	setAttackDamage(30);
 }
 
-ScavTrap::ScavTrap(ScavTrap const &scavTrap)
+FragTrap::FragTrap(FragTrap const &fragTrap)
 {
-	std::cout << "SCAVTRAP COPY CONSTRUCTOR CALLED" << std::endl;
-	*this = scavTrap;
+	std::cout << "FRAGTRAP COPY CONSTRUCTOR CALLED" << std::endl;
+	*this = fragTrap;
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << "SCAVTRAP DESTRUCTOR CALLED" << std::endl;
+	std::cout << "FRAGTRAP DESTRUCTOR CALLED" << std::endl;
 	ClapTrap::~ClapTrap();
 }
 
-void ScavTrap::guardGate()
+void	FragTrap::highFivesGuys()
 {
-	std::cout << "ScavTrap have entered in Gate keeper mode." << std::endl;
+	std::cout << "HIGH FIVES GUYS!" << std::endl;
 }
