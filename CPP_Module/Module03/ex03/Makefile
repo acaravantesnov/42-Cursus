@@ -1,4 +1,5 @@
 SRCS			=	main.cpp \
+					DiamondTrap.cpp \
 					ClapTrap.cpp \
 					ScavTrap.cpp \
 					FragTrap.cpp
@@ -9,7 +10,7 @@ GCC				= clang++
 RM				= rm -f
 FLAGS			= -Wall -Wextra -Werror -std=c++98 -pedantic
 
-NAME			= FragTrap
+NAME			= DiamondTrap
 
 all:			$(NAME)
 

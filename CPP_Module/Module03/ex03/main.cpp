@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 01:42:02 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/10 19:33:18 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/04/11 13:01:17 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ int	main()
 	FragTrapB.highFivesGuys();
 
 	std::cout << std::endl;
+
+	std::cout << "\n---- DIAMONDTRAP MAIN ----\n" << std::endl;
 
 	return (0);
 }

@@ -6,24 +6,23 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:46 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/10 19:20:04 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/04/11 13:08:21 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() :	ClapTrap()
 {
-	ClapTrap();
 	std::cout << "DEFAULT SCAVTRAP CONSTRUCTOR CALLED" << std::endl;
 }
 
-ScavTrap::ScavTrap(const std::string &Name) : ClapTrap(Name)
+ScavTrap::ScavTrap(const std::string &Name) :	ClapTrap(Name)
 {
 	std::cout << "SCAVTRAP CONSTRUCTOR CALLED" << std::endl;
-	setHitpoints(100);
-	setEnergyPoints(50);
-	setAttackDamage(20);
+	_Hitpoints = 100;
+	_EnergyPoints = 50;
+	_AttackDamage = 20;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &scavTrap)

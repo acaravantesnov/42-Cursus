@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:43 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/10 19:29:51 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/04/11 13:08:13 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <iostream>
 # include <string>
 
-class	FragTrap: public ClapTrap
+class	FragTrap: virtual public ClapTrap
 {
 	public:
 		FragTrap();

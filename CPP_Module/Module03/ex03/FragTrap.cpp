@@ -6,24 +6,23 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:46 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/10 19:30:50 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/04/11 13:10:04 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() :	ClapTrap()
 {
-	ClapTrap();
 	std::cout << "DEFAULT FRAGTRAP CONSTRUCTOR CALLED" << std::endl;
 }
 
 FragTrap::FragTrap(const std::string &Name) : ClapTrap(Name)
 {
 	std::cout << "FRAGTRAP CONSTRUCTOR CALLED" << std::endl;
-	setHitpoints(100);
-	setEnergyPoints(100);
-	setAttackDamage(30);
+	_Hitpoints = 100;
+	_EnergyPoints = 100;
+	_AttackDamage = 30;
 }
 
 FragTrap::FragTrap(FragTrap const &fragTrap)
