@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 03:36:17 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/10 18:09:37 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/04 15:45:35 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 Replace::Replace() {}
 
-Replace::Replace(const std::string &fileName, const std::string &s1, const std::string &s2)
+Replace::Replace(const std::string &fileName, const std::string &s1, \
+const std::string &s2)
 {
 	std::cout << "Created object!" << std::endl;
 	_fileName = fileName;
@@ -29,8 +30,8 @@ Replace::~Replace()
 
 int	Replace::replace()
 {
-	std::string		text;
-	std::string		*aux = &text;
+	std::string		line;
+	std::string		*aux = &line;
 	int				pos;
 	std::ifstream	fileRead;
 	std::ofstream	fileWrite;
@@ -43,17 +44,17 @@ int	Replace::replace()
 	fileWrite.open(_fileName + ".replace", std::ios::out);
 	if (!(fileWrite.good()))
 		return (1);
-	std::getline (fileRead, text, '\0');
-	if (text.find(_s1) == std::string::npos)
-		fileWrite << text;
+	std::getline (fileRead, line, '\0');
+	if (line.find(_s1) == std::string::npos)
+		fileWrite << line;
 	else
 	{
-		pos = text.find(_s1);
+		pos = line.find(_s1);
 		while(pos != std::string::npos)
 		{
-			text.erase(pos, _s1.length());
-			text.insert(pos, _s2);
-			pos = text.find(_s1, pos + _s1.length());
+			line.erase(pos, _s1.length());
+			line.insert(pos, _s2);
+			pos = line.find(_s1, pos + _s2.length());
 		}
 		fileWrite << *aux;
 	}

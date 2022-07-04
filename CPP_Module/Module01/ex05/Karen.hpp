@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 19:02:00 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/10 04:27:52 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/04 15:50:44 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 class Karen
 {
 	private:
-		void	_debug( void );
-		void	_info( void);
-		void	_warning( void );
-		void	_error( void );
+		void	_debug(void);
+		void	_info(void);
+		void	_warning(void);
+		void	_error(void);
 	public:
-		void	complain( std::string level );
+		void	complain(std::string level);
 };
 
 

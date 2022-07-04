@@ -1,13 +1,25 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/07/03 20:05:25 by acaravan          #+#    #+#              #
+#    Updated: 2022/07/04 15:47:00 by acaravan         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME			=	replace
+
 SRCS			=	main.cpp \
 					replace.cpp
 
-OBJS			= $(SRCS:.cpp=.o)
+OBJS			=	$(SRCS:.cpp=.o)
 
-GCC				= clang++
-RM				= rm -f
-FLAGS			= -Wall -Wextra -Werror -std=c++98 -pedantic
-
-NAME			= replace
+GCC				=	clang++
+RM				=	rm -f
+FLAGS			=	-Wall -Wextra -Werror -std=c++98 -pedantic
 
 all:			$(NAME)
 

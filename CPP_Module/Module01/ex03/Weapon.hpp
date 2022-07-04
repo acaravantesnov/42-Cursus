@@ -6,15 +6,15 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 12:50:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/10 02:16:51 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/03 20:03:31 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WEAPON_HPP
 # define WEAPON_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 
 class	Weapon
 {
@@ -23,7 +23,7 @@ class	Weapon
 	public:
 		Weapon();
 		explicit Weapon(const std::string &type);
-		std::string	const &getType() const;
+		std::string	const getType() const;
 		void		setType(const std::string &type);
 };
 

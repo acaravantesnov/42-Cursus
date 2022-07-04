@@ -31,7 +31,8 @@ void	Karen::complain( std::string level )
 	void	(Karen::*ptr)(void);
 
 	for (int i = 0; i < 4; ++i) {
-		if (options[i].lev == level) {
+		if (options[i].lev == level)
+		{
 			ptr = options[i].f;
 			(this->*ptr)();
 			break ;

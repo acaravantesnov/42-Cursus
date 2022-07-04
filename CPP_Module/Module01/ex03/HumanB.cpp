@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 01:47:10 by acaravan          #+#    #+#             */
-/*   Updated: 2021/09/29 15:54:45 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/03 20:00:58 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	HumanB::attack()
 	std::cout << _name << " attacks with his " << _weaponB->getType() << std::endl;
 }
 
-std::string	&HumanB::getName()
+std::string	HumanB::getName() const
 {
 	return(_name);
 }
