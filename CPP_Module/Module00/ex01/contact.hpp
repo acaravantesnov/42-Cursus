@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 23:31:49 by acaravan          #+#    #+#             */
-/*   Updated: 2022/03/17 23:36:44 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/07 21:18:52 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CONTACT_HPP
 
 # include <iostream>
-# include <string.h>
+# include <string>
 # include <iomanip>
 # include <chrono>
 # include <thread>
@@ -41,8 +41,8 @@ class	contact
 		void		set_darkestSecret(std::string &darkestSecret);
 
 		contact();
-		contact(std::string firstName, std::string lastName, std::string nickName,
-		std::string phone, std::string darkestSecret);
+		contact(std::string firstName, std::string lastName, \
+		std::string nickName, std::string phone, std::string darkestSecret);
 };
 
 #endif
