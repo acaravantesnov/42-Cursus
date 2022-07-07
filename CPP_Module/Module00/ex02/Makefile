@@ -6,7 +6,7 @@
 #    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 15:07:57 by acaravan          #+#    #+#              #
-#    Updated: 2022/07/02 15:08:38 by acaravan         ###   ########.fr        #
+#    Updated: 2022/07/07 22:35:38 by acaravan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJS			=	$(SRCS:.cpp=.o)
 
 GCC				=	clang++
 RM				=	rm -f
-FLAGS			=	-Wall -Wextra -Werror -std=c++98 -pedantic
+FLAGS			=	-Wall -Wextra -Werror
 
 all:			$(NAME)
 
