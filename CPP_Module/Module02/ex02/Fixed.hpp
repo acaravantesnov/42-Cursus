@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:14 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/25 21:06:03 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/08 13:52:34 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ class	Fixed
 		int					_RawBits;
 		static const int	_bits = 8;
 	public:
-		Fixed(); //Default Constructor
-		Fixed(const Fixed &f); //Copy Constructor
-		virtual ~Fixed(); //Destructor
+		Fixed();
+		Fixed(const Fixed &f);
+		virtual ~Fixed();
 
-		int		getRawBits( void ) const; //Returns the raw value of the fixed point value
-		void	setRawBits( int const raw ); //Sets the raw value of the fixed point value.
+		int		getRawBits( void ) const;
+		void	setRawBits( int const raw );
 
 		Fixed(const int integer);
 		Fixed(const float floating_point);
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
 
-		Fixed	operator=(Fixed const &f2);
+		void	operator=(Fixed const &f2);
 
 		bool	operator>(Fixed const &f) const;
 		bool	operator<(Fixed const &f) const;

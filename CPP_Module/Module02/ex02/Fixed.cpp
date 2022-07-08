@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:12 by acaravan          #+#    #+#             */
-/*   Updated: 2022/02/25 21:13:42 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/08 13:53:30 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,26 @@
 
 /*-----------------ex00-----------------*/
 
-Fixed::Fixed() : _RawBits(0)
-{
-	std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed() : _RawBits(0) {}
 
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed() {}
 
 Fixed::Fixed(const Fixed &f)
 {
-	std::cout << "Copy constructor called" << std::endl;
-	this->_RawBits = f.getRawBits();
+	this->setRawBits(f.getRawBits());
 }
 
-Fixed	Fixed::operator=(const Fixed &f2)
+void	Fixed::operator=(const Fixed &f2)
 {
-	std::cout << "Assignation operator called" << std::endl;
-	this->_RawBits = f2.getRawBits();
-	return (*this);
+	this->setRawBits(f2.getRawBits());
 }
 
-int	Fixed::getRawBits( void ) const
+int	Fixed::getRawBits(void) const
 {
 	return (_RawBits);
 }
 
-void	Fixed::setRawBits( int const raw )
+void	Fixed::setRawBits(int const raw)
 {
 	this->_RawBits = raw;
 }
@@ -51,22 +42,20 @@ void	Fixed::setRawBits( int const raw )
 
 Fixed::Fixed(const int integer)
 {
-	std::cout << "Int constructor called" << std::endl;
 	this->_RawBits = (integer << Fixed::_bits);
 }
 
 Fixed::Fixed(const float floating_point)
 {
-	std::cout << "Float constructor called" << std::endl;
 	this->_RawBits = roundf(floating_point * (1 << Fixed::_bits));
 }
 
-float	Fixed::toFloat( void ) const
+float	Fixed::toFloat(void) const
 {
 	return ((float)this->_RawBits / (float)(1 << Fixed::_bits));
 }
 
-int		Fixed::toInt( void ) const
+int		Fixed::toInt(void) const
 {
 	return (this->_RawBits >> Fixed::_bits);
 }
@@ -97,7 +86,7 @@ bool	Fixed::operator>=(Fixed const &f) const
 {
 	if (this->_RawBits >= f.getRawBits())
 		return (true);
-	return (false);	
+	return (false);
 }
 
 bool	Fixed::operator<=(Fixed const &f) const
@@ -153,8 +142,9 @@ Fixed	Fixed::operator++() //Pre-increment
 
 Fixed	Fixed::operator++(int) //Post-increment
 {
-	this->_RawBits++;
-	return (*this);
+	Fixed	temp(*this);
+	++(*this);
+	return (temp);
 }
 
 Fixed	Fixed::operator--() //Pre-decrement
@@ -165,6 +155,7 @@ Fixed	Fixed::operator--() //Pre-decrement
 
 Fixed	Fixed::operator--(int) //Post-decrement
 {
-	this->_RawBits--;
-	return (*this);
+	Fixed	temp(*this);
+	--(*this);
+	return (temp);
 }
