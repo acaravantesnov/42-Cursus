@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 19:02:00 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/04 15:50:44 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/08 12:35:21 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ class Karen
 	public:
 		void	complain(std::string level);
 };
-
-
 
 typedef	struct	s_list {
 	std::string	lev;

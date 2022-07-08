@@ -22,18 +22,19 @@ void	Karen::_error( void )
 
 void	Karen::complain( std::string level )
 {
-	t_search	options[4] = {
+	t_search	opt[4] = {
 		{"DEBUG", &Karen::_debug},
 		{"INFO", &Karen::_info},
 		{"WARNING", &Karen::_warning},
 		{"ERROR", &Karen::_error}
 	};
-	void	(Karen::*ptr)(void);
+	void	(Karen::*ptr)();
 
-	for (int i = 0; i < 4; ++i) {
-		if (options[i].lev == level)
+	for (int i = 0; i < 4; i++)
+	{
+		if (opt[i].lev == level)
 		{
-			ptr = options[i].f;
+			ptr = opt[i].f;
 			(this->*ptr)();
 			break ;
 		}

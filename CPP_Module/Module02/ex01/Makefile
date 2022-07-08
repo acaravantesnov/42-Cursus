@@ -1,5 +1,5 @@
 SRCS			=	main.cpp \
-					Karen.cpp
+					Fixed.cpp
 
 OBJS			= $(SRCS:.cpp=.o)
 
