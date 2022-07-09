@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 03:36:14 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/10 02:29:32 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:30:24 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ private:
 public:
 	Replace(const std::string &fileName, const std::string &s1, const std::string &s2);
 	~Replace();
+
 	int replace();
 };
 

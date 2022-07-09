@@ -6,13 +6,11 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:16:13 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/03 19:24:01 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:39:56 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-
-/* Esta función permite crear un array de Zombies con un nombre distinto para cada uno */
 
 Zombie* zombieHorde( int N, std::string name )
 {

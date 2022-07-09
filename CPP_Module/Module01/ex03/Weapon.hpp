@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 12:50:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/03 20:03:31 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:28:51 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class	Weapon
 	public:
 		Weapon();
 		explicit Weapon(const std::string &type);
+
 		std::string	const getType() const;
 		void		setType(const std::string &type);
 };

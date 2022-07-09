@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 01:32:20 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/10 19:03:54 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:01:27 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class	ClapTrap
 	public:
 		ClapTrap();
 		ClapTrap(std::string Name);
-		ClapTrap(ClapTrap const &clapTrap);
-		virtual ~ClapTrap();
+		ClapTrap(ClapTrap &clapTrap);
+		~ClapTrap();
 
 		std::string			&getName();
 		void				setName(std::string &Name);

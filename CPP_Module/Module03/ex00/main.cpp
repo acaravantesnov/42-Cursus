@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 01:42:02 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/10 19:17:06 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:58:18 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main()
 	ClapTrap	ClaptrapA("ClaptrapA");
 	ClapTrap	ClaptrapB("ClaptrapB");
 
-	ClapTrap	ClapTrapC(ClaptrapA);		//Estas 2 líneas muestran Copy Constructor
+	ClapTrap	ClapTrapC(ClaptrapA);
 	std::cout << ClapTrapC << std::endl;
 
 	std::cout << std::endl;

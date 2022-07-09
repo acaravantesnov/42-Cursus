@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 12:50:12 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/03 20:03:38 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:28:24 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ class	HumanB
 	public:
 		HumanB();
 		HumanB(std::string const &name);
+
 		std::string	getName() const;
 		void		setName(const std::string &name);
 		void		setWeapon(Weapon &weapon);
+
 		void		attack();
 };
 

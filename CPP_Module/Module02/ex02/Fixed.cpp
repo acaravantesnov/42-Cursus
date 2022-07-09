@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:12 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/08 13:53:30 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:32:02 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,19 @@
 
 /*-----------------ex00-----------------*/
 
-Fixed::Fixed() : _RawBits(0) {}
-
-Fixed::~Fixed() {}
+Fixed::Fixed() : _RawBits(0)
+{
+	
+}
 
 Fixed::Fixed(const Fixed &f)
 {
 	this->setRawBits(f.getRawBits());
+}
+
+Fixed::~Fixed()
+{
+	
 }
 
 void	Fixed::operator=(const Fixed &f2)

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:14 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/08 13:52:34 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:51:01 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ class	Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed &f);
-		virtual ~Fixed();
+		~Fixed();
 
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
 
 		Fixed(const int integer);
 		Fixed(const float floating_point);
+
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
 

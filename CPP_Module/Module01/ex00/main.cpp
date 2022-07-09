@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 02:10:46 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/02 15:15:19 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:36:50 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	main(void)
 
 	/* randomChump creates a Zombie (calls its constructor)
 	and it announces itself.
-	It is destroyed as soon as the function has ended executing. It has no return value. */
+	It is destroyed as soon as the function has ended executing.
+	It has no return value. */
 
 	One.randomChump("Pepe");
 

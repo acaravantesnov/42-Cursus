@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 01:42:02 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/10 19:18:35 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:27:27 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,6 @@
 
 int	main()
 {
-	std::cout << "\n---- CLAPTRAP MAIN ----\n" << std::endl;
-
-	ClapTrap	ClaptrapA("ClaptrapA");
-	ClapTrap	ClaptrapB("ClaptrapB");
-
-	std::cout << std::endl;
-
-	std::cout << ClaptrapA << "\n" << ClaptrapB << std::endl;
-
-	ClaptrapA.attack("ClaptrapB");
-	ClaptrapB.takeDamage(ClaptrapA.getAttackDamage());
-
-	std::cout << std::endl;
-
-	std::cout << ClaptrapA << "\n" << ClaptrapB << std::endl;
-
-	ClaptrapB.beRepaired(5);
-
-	std::cout << std::endl;
-
-	std::cout << ClaptrapA << "\n" << ClaptrapB << std::endl;
-
 	std::cout << "\n---- SCAVTRAP MAIN ----\n" << std::endl;
 
 	ScavTrap	ScavTrapA("ScavTrapA");

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:43 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/11 12:58:10 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:25:57 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@
 # include <iostream>
 # include <string>
 
-class	ScavTrap: virtual public ClapTrap
+class	ScavTrap: public ClapTrap
 {
 	public:
 		ScavTrap();
 		ScavTrap(const std::string	&Name);
-		ScavTrap(ScavTrap const &scavTrap);
+		ScavTrap(ScavTrap &scavTrap);
 		~ScavTrap();
+
+		ScavTrap	&operator=(ScavTrap &clapTrap2);
 
 		void guardGate();
 };

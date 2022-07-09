@@ -6,35 +6,49 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:46 by acaravan          #+#    #+#             */
-/*   Updated: 2022/04/11 13:08:21 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:25:58 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() :	ClapTrap()
+ScavTrap::ScavTrap()
 {
-	std::cout << "DEFAULT SCAVTRAP CONSTRUCTOR CALLED" << std::endl;
+	ClapTrap();
+	std::cout << "Default SCAVTRAP constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const std::string &Name) :	ClapTrap(Name)
+ScavTrap::ScavTrap(const std::string &Name) : ClapTrap(Name)
 {
-	std::cout << "SCAVTRAP CONSTRUCTOR CALLED" << std::endl;
-	_Hitpoints = 100;
-	_EnergyPoints = 50;
-	_AttackDamage = 20;
+	std::cout << "SCAVTRAP constructor called" << std::endl;
+	setHitpoints(100);
+	setEnergyPoints(50);
+	setAttackDamage(20);
 }
 
-ScavTrap::ScavTrap(ScavTrap const &scavTrap)
+ScavTrap::ScavTrap(ScavTrap &scavTrap)
 {
-	std::cout << "SCAVTRAP COPY CONSTRUCTOR CALLED" << std::endl;
+	std::cout << "SCAVTRAP copy constructor called" << std::endl;
 	*this = scavTrap;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "SCAVTRAP DESTRUCTOR CALLED" << std::endl;
+	std::cout << "SCAVTRAP destructor called" << std::endl;
 	ClapTrap::~ClapTrap();
+}
+
+ScavTrap	&ScavTrap::operator=(ScavTrap &scavTrap2)
+{
+	if (this != &scavTrap2)
+	{
+		std::cout << "SCAVTRAP assignation operator called" << std::endl;
+		this->setName(scavTrap2.getName());
+		this->setHitpoints(scavTrap2.getHitpoints());
+		this->setEnergyPoints(scavTrap2.getEnergyPoints());
+		this->setAttackDamage(scavTrap2.getAttackDamage());
+	}
+	return (*this);
 }
 
 void ScavTrap::guardGate()
