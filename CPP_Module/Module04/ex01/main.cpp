@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:09 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 01:48:40 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/08 14:50:53 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 01:43:54 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Animal.hpp"
 #include "Dog.hpp"
+#include "Cat.hpp"
 
-Dog::Dog()
-{
-	std::cout << "Dog default constructor called" << std::endl;
-	type = "Dog";
-}
+#define N 10
 
-Dog::Dog(Dog &dog)
+int main()
 {
-	std::cout << "Dog copy constructor called" << std::endl;
-	this->type = dog.type;
-}
-
-Dog::~Dog()
-{
-	std::cout << "Dog destructor called" << std::endl;
-}
-
-void	Dog::makeSound() const
-{
-	std::cout << "Guau" << std::endl;
+	Animal *animals[N];
+	for (int i = 0; i < N; i++)
+	{
+		if (i < N / 2)
+			animals[i] = new Cat();
+		else
+			animals[i] = new Dog();
+	}
+	
+	for (int i = 0; i < N; i++)
+		delete (animals[i]);
+	return (0);
 }

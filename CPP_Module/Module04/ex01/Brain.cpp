@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:09 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 01:48:40 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/09 00:08:57 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 01:38:14 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Brain.hpp"
 
-Dog::Dog()
+Brain::Brain()
 {
-	std::cout << "Dog default constructor called" << std::endl;
-	type = "Dog";
+	std::cout << "Brain default constructor called" << std::endl;
 }
 
-Dog::Dog(Dog &dog)
+Brain::Brain(Brain &brain)
 {
-	std::cout << "Dog copy constructor called" << std::endl;
-	this->type = dog.type;
+	std::cout << "Brain copy constructor called" << std::endl;
+	for (int i = 0; i < 100; i++)
+		(this->ideas)[i] = (brain.ideas)[i];
 }
 
-Dog::~Dog()
+Brain::~Brain()
 {
-	std::cout << "Dog destructor called" << std::endl;
-}
-
-void	Dog::makeSound() const
-{
-	std::cout << "Guau" << std::endl;
+	std::cout << "Brain default constructor called" << std::endl;
 }
