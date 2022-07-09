@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:32:45 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 21:32:03 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 22:29:27 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	main()
 	bureaucrat->incrementGrade();
 	std::cout << *bureaucrat;
 	delete (invalidbureaucrat);
-	delete bureaucrat;
+	delete (bureaucrat);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 21:33:10 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 22:18:57 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 23:46:23 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ class	Form
 		const std::string	_name;
 		const int			_grade_required;
 		bool				_is_it_signed;
-		Form();
 	public:
-		Form(Form &form);
+		Form();
+		Form(const std::string name, const int grade_required);
+		Form(const Form &form);
 		~Form();
 		void				operator=(const Form &form);
 	

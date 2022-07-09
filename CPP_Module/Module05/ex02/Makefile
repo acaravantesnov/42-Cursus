@@ -6,15 +6,18 @@
 #    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 14:41:22 by acaravan          #+#    #+#              #
-#    Updated: 2022/07/09 23:34:48 by acaravan         ###   ########.fr        #
+#    Updated: 2022/07/09 23:50:57 by acaravan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	Form_up,_maggots!
+NAME			=	No,_you_need_form_28B,_not_28C...
 
 SRCS			=	main.cpp \
 					Bureaucrat.cpp \
-					Form.cpp
+					Form.cpp \
+					ShrubberyCreationForm.cpp \
+					RobotomyRequestForm.cpp \
+					PresidentialPardonForm.cpp
 
 OBJS			=	$(SRCS:.cpp=.o)
 
