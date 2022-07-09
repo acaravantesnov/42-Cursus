@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:12:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 01:34:04 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 21:14:28 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ Cat::Cat()
 
 Cat::~Cat()
 {
-	delete (_Brainptr);
 	std::cout << "Cat destructor called" << std::endl;
+	delete (_Brainptr);
 }
 
 Cat::Cat(Cat &cat)

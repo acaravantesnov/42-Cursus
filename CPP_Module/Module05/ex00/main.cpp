@@ -5,36 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 14:50:53 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 21:18:54 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/09 19:32:45 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 21:32:03 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include "Bureaucrat.hpp"
 
-int main()
+int	main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-
-	const WrongAnimal* meta2 = new WrongAnimal();
-	const WrongAnimal* i2 = new WrongCat();
-
-	meta2->makeSound();
-	i2->makeSound();
-
-	delete meta;
-	delete i;
-	delete j;
-	delete meta2;
-	delete i2;
+	Bureaucrat	*invalidbureaucrat = new Bureaucrat("JONNY", 250); //Should it delete instance?
+	Bureaucrat	*bureaucrat = new Bureaucrat("PEPE", 150);
+	std::cout << *bureaucrat;
+	bureaucrat->decrementGrade();
+	std::cout << *bureaucrat;
+	for (int i = 0; i < 149; i++)
+		bureaucrat->incrementGrade();
+	std::cout << *bureaucrat;
+	bureaucrat->incrementGrade();
+	std::cout << *bureaucrat;
+	delete (invalidbureaucrat);
+	delete bureaucrat;
 	return (0);
 }

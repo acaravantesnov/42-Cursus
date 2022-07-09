@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:12:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 01:59:46 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 21:01:21 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,4 @@ WrongCat::WrongCat(WrongCat &wrongcat)
 WrongCat::~WrongCat()
 {
 	std::cout << "WrongCat destructor called" << std::endl;
-}
-
-void	WrongCat::makeSound() const
-{
-	std::cout << "Meow" << std::endl;
 }
