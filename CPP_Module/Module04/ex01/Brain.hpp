@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:09:05 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 01:36:53 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 16:38:34 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class	Brain
 {
 	public:
 		std::string	ideas[100];
+
 		Brain();
 		Brain(Brain &brain);
 		~Brain();

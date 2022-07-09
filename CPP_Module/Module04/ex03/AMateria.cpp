@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 16:38:44 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/09 16:36:26 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 17:21:42 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "AMateria.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class	Dog : public Animal
+AMateria::AMateria(std::string const & type)
 {
-	private:
-		Brain	*_Brainptr;
-	public:
-		Dog();
-		Dog(Dog &dog);
-		~Dog();
+	this->type = type;
+}
 
-		virtual void	makeSound() const;
-};
+AMateria::AMateria()
+{
+	
+}
 
-#endif
+AMateria::AMateria(AMateria &amateria)
+{
+	
+}
+
+AMateria::~AMateria()
+{
+	
+}
+
+std::string const & AMateria::getType() const
+{
+	
+}
+
+void AMateria::use(ICharacter& target)
+{
+	
+}

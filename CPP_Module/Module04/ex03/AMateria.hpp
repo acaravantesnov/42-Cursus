@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 16:38:44 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/09 16:29:16 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 17:20:26 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+#include <string>
 
-class	Dog : public Animal
+class	AMateria
 {
-	private:
-		Brain	*_Brainptr;
+	protected:
+		std::string	type;
 	public:
-		Dog();
-		Dog(Dog &dog);
-		~Dog();
+		AMateria(std::string const & type);
+		AMateria();
+		AMateria(AMateria &amateria);
+		~AMateria();
 
-		virtual void	makeSound() const;
+		std::string const & getType() const; //Returns the materia type
+		
+		virtual	AMateria* clone() const = 0;
+		virtual	void use(ICharacter& target);
 };
 
 #endif

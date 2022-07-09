@@ -1,31 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 16:38:44 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/08 14:50:53 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 16:28:45 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
-
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class	Dog : public Animal
+int main()
 {
-	private:
-		Brain	*_Brainptr;
-	public:
-		Dog();
-		Dog(Dog &dog);
-		~Dog();
-
-		virtual void	makeSound() const;
-};
-
-#endif
+	
+	return (0);
+}

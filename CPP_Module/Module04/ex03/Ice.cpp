@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 16:38:44 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/09 16:53:02 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 17:17:38 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "Ice.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class	Dog : public Animal
+Ice::Ice()
 {
-	private:
-		Brain	*_Brainptr;
-	public:
-		Dog();
-		Dog(Dog &dog);
-		~Dog();
+	type = "ice";
+}
 
-		virtual void	makeSound() const;
-};
+Ice::Ice(Ice &ice)
+{
+	this->type = ice.type;
+}
 
-#endif
+Ice::~Ice()
+{
+	
+}
+
+AMateria* Ice::clone() const
+{
+	
+}
+
+void Ice::use(ICharacter& target)
+{
+	
+}

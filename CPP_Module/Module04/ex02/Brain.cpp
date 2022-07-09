@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 16:38:44 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/09 00:08:57 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 16:16:02 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "Brain.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class	Dog : public Animal
+Brain::Brain()
 {
-	private:
-		Brain	*_Brainptr;
-	public:
-		Dog();
-		Dog(Dog &dog);
-		~Dog();
+	std::cout << "Brain default constructor called" << std::endl;
+}
 
-		virtual void	makeSound() const;
-};
+Brain::Brain(Brain &brain)
+{
+	std::cout << "Brain copy constructor called" << std::endl;
+	for (int i = 0; i < 100; i++)
+		(this->ideas)[i] = (brain.ideas)[i];
+}
 
-#endif
+Brain::~Brain()
+{
+	std::cout << "Brain destructor called" << std::endl;
+}

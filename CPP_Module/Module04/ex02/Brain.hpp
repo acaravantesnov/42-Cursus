@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 16:38:44 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/09 00:09:05 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 16:38:07 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include <iostream>
+# include <string>
 
-class	Dog : public Animal
+class	Brain
 {
-	private:
-		Brain	*_Brainptr;
 	public:
-		Dog();
-		Dog(Dog &dog);
-		~Dog();
+		std::string	ideas[100];
 
-		virtual void	makeSound() const;
+		Brain();
+		Brain(Brain &brain);
+		~Brain();
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:50:53 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 01:43:54 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/09 16:13:55 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int main()
 		else
 			animals[i] = new Dog();
 	}
-	
 	for (int i = 0; i < N; i++)
 		delete (animals[i]);
 	return (0);

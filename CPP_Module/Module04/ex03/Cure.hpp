@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 16:38:44 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/09 16:53:00 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 17:10:32 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+#include "AMateria.hpp"
 
-class	Dog : public Animal
+class	Cure : public AMateria
 {
-	private:
-		Brain	*_Brainptr;
 	public:
-		Dog();
-		Dog(Dog &dog);
-		~Dog();
-
-		virtual void	makeSound() const;
+		Cure();
+		Cure(Cure &cure);
+		~Cure();
+		
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
 };
 
 #endif

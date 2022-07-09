@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 16:38:44 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/08 14:52:40 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 16:10:06 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "Animal.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class	Dog : public Animal
+Animal::Animal() : type("")
 {
-	private:
-		Brain	*_Brainptr;
-	public:
-		Dog();
-		Dog(Dog &dog);
-		~Dog();
+	std::cout << "Animal default constructor called" << std::endl;
+}
 
-		virtual void	makeSound() const;
-};
+Animal::Animal(Animal &animal)
+{
+	std::cout << "Animal copy constructor called" << std::endl;
+	this->type = animal.type;
+}
 
-#endif
+Animal::~Animal()
+{
+	std::cout << "Animal destructor called" << std::endl;
+}
+
+const std::string	Animal::getType() const
+{
+	return (type);
+}

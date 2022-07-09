@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 16:38:44 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/08 18:12:47 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 16:38:13 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class	Dog : public Animal
+class	Cat : public Animal
 {
 	private:
 		Brain	*_Brainptr;
 	public:
-		Dog();
-		Dog(Dog &dog);
-		~Dog();
+		Cat();
+		Cat(Cat &cat);
+		~Cat();
 
 		virtual void	makeSound() const;
 };

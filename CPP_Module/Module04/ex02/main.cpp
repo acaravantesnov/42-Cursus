@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 16:38:44 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/08 14:50:53 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 16:19:40 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+#define N 4
 
-class	Dog : public Animal
+int main()
 {
-	private:
-		Brain	*_Brainptr;
-	public:
-		Dog();
-		Dog(Dog &dog);
-		~Dog();
+	//Animal *animalptr = new Animal; <- Cannot instanciate pure abstract class!
+	Animal *catptr = new Cat;
+	Animal *dogptr = new Dog;
 
-		virtual void	makeSound() const;
-};
-
-#endif
+	delete (catptr);
+	delete (dogptr);
+	return (0);
+}

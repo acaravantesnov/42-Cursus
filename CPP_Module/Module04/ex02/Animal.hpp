@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 16:38:44 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/08 14:42:46 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/09 16:37:55 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include <iostream>
+# include <string>
 
-class	Dog : public Animal
+class	Animal
 {
-	private:
-		Brain	*_Brainptr;
+	protected:
+		std::string	type;
 	public:
-		Dog();
-		Dog(Dog &dog);
-		~Dog();
+		Animal();
+		Animal(Animal &animal);
+		virtual ~Animal();
 
-		virtual void	makeSound() const;
+		const std::string	getType() const;
+
+		virtual void		makeSound() const = 0;
 };
 
 #endif
