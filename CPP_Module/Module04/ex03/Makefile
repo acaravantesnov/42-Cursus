@@ -6,11 +6,11 @@
 #    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 14:41:22 by acaravan          #+#    #+#              #
-#    Updated: 2022/07/09 16:09:22 by acaravan         ###   ########.fr        #
+#    Updated: 2022/07/09 18:37:50 by acaravan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	Purified_code
+NAME			=	Interface&Recap
 
 SRCS			=	main.cpp \
 					Animal.cpp \
