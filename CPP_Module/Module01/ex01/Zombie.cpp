@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 02:10:44 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 19:31:50 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/10 23:37:59 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	Zombie::setName(std::string name)
 	this->_name = name;
 }
 
-void	Zombie::announce()
+void	Zombie::announce(void)
 {
 	std::cout << '<' << _name << "> " << "BraiiiiiiinnnzzzZ..." << std::endl;
 }

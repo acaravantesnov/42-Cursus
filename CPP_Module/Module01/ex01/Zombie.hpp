@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 02:10:42 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 17:30:01 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/10 23:38:02 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class	Zombie
 
 		void		setName(std::string name);
 
-		void		announce();
+		void		announce(void);
 		void		randomChump( std::string name );
 };
 

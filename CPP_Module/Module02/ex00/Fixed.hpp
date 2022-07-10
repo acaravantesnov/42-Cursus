@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:14 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 17:45:43 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/10 23:57:15 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ class	Fixed
 		Fixed(); //Default Constructor
 		Fixed(const Fixed &f); //Copy Constructor
 		~Fixed(); //Destructor
+		Fixed	operator=(const Fixed &f2); //= operator overload
+
 		//Returns the raw value of the fixed point value
-		int		getRawBits( void ) const; 
+		int		getRawBits( void ) const;
 		//Sets the raw value of the fixed point value.
-		void	setRawBits( int const raw ); 
-		
-		void	operator=(const Fixed &f2); //= operator overload
+		void	setRawBits( int const raw );
 };
 
 # endif

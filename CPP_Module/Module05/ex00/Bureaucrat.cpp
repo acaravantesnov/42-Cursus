@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:32:40 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 18:58:10 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/11 01:04:18 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat()
 {
-	
+
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) :	_name(name),
@@ -27,13 +27,10 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) :	_name(name),
 		else if (_grade > 150)
 			throw (GradeTooLowException());
 	}
-	catch (GradeTooHighException e)
+	catch(std::exception e)
 	{
-		std::cout << "Invalid grade..." << std::endl;
-	}
-	catch (GradeTooLowException e)
-	{
-		std::cout << "Invalid grade..." << std::endl;
+		std::cout << "Invalid grade." << std::endl;
+		//delete (this);
 	}
 }
 
@@ -49,7 +46,9 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat	Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 {
-	return (Bureaucrat(bureaucrat.getName(), bureaucrat.getGrade()));
+	Bureaucrat a;
+	return (a);
+	//return (Bureaucrat(bureaucrat.getName(), bureaucrat.getGrade()));
 }
 
 const std::string	Bureaucrat::getName() const
@@ -64,32 +63,18 @@ int	Bureaucrat::getGrade() const
 
 void	Bureaucrat::incrementGrade()
 {
-	try
-	{
+	if (_grade > 1)
 		_grade--;
-		if (_grade < 1)
-			throw	(GradeTooHighException());
-	}
-	catch (GradeTooHighException e)
-	{
-		std::cout << "Cannot increment grade anymore..." << std::endl;
-		_grade++;
-	}
+	else
+		throw	(GradeTooHighException());
 }
 
 void	Bureaucrat::decrementGrade()
 {
-	try
-	{
+	if (_grade < 150)
 		_grade++;
-		if (_grade > 150)
-			throw	(GradeTooLowException());
-	}
-	catch (GradeTooLowException e)
-	{
-		std::cout << "Cannot decrement grade anymore..." << std::endl;
-		_grade--;
-	}
+	else
+		throw	(GradeTooLowException());
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()

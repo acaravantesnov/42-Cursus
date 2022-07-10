@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 12:31:26 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 18:34:18 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/11 00:30:16 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 DiamondTrap::DiamondTrap(){}
 
-DiamondTrap::DiamondTrap(const std::string &Name) :	ClapTrap(Name + "_clap_name"),
-													ScavTrap(Name),
+DiamondTrap::DiamondTrap(const std::string &Name) :	ScavTrap(Name),
 													FragTrap(Name),
 													_Name(Name)
 {

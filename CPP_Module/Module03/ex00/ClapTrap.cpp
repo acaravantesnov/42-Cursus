@@ -6,13 +6,13 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 01:32:24 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 17:57:40 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/11 00:14:26 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() :	_Name(""),
+ClapTrap::ClapTrap() :	_Name(),
 						_Hitpoints(10),
 						_EnergyPoints(10),
 						_AttackDamage(0)

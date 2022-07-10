@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:12 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/08 13:14:23 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/11 00:02:04 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ Fixed::Fixed(const Fixed &f)
 	this->setRawBits(f.getRawBits());
 }
 
-void	Fixed::operator=(const Fixed &f2)
+Fixed	Fixed::operator=(const Fixed &f2)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	this->setRawBits(f2.getRawBits());
+	return (*this);
 }
 
 int	Fixed::getRawBits(void) const

@@ -6,11 +6,11 @@
 #    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/04 15:56:09 by acaravan          #+#    #+#              #
-#    Updated: 2022/07/04 15:56:21 by acaravan         ###   ########.fr        #
+#    Updated: 2022/07/10 23:57:22 by acaravan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	a.out
+NAME			=	Fixed
 
 SRCS			=	main.cpp \
 					Fixed.cpp
