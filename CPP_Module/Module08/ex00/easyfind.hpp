@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 19:32:45 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 16:40:00 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/10 17:12:47 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/10 17:24:58 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
-int	main()
+template<typename T>
+void	easyfind(const T &container, int n)
 {
-	Bureaucrat	*bureaucrat = new Bureaucrat("PEPE", 120);
-	Form		*form = new Form("JONNY", 100);
-	form->beSigned(*bureaucrat);
-	Form		*form2 = new Form("JOHN", 150);
-	form2->beSigned(*bureaucrat);
-	bureaucrat->signForm(*form2);
-	return (0);
+	container::iterator	it;
+	container::iterator	ite = container.end();
+
+	for (it = container.begin(); it != ite; it++)
+	{
+		if (container[it] == n)
+			return (n);
+	}
+	return (-1);
 }
+
+#endif

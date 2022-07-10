@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 21:33:10 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 00:45:14 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/10 16:37:05 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "Bureaucrat.hpp"
 # include <iostream>
 # include <string>
+
+class	Bureaucrat;
 
 class	Form
 {
