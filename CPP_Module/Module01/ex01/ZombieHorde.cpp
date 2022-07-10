@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:16:13 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 17:39:56 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/10 19:30:08 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Zombie* zombieHorde( int N, std::string name )
 	for (int i = 0; i < N; i++)
 	{
 		std::string	custom_name = name + "_" + std::to_string(i + 1);
-		z[i] = Zombie(custom_name);
+		z[i].setName(custom_name);
 	}
 	// In for loop all zombies will be created with the parametrized constructor.
 	// They will get destroyed when we call delete[] in main.

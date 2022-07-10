@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 19:02:00 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/08 12:35:21 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/10 17:51:29 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include <string>
-# include <vector>
 
 class Karen
 {
@@ -28,8 +27,8 @@ class Karen
 		void	complain(std::string level);
 };
 
-typedef	struct	s_list {
-	std::string	lev;
+typedef	struct	s_karen {
+	std::string	level;
 	void		(Karen::*f)();
 }	t_search;
 

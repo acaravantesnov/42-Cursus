@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 21:33:10 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 16:37:05 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/10 19:08:36 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,20 @@ class	Form
 {
 	private:
 		const std::string	_name;
-		const int			_grade_required;
+		const int			_grade2besigned;
+		const int			_grade2beexecuted;
 		bool				_is_it_signed;
 	public:
 		Form();
-		Form(const std::string name, const int grade_required);
+		Form(const std::string name, const int grade2besigned, \
+		const int grade2beexecuted);
 		Form(const Form &form);
 		~Form();
 		void				operator=(const Form &form);
 	
 		const std::string	getName() const;
-		const int			getGradeRequired() const;
+		const int			getGrade2besigned() const;
+		const int			getGrade2beexecuted() const;
 		bool				getIsItSigned() const;
 
 		bool				beSigned(const Bureaucrat &bureaucrat);
