@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:32:40 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 22:29:51 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/12 20:24:47 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat()
 {
-	
+
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
@@ -46,9 +46,9 @@ Bureaucrat::~Bureaucrat()
 
 }
 
-void	Bureaucrat::operator=(const Bureaucrat &bureaucrat)
+Bureaucrat	Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 {
-	// ?
+	return (Bureaucrat(bureaucrat.getName(), bureaucrat.getGrade()));
 }
 
 const std::string	Bureaucrat::getName() const

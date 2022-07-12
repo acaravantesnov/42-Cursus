@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/10 00:05:25 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/12 20:10:03 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/10 00:08:00 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/12 20:10:39 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm()
+PresidentialPardonForm::PresidentialPardonForm()
 {
 
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
 {
 
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &rrf)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm \
+&ppf)
 {
 
 }
 
-RobotomyRequestForm::~RobotomyRequestForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 
 }
 
-void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
+void	PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
 
 }

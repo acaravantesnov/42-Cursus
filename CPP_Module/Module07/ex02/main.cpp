@@ -1,43 +1,53 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/10 15:44:09 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 16:29:20 by acaravan         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
+#include <iostream>
 #include "Array.hpp"
 
-# define N 10
-
-int	main(void)
+#define MAX_VAL 750
+int main(int, char**)
 {
-	Array<int> int_arr(N);
-	for (int i = 0; i < N; i++)
-		int_arr[i] = i;
-	std::cout << "Integer array: " << int_arr;
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
-	Array<float> float_arr(N);
-	for (int i = 0; i < N; i++)
-		float_arr[i] = i * 0.3;
-	std::cout << "Float array: " << float_arr;
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-	Array<std::string> string_arr(4);
-	string_arr[0] = "Lord";
-	string_arr[1] = "of";
-	string_arr[2] = "the";
-	string_arr[3] = "rings";
-	std::cout << "String array: " << string_arr;
-
-	try { int_arr[-1]; }
-	catch (std::exception e)
-	{
-		std::cout << "Invalid index" << std::endl;
-		return (1);
-	}
-	return (0);	
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
 }

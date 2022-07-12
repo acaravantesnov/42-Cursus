@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    PresidentialPardonForm.hpp                        :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 00:07:53 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 00:09:02 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/12 20:07:54 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class	PresidentialPardonForm : public Form
 		PresidentialPardonForm();
 	public:
 		PresidentialPardonForm(const std::string &target);
-		PresidentialPardonForm(PresidentialPardonForm &presidentialPardonForm);
+		PresidentialPardonForm(const PresidentialPardonForm &ppf);
 		~PresidentialPardonForm();
-		void	operator=(const PresidentialPardonForm &presidentialPardonForm);
+		void	operator=(const PresidentialPardonForm &ppf);
 
 		virtual void		execute(Bureaucrat const &executor) const;
 };

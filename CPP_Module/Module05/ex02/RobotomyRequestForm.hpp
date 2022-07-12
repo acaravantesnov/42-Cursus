@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 00:05:23 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 00:09:02 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/12 20:10:37 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class	RobotomyRequestForm : public Form
 		RobotomyRequestForm();
 	public:
 		RobotomyRequestForm(const std::string &target);
-		RobotomyRequestForm(RobotomyRequestForm &robotomyRequestForm);
+		RobotomyRequestForm(const RobotomyRequestForm &rrf);
 		~RobotomyRequestForm();
-		void	operator=(const RobotomyRequestForm &robotomyRequestForm);
+		void	operator=(const RobotomyRequestForm &rrf);
 
 		virtual void		execute(Bureaucrat const &executor) const;
 };
