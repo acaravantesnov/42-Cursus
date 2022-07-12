@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:32:43 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 18:39:43 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/12 20:55:09 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class	Bureaucrat
 
 		const std::string	getName() const;
 		int					getGrade() const;
-		
+
 		void				incrementGrade();
 		void				decrementGrade();
 		void				signForm(Form &form) const;

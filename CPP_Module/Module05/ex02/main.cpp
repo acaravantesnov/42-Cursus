@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:53:12 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/12 20:18:26 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/13 00:22:31 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 	Bureaucrat bureaucrat1("haha", 1);
 	Bureaucrat bureaucrat2("braiiz", 10);
 	ShrubberyCreationForm scf("Home");
-	std::cout << "name: " << scf.getName() << std::endl;
+	std::cout << "Name: " << scf.getName() << std::endl;
 	std::cout << "GradeToExec: " << scf.getGrade2beexecuted() << std::endl;
 	std::cout << "GradeToSign: " << scf.getGrade2besigned() << std::endl;
 	std::cout << std::endl;
@@ -44,7 +44,7 @@ int	main(void)
 
 	std::cout << RED << "*------------------Testing the RobotomyRequestForm------------------*" << RESET << std::endl;
 	RobotomyRequestForm rrf("homeAgain");
-	std::cout << "name: " << rrf.getName() << std::endl;
+	std::cout << "Name: " << rrf.getName() << std::endl;
 	std::cout << "GradeToExec: " << rrf.getGrade2beexecuted() << std::endl;
 	std::cout << "GradeToSign: " << rrf.getGrade2besigned() << std::endl;
 	std::cout << std::endl;
@@ -61,7 +61,7 @@ int	main(void)
 	std::cout << RED << "*------------------Testing the PresidentialPardonForm------------------*" << RESET << std::endl;
 	Bureaucrat bureaucrat3("haha", 4);
 	PresidentialPardonForm ppf("homeAgain");
-	std::cout << "name: " << ppf.getName() << std::endl;
+	std::cout << "Name: " << ppf.getName() << std::endl;
 	std::cout << "GradeToExec: " << ppf.getGrade2beexecuted() << std::endl;
 	std::cout << "GradeToSign: " << ppf.getGrade2besigned() << std::endl;
 	std::cout << std::endl;

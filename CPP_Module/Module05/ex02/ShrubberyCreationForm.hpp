@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 23:51:57 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/12 20:18:16 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/12 21:30:53 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include "Form.hpp"
+# include <fstream>
 
 class	ShrubberyCreationForm : public Form
 {

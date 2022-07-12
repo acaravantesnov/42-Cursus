@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 21:33:13 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 19:11:14 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/12 21:06:19 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Form::Form() : _grade2besigned(1), _grade2beexecuted(1)
 
 Form::Form(const std::string name, const int grade2besigned, \
 const int grade2beexecuted) : \
-_name(name), _grade2besigned(grade2besigned), _grade2beexecuted(grade2beexecuted)															
+_name(name), _grade2besigned(grade2besigned), _grade2beexecuted(grade2beexecuted)
 {
 	this->_is_it_signed = false;
 }
@@ -33,7 +33,7 @@ Form::Form(const Form &form) :	_name(form.getName()), \
 
 Form::~Form()
 {
-	
+
 }
 
 void	Form::operator=(const Form &form)
@@ -98,4 +98,9 @@ std::ostream	&operator<<(std::ostream &stream, Form const &form)
 		stream << "not ";
 	stream << "signed" << std::endl;
 	return (stream);
+}
+
+void	Form::execute(const Bureaucrat &executor) const
+{
+
 }
