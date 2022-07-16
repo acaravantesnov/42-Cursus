@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 12:03:31 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/12 19:11:39 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/16 15:49:39 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ class	DiamondTrap: public ScavTrap, public FragTrap
 		DiamondTrap();
 	public:
 		DiamondTrap(const std::string &Name);
+		DiamondTrap(const DiamondTrap &diamondtrap);
+		~DiamondTrap();
+		DiamondTrap	&operator=(const DiamondTrap &diamondTrap) const;
+
 		void	attack(std::string const & target);
 };
 

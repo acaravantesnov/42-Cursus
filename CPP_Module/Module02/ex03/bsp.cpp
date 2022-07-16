@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   bsp.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 03:01:43 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/16 15:47:08 by acaravan         ###   ########.fr       */
+/*   Created: 2022/03/03 15:15:25 by acaravan          #+#    #+#             */
+/*   Updated: 2022/03/03 15:58:16 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "Point.hpp"
 
-# include "ClapTrap.hpp"
-# include <iostream>
-# include <string>
-
-class	ScavTrap: public ClapTrap
+bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
-	public:
-		ScavTrap();
-		ScavTrap(const std::string	&Name);
-		ScavTrap(ScavTrap &scavTrap);
-		~ScavTrap();
-		ScavTrap	&operator=(ScavTrap &scavtrapTrap2);
+	for (int i = 0; i < INT_MAX - point.getX().toInt(); i++)
+	{
 
-		void guardGate();
-};
-
-#endif
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 12:31:26 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/11 00:30:16 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/16 19:32:50 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ DiamondTrap::DiamondTrap(const std::string &Name) :	ScavTrap(Name),
 	setHitpoints(100);
 	setEnergyPoints(50);
 	setAttackDamage(30);
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap &diamondtrap) :
+_Name(diamondtrap._Name)
+{
+
+}
+
+DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &diamondtrap) const
+{
+	DiamondTrap *copy = new DiamondTrap(diamondtrap);
+	return (*copy);
 }
 
 void	DiamondTrap::attack(std::string const & target)
