@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:12 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/15 18:52:06 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/16 23:03:56 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ Fixed::~Fixed()
 Fixed::Fixed(const Fixed &f)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->setRawBits(f.getRawBits());
+	*this = f;
 }
 
-Fixed	Fixed::operator=(const Fixed &f2)
+Fixed	&Fixed::operator=(const Fixed &f2)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	this->setRawBits(f2.getRawBits());
@@ -49,24 +49,11 @@ void	Fixed::setRawBits(int const raw)
 
 /*-----------------ex01-----------------*/
 
-/*
-NUMBER 12
-integer:	0000 0000 0000 1100
-_RawBits:	0000 1100 0000 0000
-*/
-
 Fixed::Fixed(const int integer)
 {
 	std::cout << "Int constructor called" << std::endl;
 	this->setRawBits(integer << Fixed::_bits);
 }
-
-/*NUMBER 12.75
-integer:	0000 0000 0000 1100
-_RawBits:	x *\
-			0000 0001 0000 0000
-_RawBits:	0000 1100 1100 0000
-*/
 
 Fixed::Fixed(const float floating_point)
 {
@@ -148,23 +135,13 @@ Fixed	Fixed::operator-(Fixed const &f)
 
 Fixed	Fixed::operator*(Fixed const &f)
 {
-	Fixed	ret(*this);
-	int		temp1, temp2;
-
-	temp1 = this->getRawBits();
-	temp2 = f.getRawBits();
-	ret.setRawBits(temp1 * temp2 / (1 << Fixed::_bits));
-	return (ret);
+	this->_RawBits = (this->toFloat() * f.toFloat()) * (1 << _bits);
+	return (*this);
 }
 
 Fixed	Fixed::operator/(Fixed const &f)
 {
-	Fixed	ret(*this);
-	int		temp1, temp2;
-
-	temp1 = this->getRawBits();
-	temp2 = f.getRawBits();
-	ret.setRawBits(temp1 * (1 << Fixed::_bits) / temp2);
+	this->_RawBits = (this->toFloat() / f.toFloat()) * (1 << _bits);
 	return (*this);
 }
 

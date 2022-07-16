@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:14 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/15 18:20:54 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/16 22:57:55 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class	Fixed
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
 
-		Fixed	operator=(Fixed const &f2);
+		Fixed	&operator=(Fixed const &f2);
 
 		bool	operator>(Fixed const &f) const;
 		bool	operator<(Fixed const &f) const;

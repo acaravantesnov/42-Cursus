@@ -6,36 +6,34 @@
 #    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 18:52:02 by acaravan          #+#    #+#              #
-#    Updated: 2022/07/15 18:52:04 by acaravan         ###   ########.fr        #
+#    Updated: 2022/07/16 22:55:27 by acaravan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Fixed
+NAME			=	Fixed
 
-SRCS =	main.cpp \
-		Fixed.cpp \
+SRCS			=	main.cpp \
+					Fixed.cpp
 
-RESIDUES =	./a.out.dSYM \
+OBJS			= $(SRCS:.cpp=.o)
 
-FLAGS = -Wall -Wextra -Werror
+GCC				= clang++
+RM				= rm -f
+FLAGS			= -Wall -Wextra -Werror -std=c++98 -pedantic
 
-OBJS = $(SRCS:.cpp=.o)
+all:			$(NAME)
 
-CC = clang++ -g
-
-%.o: %.cpp
-	$(CC) $(FLAGS) -c $< -o $@
-
-$(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(SRCS)
-
-all: $(NAME)
+$(NAME):		$(OBJS)
+				$(GCC) $(FLAGS) -g -o $(NAME) $(OBJS)
 
 clean:
-	@rm -rf $(OBJS)
-	@echo "cleaning .o files"
+				$(RM) $(OBJS)
 
-fclean: clean
-	@rm -rf $(NAME) $(RESIDUES)
+fclean:			clean
+				$(RM) $(NAME)
 
-re: fclean all
+re:				fclean $(NAME)
+
+test:			$(NAME)
+
+.PHONY:			all clean fclean re test
