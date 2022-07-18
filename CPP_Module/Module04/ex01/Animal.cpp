@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:52:40 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 15:00:30 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 16:47:43 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ Animal	&Animal::operator=(Animal const &animal)
 const std::string	Animal::getType() const
 {
 	return (type);
+}
+
+void				Animal::setType(std::string type)
+{
+	this->type = type;
 }
 
 void	Animal::makeSound() const

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:09:05 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 16:38:34 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:08:29 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class	Brain
 		Brain();
 		Brain(Brain &brain);
 		~Brain();
+		Brain	&operator=(Brain const &brain);
 };
 
 #endif

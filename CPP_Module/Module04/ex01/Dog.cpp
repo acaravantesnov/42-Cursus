@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:13:09 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 16:11:46 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 16:54:29 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ Dog::Dog(Dog &dog)
 
 Dog::~Dog()
 {
-	std::cout << "Dog destructor called" << std::endl;
 	delete (_Brainptr);
+	std::cout << "Dog destructor called" << std::endl;
 }
 
 Dog	&Dog::operator=(Dog const &dog)
@@ -37,6 +37,7 @@ Dog	&Dog::operator=(Dog const &dog)
 	{
 		std::cout << "Assignment operator called" << std::endl;
 		this->type = dog.type;
+		delete (_Brainptr);
 		this->_Brainptr = new Brain;
 		for (int i = 0; i < 100; i++)
 			this->_Brainptr->ideas[i] = dog._Brainptr->ideas[i];

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:32:40 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/11 01:04:18 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:37:31 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,15 @@ Bureaucrat::Bureaucrat()
 Bureaucrat::Bureaucrat(const std::string &name, int grade) :	_name(name),
 																_grade(grade)
 {
-	try
-	{
-		if (_grade < 1)
-			throw (GradeTooHighException());
-		else if (_grade > 150)
-			throw (GradeTooLowException());
-	}
-	catch(std::exception e)
-	{
-		std::cout << "Invalid grade." << std::endl;
-		//delete (this);
-	}
+	if (_grade < 1)
+		throw (GradeTooHighException());
+	else if (_grade > 150)
+		throw (GradeTooLowException());
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &bureaucrat) : _name(bureaucrat._name)
+Bureaucrat::Bureaucrat(Bureaucrat &bureaucrat)
 {
-	this->_grade = bureaucrat._grade;
+	*this = bureaucrat;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -44,11 +36,10 @@ Bureaucrat::~Bureaucrat()
 
 }
 
-Bureaucrat	Bureaucrat::operator=(const Bureaucrat &bureaucrat)
+Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 {
-	Bureaucrat a;
-	return (a);
-	//return (Bureaucrat(bureaucrat.getName(), bureaucrat.getGrade()));
+	Bureaucrat b(bureaucrat.getName(), bureaucrat.getGrade());
+	return (b);
 }
 
 const std::string	Bureaucrat::getName() const

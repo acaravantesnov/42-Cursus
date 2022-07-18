@@ -6,11 +6,11 @@
 #    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 14:41:22 by acaravan          #+#    #+#              #
-#    Updated: 2022/07/09 16:09:22 by acaravan         ###   ########.fr        #
+#    Updated: 2022/07/18 17:00:20 by acaravan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	Purified_code
+NAME			=	I_dont_want_to_set_the_world_on_fire
 
 SRCS			=	main.cpp \
 					Animal.cpp \

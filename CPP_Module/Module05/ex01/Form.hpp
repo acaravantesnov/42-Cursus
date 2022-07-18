@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 21:33:10 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 19:08:36 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:43:39 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class	Form
 		const int grade2beexecuted);
 		Form(const Form &form);
 		~Form();
-		void				operator=(const Form &form);
+		Form				&operator=(const Form &form);
 	
 		const std::string	getName() const;
 		const int			getGrade2besigned() const;

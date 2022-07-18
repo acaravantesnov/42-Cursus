@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:50:53 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 16:15:20 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:01:00 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,15 @@
 
 #define N 10
 
-/*
+void	leaks()
+{
+	system("leaks I_dont_want_to_set_the_world_on_fire");
+}
+
 int main()
 {
+	atexit(leaks);
+	
 	Animal *animals[N];
 	for (int i = 0; i < N; i++)
 	{
@@ -30,14 +36,31 @@ int main()
 	std::cout << std::endl;
 	for (int i = 0; i < N; i++)
 		delete (animals[i]);
+	
+	// DEEP COPY
+	
+	std::cout << std::endl;
+	Dog	*dog1 = new Dog;
+	Dog *dog2 = new Dog;
+
+	*dog2 = *dog1;
+	std::cout << dog2->getType() << std::endl;
+	dog1->setType("MUTANT DOG");
+	std::cout << dog1->getType() << std::endl;
+	std::cout << dog2->getType() << std::endl;
+
+	std::cout << std::endl;
+
+	delete (dog1);
+	delete (dog2);
+
+	std::cout << std::endl;
+
 	return (0);
 }
-*/
 
-void	leaks()
-{
-	system("leaks I_don’t_want_to_set_the_world_on_fire");
-}
+/*
+//Subject main fct
 
 int main()
 {
@@ -48,4 +71,4 @@ int main()
 	delete j;//should not create a leak
 	delete i;
 }
-
+*/
