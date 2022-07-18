@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 18:11:37 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 19:21:07 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 19:24:47 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Span::Span() : _index(0)
 {
-	
+
 }
 
 Span::Span(unsigned int N) : _max_size(N), _index(0)
@@ -45,8 +45,13 @@ Span	&Span::operator=(Span const &span)
 
 void	Span::addNumber(int n)
 {
-	_integers.push_back(n);
-	_index++;
+	if (_index >= _max_size)
+		throw (std::exception());
+	else
+	{
+		_integers.push_back(n);
+		_index++;
+	}
 }
 
 unsigned int	Span::shortestSpan()
