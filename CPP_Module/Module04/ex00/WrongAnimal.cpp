@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:12:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 14:53:01 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/18 14:51:48 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/18 14:52:20 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongAnimal.hpp"
 
-Cat::Cat()
+WrongAnimal::WrongAnimal()
 {
-	std::cout << "Cat default constructor called" << std::endl;
-	type = "Cat";
+	std::cout << "WrongAnimal default constructor called" << std::endl;
 }
 
-Cat::Cat(Cat &cat)
+WrongAnimal::WrongAnimal(WrongAnimal &wronganimal)
 {
-	std::cout << "Cat copy constructor called" << std::endl;
-	this->type = cat.type;
+	std::cout << "WrongAnimal copy constructor called" << std::endl;
 }
 
-Cat::~Cat()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << "Cat destructor called" << std::endl;
+	std::cout << "WrongAnimal destructor called" << std::endl;
 }
 
-void	Cat::makeSound() const
+void	WrongAnimal::makeSound() const 
 {
-	std::cout << "Meow" << std::endl;
+	std::cout << "Just an animal" << std::endl;
 }

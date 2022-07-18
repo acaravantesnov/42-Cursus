@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:12:47 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 21:01:14 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 14:49:00 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,6 @@ class	Cat : public Animal
 		~Cat();
 
 		virtual void	makeSound() const;
-};
-
-class	WrongCat : public WrongAnimal
-{
-	public:
-		WrongCat();
-		WrongCat(WrongCat &wrongcat);
-		~WrongCat();
 };
 
 #endif

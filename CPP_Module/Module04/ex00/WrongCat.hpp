@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:12:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 14:53:01 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/18 14:49:22 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/18 14:53:10 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-Cat::Cat()
-{
-	std::cout << "Cat default constructor called" << std::endl;
-	type = "Cat";
-}
+# include "WrongAnimal.hpp"
 
-Cat::Cat(Cat &cat)
+class	WrongCat : public WrongAnimal
 {
-	std::cout << "Cat copy constructor called" << std::endl;
-	this->type = cat.type;
-}
+	public:
+		WrongCat();
+		WrongCat(WrongCat &wrongcat);
+		~WrongCat();
+};
 
-Cat::~Cat()
-{
-	std::cout << "Cat destructor called" << std::endl;
-}
-
-void	Cat::makeSound() const
-{
-	std::cout << "Meow" << std::endl;
-}
+#endif

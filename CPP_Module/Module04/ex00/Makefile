@@ -6,7 +6,7 @@
 #    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 14:41:22 by acaravan          #+#    #+#              #
-#    Updated: 2022/07/08 18:21:00 by acaravan         ###   ########.fr        #
+#    Updated: 2022/07/18 14:54:04 by acaravan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ NAME			=	Polymorphism
 SRCS			=	main.cpp \
 					Animal.cpp \
 					Dog.cpp \
-					Cat.cpp
+					Cat.cpp \
+					WrongAnimal.cpp \
+					WrongCat.cpp
 
 OBJS			=	$(SRCS:.cpp=.o)
 
