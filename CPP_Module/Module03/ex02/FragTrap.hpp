@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:43 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/11 00:26:11 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/17 19:05:24 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class	FragTrap: public ClapTrap
 	public:
 		FragTrap();
 		FragTrap(const std::string	&Name);
-		FragTrap(FragTrap &scavTrap);
+		FragTrap(FragTrap &fragTrap);
 		~FragTrap();
 		FragTrap	&operator=(FragTrap &fragTrap2);
 

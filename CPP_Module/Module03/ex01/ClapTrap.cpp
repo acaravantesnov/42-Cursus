@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 01:32:24 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 18:02:57 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/17 18:58:57 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,15 @@ void		ClapTrap::setAttackDamage(int AttackDamage)
 	_AttackDamage = AttackDamage;
 }
 
-ClapTrap	&ClapTrap::operator=(ClapTrap const &clapTrap2)
+ClapTrap	&ClapTrap::operator=(ClapTrap const &clapTrap)
 {
-	if (this != &clapTrap2)
+	if (this != &clapTrap)
 	{
 		std::cout << "CLAPTRAP assignation operator called" << std::endl;
-		this->_Name = clapTrap2._Name;
-		this->_Hitpoints = clapTrap2._Hitpoints;
-		this->_EnergyPoints = clapTrap2._EnergyPoints;
-		this->_AttackDamage = clapTrap2._AttackDamage;
+		this->_Name = clapTrap._Name;
+		this->_Hitpoints = clapTrap._Hitpoints;
+		this->_EnergyPoints = clapTrap._EnergyPoints;
+		this->_AttackDamage = clapTrap._AttackDamage;
 	}
 	return (*this);
 }

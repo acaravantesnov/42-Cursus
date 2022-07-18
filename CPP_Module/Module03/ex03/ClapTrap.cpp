@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 01:32:24 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 18:02:57 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/17 20:01:37 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,15 +90,6 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &clapTrap2)
 		this->_AttackDamage = clapTrap2._AttackDamage;
 	}
 	return (*this);
-}
-
-std::ostream	&operator<<(std::ostream &stream, ClapTrap &clapTrap)
-{
-	stream << "Name: " << clapTrap.getName() << \
-	" Hitpoints: " << clapTrap.getHitpoints() << \
-	" Energy Points: " << clapTrap.getEnergyPoints() << \
-	" Attack Damage: " << clapTrap.getAttackDamage();
-	return (stream);
 }
 
 void	ClapTrap::attack(std::string const & target)

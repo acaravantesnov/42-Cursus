@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 01:32:20 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/11 00:24:24 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/17 19:01:08 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ class	ClapTrap
 		void				beRepaired(unsigned int amount);
 };
 
-std::ostream	&operator<<(std::ostream &stream, ClapTrap &clapTrap2);
+std::ostream	&operator<<(std::ostream &stream, ClapTrap &clapTrap);
 
 #endif
