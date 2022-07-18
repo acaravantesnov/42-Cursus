@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 14:51:48 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 14:52:20 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:06:53 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ WrongAnimal::WrongAnimal(WrongAnimal &wronganimal)
 WrongAnimal::~WrongAnimal()
 {
 	std::cout << "WrongAnimal destructor called" << std::endl;
+}
+
+WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &wronganimal)
+{
+	std::cout << "Assignment operator called" << std::endl;
+	return (*this);
 }
 
 void	WrongAnimal::makeSound() const 

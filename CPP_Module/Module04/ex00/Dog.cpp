@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:13:09 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 01:48:40 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:05:05 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,16 @@ Dog::Dog(Dog &dog)
 Dog::~Dog()
 {
 	std::cout << "Dog destructor called" << std::endl;
+}
+
+Dog	&Dog::operator=(Dog const &dog)
+{
+	if (this != &dog)
+	{
+		std::cout << "Assignment operator called" << std::endl;
+		this->type = dog.getType();
+	}
+	return (*this);
 }
 
 void	Dog::makeSound() const

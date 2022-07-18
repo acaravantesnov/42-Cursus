@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 16:38:44 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:04:37 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 # define DOG_HPP
 
 # include "Animal.hpp"
-# include "Brain.hpp"
 
 class	Dog : public Animal
 {
-	private:
-		Brain	*_Brainptr;
 	public:
 		Dog();
 		Dog(Dog &dog);
 		~Dog();
+		Dog	&operator=(Dog const &dog);
 
 		virtual void	makeSound() const;
 };
