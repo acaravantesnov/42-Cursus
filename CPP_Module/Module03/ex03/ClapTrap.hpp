@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 01:32:20 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/17 20:29:54 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:47:13 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class	ClapTrap
 {
-	private:
+	protected:
 		std::string	_Name;
 		int			_Hitpoints;
 		int			_EnergyPoints;

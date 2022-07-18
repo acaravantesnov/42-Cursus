@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:43 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/17 20:29:25 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:49:14 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ class	ScavTrap: virtual public ClapTrap
 		int		&getEnergyPoints();
 		void	setEnergyPoints(int EnergyPoints);
 
-		virtual void	attack(std::string const & target);
-
-		void	guardGate();
+		void	attack(std::string const & target);
+		void			guardGate();
 };
 
 #endif

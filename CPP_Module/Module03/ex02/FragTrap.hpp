@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:43 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/17 19:05:24 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:43:48 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class	FragTrap: public ClapTrap
 		~FragTrap();
 		FragTrap	&operator=(FragTrap &fragTrap2);
 
+		void	attack(std::string const & target);
 		void	highFivesGuys(void);
 };
 

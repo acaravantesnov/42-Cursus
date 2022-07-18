@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:43 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/11 00:26:17 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:39:12 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ class	ScavTrap: public ClapTrap
 		ScavTrap(const std::string	&Name);
 		ScavTrap(ScavTrap &scavTrap);
 		~ScavTrap();
-		ScavTrap	&operator=(ScavTrap &clapTrap2);
+		ScavTrap	&operator=(ScavTrap &clapTrap);
 
-		void guardGate();
+		void	attack(std::string const & target);
+		void	guardGate(void);
 };
 
 #endif

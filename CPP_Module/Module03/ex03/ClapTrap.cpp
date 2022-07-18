@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 01:32:24 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/17 20:01:37 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:48:47 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &clapTrap2)
 
 void	ClapTrap::attack(std::string const & target)
 {
-	std::cout << this->getName() << " has attacked " << target << ", " \
+	std::cout << "ClapTrap " << this->getName() << " has attacked " << target << ", " \
 	<< "causing " << this->getAttackDamage() << " points of damage!" << std::endl;
 }
 

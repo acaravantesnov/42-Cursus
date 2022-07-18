@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:43 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/17 20:12:45 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:49:10 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ class	FragTrap: virtual public ClapTrap
 		void	setHitpoints(int Hitpoints);
 		void	setAttackDamage(int AttackDamage);
 
-		void	highFivesGuys(void);
+		void	attack(std::string const & target);
+		void			highFivesGuys(void);
 };
 
 #endif

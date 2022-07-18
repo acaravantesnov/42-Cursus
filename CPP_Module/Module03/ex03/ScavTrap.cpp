@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:46 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/17 20:48:45 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:48:31 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ ScavTrap	&ScavTrap::operator=(ScavTrap &scavTrap)
 
 void	ScavTrap::attack(std::string const & target)
 {
-	std::cout << this->getName() << " has attacked " << target << ", " \
+	std::cout << "ScavTrap " << this->getName() << " has attacked " << target << ", " \
 	<< "causing " << this->getAttackDamage() << " points of damage!" << std::endl;
 }
 

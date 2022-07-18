@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:46 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/17 19:06:34 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:44:57 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ FragTrap	&FragTrap::operator=(FragTrap &fragTrap)
 		this->setAttackDamage(fragTrap.getAttackDamage());
 	}
 	return (*this);
+}
+
+void	FragTrap::attack(std::string const & target)
+{
+	std::cout << "FragTrap " << this->getName() << " has attacked " << target << ", " \
+	<< "causing " << this->getAttackDamage() << " points of damage!" << std::endl;
 }
 
 void	FragTrap::highFivesGuys()

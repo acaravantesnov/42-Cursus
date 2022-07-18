@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 03:01:46 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/17 19:06:18 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:41:35 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,26 @@ ScavTrap::~ScavTrap()
 	std::cout << "SCAVTRAP destructor called" << std::endl;
 }
 
-ScavTrap	&ScavTrap::operator=(ScavTrap &scavTrap2)
+ScavTrap	&ScavTrap::operator=(ScavTrap &scavTrap)
 {
-	if (this != &scavTrap2)
+	if (this != &scavTrap)
 	{
 		std::cout << "SCAVTRAP assignation operator called" << std::endl;
-		this->setName(scavTrap2.getName());
-		this->setHitpoints(scavTrap2.getHitpoints());
-		this->setEnergyPoints(scavTrap2.getEnergyPoints());
-		this->setAttackDamage(scavTrap2.getAttackDamage());
+		this->setName(scavTrap.getName());
+		this->setHitpoints(scavTrap.getHitpoints());
+		this->setEnergyPoints(scavTrap.getEnergyPoints());
+		this->setAttackDamage(scavTrap.getAttackDamage());
 	}
 	return (*this);
 }
 
-void ScavTrap::guardGate()
+void	ScavTrap::attack(std::string const & target)
+{
+	std::cout << "ScavTrap " << this->getName() << " has attacked " << target << ", " \
+	<< "causing " << this->getAttackDamage() << " points of damage!" << std::endl;
+}
+
+void	ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap have entered in Gate keeper mode." << std::endl;
 }

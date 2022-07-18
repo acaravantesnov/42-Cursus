@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 01:32:24 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/09 18:02:57 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:41:14 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,15 @@ void		ClapTrap::setAttackDamage(int AttackDamage)
 	_AttackDamage = AttackDamage;
 }
 
-ClapTrap	&ClapTrap::operator=(ClapTrap const &clapTrap2)
+ClapTrap	&ClapTrap::operator=(ClapTrap const &clapTrap)
 {
-	if (this != &clapTrap2)
+	if (this != &clapTrap)
 	{
 		std::cout << "CLAPTRAP assignation operator called" << std::endl;
-		this->_Name = clapTrap2._Name;
-		this->_Hitpoints = clapTrap2._Hitpoints;
-		this->_EnergyPoints = clapTrap2._EnergyPoints;
-		this->_AttackDamage = clapTrap2._AttackDamage;
+		this->_Name = clapTrap._Name;
+		this->_Hitpoints = clapTrap._Hitpoints;
+		this->_EnergyPoints = clapTrap._EnergyPoints;
+		this->_AttackDamage = clapTrap._AttackDamage;
 	}
 	return (*this);
 }
@@ -103,7 +103,7 @@ std::ostream	&operator<<(std::ostream &stream, ClapTrap &clapTrap)
 
 void	ClapTrap::attack(std::string const & target)
 {
-	std::cout << this->getName() << " has attacked " << target << ", " \
+	std::cout << "ClapTrap " << this->getName() << " has attacked " << target << ", " \
 	<< "causing " << this->getAttackDamage() << " points of damage!" << std::endl;
 }
 
