@@ -6,11 +6,11 @@
 #    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 14:41:22 by acaravan          #+#    #+#              #
-#    Updated: 2022/07/10 00:47:45 by acaravan         ###   ########.fr        #
+#    Updated: 2022/07/19 16:47:51 by acaravan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	Conversion_escalar
+NAME			=	Convert
 
 SRCS			=	main.cpp \
 
@@ -18,7 +18,7 @@ OBJS			=	$(SRCS:.cpp=.o)
 
 GCC				=	clang++
 RM				=	rm -f
-FLAGS			=	-Wall -Wextra -Werror -std=c++98 -pedantic
+FLAGS			=	-Wall -Wextra -Werror -g -std=c++98 -pedantic
 
 all:			$(NAME)
 
