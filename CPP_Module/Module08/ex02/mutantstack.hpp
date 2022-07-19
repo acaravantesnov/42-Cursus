@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 02:53:05 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/19 03:49:54 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/19 15:45:08 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@ template<typename T>
 class	MutantStack : public std::stack<T>
 {
 	public:
-		typedef typename std::stack<T>::container_type::iterator				iterator;
-		typedef typename std::stack<T>::container_type::const_iterator			const_iterator;
-		typedef typename std::stack<T>::container_type::reverse_iterator		reverse_iterator;
-		typedef typename std::stack<T>::container_type::const_reverse_iterator	const_reverse_iterator;
+		typedef typename std::stack<T>::container_type::iterator \
+		iterator;
+		typedef typename std::stack<T>::container_type::const_iterator \
+		const_iterator;
+		typedef typename std::stack<T>::container_type::reverse_iterator \
+		reverse_iterator;
+		typedef typename std::stack<T>::container_type::const_reverse_iterator \
+		const_reverse_iterator;
 
 		MutantStack();
 		MutantStack(MutantStack const &mutantstack);
@@ -43,7 +47,8 @@ template<typename T>
 MutantStack<T>::MutantStack() : std::stack<T>() {}
 
 template<typename T>
-MutantStack<T>::MutantStack(MutantStack const &mutantstack) {*this = mutantstack;}
+MutantStack<T>::MutantStack(MutantStack const &mutantstack)
+{*this = mutantstack;}
 
 template<typename T>
 MutantStack<T>::~MutantStack() {}
