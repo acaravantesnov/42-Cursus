@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 00:05:25 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/13 00:15:43 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 01:11:27 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,27 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 }
 
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const \
+&rrf)
+{
+	return (*this);
+}
+
 void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
+	int	n;
+
+	srand(time(NULL));
 	if (this->getIsItSigned())
 	{
 		if (this->getGrade2beexecuted() >= executor.getGrade())
 		{
-			int	n = rand()%2;
+			n = rand()%2;
 			if (n)
 				std::cout << this->getName() << \
 				" has been robotomized successfully" << std::endl;
 			else
-				std::cout << "XXXXXX FAILURE XXXXXX" << std::endl;
+				std::cout << "Brrrrrrrrrrrrrrrrrrrrrrrr" << std::endl;
 		}
 		else
 			throw (Bureaucrat::GradeTooLowException());

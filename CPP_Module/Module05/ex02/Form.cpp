@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 21:33:13 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/12 21:06:19 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 01:41:47 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ Form::~Form()
 
 }
 
-void	Form::operator=(const Form &form)
+Form	&Form::operator=(const Form &form)
 {
-	// ?
+	return (*this);
 }
 
 const std::string	Form::getName() const
@@ -63,21 +63,13 @@ bool	Form::getIsItSigned() const
 
 bool	Form::beSigned(const Bureaucrat &bureaucrat)
 {
-	try
+	if (bureaucrat.getGrade() <= this->_grade2besigned)
 	{
-		if (bureaucrat.getGrade() <= this->_grade2besigned)
-		{
-			this->_is_it_signed = true;
-			return (1);
-		}
-		else
-			throw (GradeTooLowException());
+		this->_is_it_signed = true;
+		return (1);
 	}
-	catch (GradeTooLowException e)
-	{
-		std::cout << "Form cannot be signed, grade is too low." << std::endl;
-		return (0);
-	}
+	else
+		throw (GradeTooLowException());
 }
 
 const char* Form::GradeTooHighException::what() const throw()
