@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:32:45 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 17:30:01 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 16:43:32 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,32 @@
 
 int	main()
 {
-	try
-	{
-		Bureaucrat	*invalidbureaucrat = new Bureaucrat("JONNY", 250);
-	}
+	try {Bureaucrat	*invalidbureaucrat = new Bureaucrat("JONNY", 250);}
 	catch (Bureaucrat::GradeTooLowException &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
-	
+
 	Bureaucrat	*bureaucrat = new Bureaucrat("PEPE", 150);
 	std::cout << *bureaucrat;
 
 	try {bureaucrat->decrementGrade();}
-	catch(Bureaucrat::GradeTooLowException e)
+	catch(Bureaucrat::GradeTooLowException &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
-	
+
 	std::cout << *bureaucrat;
 	for (int i = 0; i < 149; i++)
 		bureaucrat->incrementGrade();
 	std::cout << *bureaucrat;
-	
+
 	try {bureaucrat->incrementGrade();}
-	catch (Bureaucrat::GradeTooHighException e)
+	catch (Bureaucrat::GradeTooHighException &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
-	
+
 	std::cout << *bureaucrat;
 
 	delete (bureaucrat);

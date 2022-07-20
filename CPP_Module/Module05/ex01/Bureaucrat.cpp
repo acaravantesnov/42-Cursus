@@ -6,15 +6,15 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:32:40 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 17:38:37 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 19:17:45 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : _name(""), _grade(150)
 {
-	
+
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) :	_name(name),
@@ -26,9 +26,10 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) :	_name(name),
 		throw (GradeTooLowException());
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &bureaucrat)
+Bureaucrat::Bureaucrat(Bureaucrat &bureaucrat) :	_name(bureaucrat.getName()),
+													_grade(bureaucrat.getGrade())
 {
-	*this = bureaucrat;
+
 }
 
 Bureaucrat::~Bureaucrat()
@@ -38,8 +39,13 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 {
-	Bureaucrat b(bureaucrat.getName(), bureaucrat.getGrade());
-	return (b);
+	if (bureaucrat._grade > 150)
+		throw (GradeTooLowException());
+	else if (bureaucrat._grade < 1)
+		throw (GradeTooHighException());
+	if (this != &bureaucrat)
+		this->_grade = bureaucrat._grade;
+	return (*this);
 }
 
 const std::string	Bureaucrat::getName() const
@@ -54,15 +60,17 @@ int	Bureaucrat::getGrade() const
 
 void	Bureaucrat::incrementGrade()
 {
-	_grade--;
-	if (_grade < 1)
+	if (_grade > 1)
+		_grade--;
+	else
 		throw	(GradeTooHighException());
 }
 
 void	Bureaucrat::decrementGrade()
 {
-	_grade++;
-	if (_grade > 150)
+	if (_grade < 150)
+		_grade++;
+	else
 		throw	(GradeTooLowException());
 }
 

@@ -5,37 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 19:32:45 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 20:38:31 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/12 19:53:12 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/20 20:39:22 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
-int	main()
+int	main(void)
 {
-	Bureaucrat	*bureaucrat = new Bureaucrat("PEPE", 120);
+	Intern	someRandomIntern;
 
-	Form		*form1 = new Form("JONNY", 100, 80);
-	try {form1->beSigned(*bureaucrat);}
-	catch (Form::GradeTooLowException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	Form*	rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	std::cout << *rrf;
 
-	Form		*form2 = new Form("JOHN", 130, 100);
-	bureaucrat->signForm(*form2);
+	Bureaucrat*	b = new Bureaucrat("Alberto", 1);
+	b->signForm(*rrf);
+	rrf->execute(*b);
 
-	Form		*form3 = new Form("JIMMY", 130, 100);
-	form3->beSigned(*bureaucrat);
-	std::cout << *form3;
-
-
-	delete (bureaucrat);
-	delete (form1);
-	delete (form2);
-	delete (form3);
+	delete (rrf);
+	delete (b);
 
 	return (0);
 }
