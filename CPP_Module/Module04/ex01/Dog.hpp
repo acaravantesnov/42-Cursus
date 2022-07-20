@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 16:05:25 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 15:58:44 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ class	Dog : public Animal
 	public:
 		Dog();
 		Dog(Dog &dog);
-		~Dog();
+		virtual ~Dog();
 		Dog	&operator=(Dog const &dog);
 
+		Brain*			getBrainptr() const;
 		virtual void	makeSound() const;
 };
 

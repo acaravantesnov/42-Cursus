@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:12:47 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 16:01:54 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 15:58:25 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ class	Cat : public Animal
 	public:
 		Cat();
 		Cat(Cat &cat);
-		~Cat();
+		virtual ~Cat();
 		Cat	&operator=(Cat const &cat);
 
+		Brain*			getBrainptr() const;
 		virtual void	makeSound() const;
 };
 

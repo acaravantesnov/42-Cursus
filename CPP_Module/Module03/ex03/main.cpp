@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 01:42:02 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/17 20:39:04 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 15:35:05 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main()
 {
 	std::cout << "\n---- DIAMONDTRAP MAIN ----\n" << std::endl;
-	
+
 	DiamondTrap	DiamondTrapA("DiamondTrapA");
 	DiamondTrap	DiamondTrapB("DiamondTrapB");
 

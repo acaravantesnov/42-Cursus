@@ -6,13 +6,13 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 12:31:26 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 15:54:27 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 15:34:26 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ScavTrap(), FragTrap(), _Name("")
+DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap(), _Name("")
 {
 	std::cout << "Default DIAMONDTRAP constructor called" << std::endl;
 }

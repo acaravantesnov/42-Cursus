@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:50:53 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 17:01:00 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 16:16:20 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	leaks()
 int main()
 {
 	atexit(leaks);
-	
+
 	Animal *animals[N];
 	for (int i = 0; i < N; i++)
 	{
@@ -36,32 +36,11 @@ int main()
 	std::cout << std::endl;
 	for (int i = 0; i < N; i++)
 		delete (animals[i]);
-	
-	// DEEP COPY
-	
-	std::cout << std::endl;
-	Dog	*dog1 = new Dog;
-	Dog *dog2 = new Dog;
-
-	*dog2 = *dog1;
-	std::cout << dog2->getType() << std::endl;
-	dog1->setType("MUTANT DOG");
-	std::cout << dog1->getType() << std::endl;
-	std::cout << dog2->getType() << std::endl;
-
-	std::cout << std::endl;
-
-	delete (dog1);
-	delete (dog2);
-
-	std::cout << std::endl;
-
 	return (0);
 }
 
 /*
-//Subject main fct
-
+//SUBJECT MAIN FUNCTION
 int main()
 {
 	atexit(leaks);
@@ -70,5 +49,19 @@ int main()
 
 	delete j;//should not create a leak
 	delete i;
+}
+*/
+/*
+//DEEP COPY MAIN
+int	main()
+{
+	Dog basic;
+	basic.getBrainptr()->getideas()[0] = "Hi";
+	Dog tmp = basic;
+	std::cout << tmp.getBrainptr()->getideas()[0] << std::endl;
+	basic.getBrainptr()->getideas()[0] = "Bye";
+	std::cout << basic.getBrainptr()->getideas()[0] << std::endl;
+	std::cout << tmp.getBrainptr()->getideas()[0] << std::endl;
+	return (0);
 }
 */

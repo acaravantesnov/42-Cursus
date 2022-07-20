@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:13:09 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 16:54:29 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 16:13:21 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,14 @@ Dog	&Dog::operator=(Dog const &dog)
 		delete (_Brainptr);
 		this->_Brainptr = new Brain;
 		for (int i = 0; i < 100; i++)
-			this->_Brainptr->ideas[i] = dog._Brainptr->ideas[i];
+			this->_Brainptr->getideas()[i] = dog._Brainptr->getideas()[i];
 	}
 	return (*this);
+}
+
+Brain*			Dog::getBrainptr() const
+{
+	return (_Brainptr);
 }
 
 void	Dog::makeSound() const

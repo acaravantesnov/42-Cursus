@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:13:09 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 15:05:05 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 15:39:11 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Dog::Dog()
 Dog::Dog(Dog &dog)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
-	this->type = dog.type;
+	*this = dog;
 }
 
 Dog::~Dog()

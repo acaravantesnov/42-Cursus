@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:12:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 16:59:12 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 16:13:02 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,14 @@ Cat	&Cat::operator=(Cat const &cat)
 		delete (_Brainptr);
 		this->_Brainptr = new Brain;
 		for (int i = 0; i < 100; i++)
-			this->_Brainptr->ideas[i] = cat._Brainptr->ideas[i];
+			this->_Brainptr->getideas()[i] = cat._Brainptr->getideas()[i];
 	}
 	return (*this);
+}
+
+Brain*			Cat::getBrainptr() const
+{
+	return (_Brainptr);
 }
 
 void	Cat::makeSound() const
