@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:11:26 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/19 23:35:44 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:27:36 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,7 @@ int	main()
 {
 	Base *obj = generate();
 	identify(obj);
+
+	delete (obj);
 	return (0);
 }

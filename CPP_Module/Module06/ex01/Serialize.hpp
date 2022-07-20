@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:42:00 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/19 23:50:17 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:21:34 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define SERIALIZE_HPP
 
 # include <stdint.h>
+# include <string>
 
 struct Data
 {
-	Data(const bool &data);
-	bool _data;
+	std::string _data;
+	Data(const std::string &data);
 };
 
 uintptr_t	serialize(Data *ptr);

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 16:26:01 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/19 19:34:51 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:15:58 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(int argc, char **argv)
 	catch(std::exception &e)
 	{
 		std::cout << "Number out of range." << std::endl;
-		exit(1);
+		return (1);
 	}
 	float	f = std::stof(str);
 	char	c = static_cast<char>(i);
@@ -79,6 +79,7 @@ bool	isNumber(const std::string &str)
 {
 	short	n_of_dots = 0;
 	short	n_of_f = 0;
+
 	for (int i = 0; str[i] != '\0'; i++)
 	{
 		if ((std::isdigit(str[i]) == 0) && (str[i] != '.') && (str[i] != 'f'))
@@ -95,7 +96,7 @@ bool	isNumber(const std::string &str)
 
 int	extreme_cases(const std::string &str)
 {
-	if (str == "nan") 
+	if (str == "nan")
 	{
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
@@ -119,7 +120,8 @@ int		str_is_char(const std::string &str)
 		std::cout << "'" << str[0] << "'" << std::endl;
 	else
 		std::cout << "Non displayable" << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "int: " << int(str[0]) << std::endl;
+	std::cout << std::fixed << std::setprecision(1) << \
+	"int: " << int(str[0]) << std::endl;
 	std::cout << "float: " << int(str[0]) << ".0f" << std::endl;
 	std::cout << "double: " << int(str[0]) << ".0" << std::endl;
 	return (0);
@@ -127,6 +129,13 @@ int		str_is_char(const std::string &str)
 
 int		negative_number(const std::string &str)
 {
+	std::string str2 = str.substr(1);
+	if (!(isNumber(str2)))
+	{
+		std::cout << "Error." << std::endl;
+		return (1);
+	}
+
 	int i;
 	try
 	{
@@ -135,7 +144,7 @@ int		negative_number(const std::string &str)
 	catch(std::exception &e)
 	{
 		std::cout << "Number out of range." << std::endl;
-		exit(1);
+		return (1);
 	}
 	float	f = std::stof(str);
 	double	d = static_cast<double>(f);

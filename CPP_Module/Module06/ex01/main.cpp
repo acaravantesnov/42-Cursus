@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 22:16:57 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/19 23:52:45 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:22:10 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ int	main()
 	Data		*data2;
 	uintptr_t	info;
 
-	data = new Data(false);
+	data = new Data("information");
 	info = serialize(data);
 	data2 = deserialize(info);
 	std::cout << data2->_data << std::endl;
+
+	delete (data);
 	return (0);
 }
-

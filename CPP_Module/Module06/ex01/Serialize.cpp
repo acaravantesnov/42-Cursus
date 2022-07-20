@@ -6,13 +6,13 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:42:55 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/19 23:50:18 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:21:12 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serialize.hpp"
 
-Data::Data(const bool &data) : _data(data) {}
+Data::Data(const std::string &data) : _data(data) {}
 
 uintptr_t	serialize(Data *ptr)
 {
