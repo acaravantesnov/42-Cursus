@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:13:31 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/21 14:13:59 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/21 16:23:50 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,11 @@ std::string	const &Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	this->_Inventory[_index] = m->clone();
-	_index++;
+	if (_index < 4)
+	{
+		this->_Inventory[_index] = m->clone();
+		_index++;
+	}
 }
 
 void Character::unequip(int idx)
@@ -68,5 +71,6 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	this->_Inventory[idx]->use(target);
+	if ((idx < _index) && (idx >= 0))
+		this->_Inventory[idx]->use(target);
 }
