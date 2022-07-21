@@ -6,17 +6,18 @@
 #    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 14:41:22 by acaravan          #+#    #+#              #
-#    Updated: 2022/07/09 18:37:50 by acaravan         ###   ########.fr        #
+#    Updated: 2022/07/21 13:54:03 by acaravan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	Interface&Recap
+NAME			=	Interface
 
 SRCS			=	main.cpp \
-					Animal.cpp \
-					Dog.cpp \
-					Cat.cpp \
-					Brain.cpp
+					AMateria.cpp \
+					Character.cpp \
+					Cure.cpp \
+					Ice.cpp \
+					MateriaSource.cpp
 
 OBJS			=	$(SRCS:.cpp=.o)
 

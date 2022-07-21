@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 14:50:53 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/21 14:11:44 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/21 13:39:47 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/21 13:41:27 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
-#include "AMateria.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
-int main()
+# include "AMateria.hpp"
+
+class IMateriaSource
 {
-	Ice			i;
-	Cure 		c;
-	Character	ch("PEPE");
-	Character	ch2("JUAN");
-	i.use(ch);
-	c.use(ch);
+	public:
+		virtual ~IMateriaSource() {}
+		virtual void learnMateria(AMateria*) = 0;
+		virtual AMateria* createMateria(std::string const & type) = 0;
+};
 
-	ch.equip(&i);
-	ch.use(0, ch2);
-
-	return (0);
-}
+#endif

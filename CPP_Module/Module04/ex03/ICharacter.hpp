@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 00:58:15 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/12 19:27:57 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/21 13:52:29 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "AMateria.hpp"
 # include <string>
+
+class	AMateria;
 
 class ICharacter
 {

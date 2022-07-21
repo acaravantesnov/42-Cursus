@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 16:53:02 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 01:20:11 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/21 13:48:12 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Ice::Ice()
 	type = "ice";
 }
 
-Ice::Ice(Ice &ice)
+Ice::Ice(const Ice &ice)
 {
 	this->type = ice.type;
 }
@@ -27,9 +27,16 @@ Ice::~Ice()
 	
 }
 
+Ice	&Ice::operator=(Ice const &ice)
+{
+	if (this != &ice)
+		this->type = ice.type;
+	return (*this);
+}
+
 AMateria* Ice::clone() const
 {
-	AMateria* mat = new Ice;
+	AMateria* mat = new Ice(*this);
 	return (mat);
 }
 

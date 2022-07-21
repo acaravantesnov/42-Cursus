@@ -1,46 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 16:52:55 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/21 13:12:00 by acaravan         ###   ########.fr       */
+/*   Created: 2022/07/21 13:43:03 by acaravan          #+#    #+#             */
+/*   Updated: 2022/07/21 13:46:16 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#include "MateriaSource.hpp"
 
-Cure::Cure()
-{
-	type = "cure";
-}
-
-Cure::Cure(const Cure &cure)
-{
-	this->type = cure.type;
-}
-
-Cure::~Cure()
+MateriaSource::MateriaSource()
 {
 	
 }
 
-Cure	&Cure::operator=(Cure const &cure)
+MateriaSource::MateriaSource(MateriaSource const &materiasource)
 {
-	if (this != &cure)
-		this->type = cure.type;
-	return (*this);
+	
 }
 
-AMateria* Cure::clone() const
+MateriaSource::~MateriaSource()
 {
-	AMateria* mat = new Cure(*this);
-	return (mat);
+
 }
 
-void Cure::use(ICharacter& target)
+MateriaSource	&MateriaSource::operator=(MateriaSource const &materiasource)
 {
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+	
+}
+
+void	MateriaSource::learnMateria(AMateria*)
+{
+	
+}
+
+AMateria*		MateriaSource::createMateria(std::string const & type)
+{
+	
 }

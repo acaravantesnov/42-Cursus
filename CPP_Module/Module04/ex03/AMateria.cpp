@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 16:36:26 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 01:25:29 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/21 13:52:51 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ AMateria::~AMateria()
 
 AMateria	&AMateria::operator=(AMateria const &amateria)
 {
-	
+	return (*this);
 }
 
 std::string const & AMateria::getType() const
