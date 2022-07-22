@@ -6,14 +6,12 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 01:56:53 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/10 02:04:41 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:20:17 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WHATEVER_HPP
 # define WHATEVER_HPP
-
-# include <iostream>
 
 template<typename T>
 void	swap(T &a, T &b)

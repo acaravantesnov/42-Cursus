@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:32:45 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 20:38:31 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:00:25 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main()
 	Form		*form3 = new Form("JIMMY", 130, 100);
 	form3->beSigned(*bureaucrat);
 	std::cout << *form3;
-
 
 	delete (bureaucrat);
 	delete (form1);

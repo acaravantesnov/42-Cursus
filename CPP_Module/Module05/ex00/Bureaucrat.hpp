@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:32:43 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 16:35:37 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:07:47 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class	Bureaucrat
 		Bureaucrat();
 		Bureaucrat(const std::string &name, int grade);
 		Bureaucrat(Bureaucrat &bureaucrat);
-		~Bureaucrat();
+		virtual ~Bureaucrat();
 		Bureaucrat			&operator=(const Bureaucrat &bureaucrat);
 
 		const std::string	getName() const;

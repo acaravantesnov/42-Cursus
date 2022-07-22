@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 00:08:00 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 19:48:10 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:04:45 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Form(target, 25, 5)
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm \
 &ppf) : Form(ppf)
 {
-
+	*this = ppf;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()

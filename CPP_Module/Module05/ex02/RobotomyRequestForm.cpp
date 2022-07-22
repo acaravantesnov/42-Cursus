@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 00:05:25 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 19:49:26 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:04:34 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Form(target, 72, 45)
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &rrf) : \
 Form(rrf)
 {
-
+	*this = rrf;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()

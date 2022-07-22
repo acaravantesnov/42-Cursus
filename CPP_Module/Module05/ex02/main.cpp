@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:53:12 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 01:43:10 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:11:08 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(void)
 	ShrubberyCreationForm	scf1("Casa");
 	RobotomyRequestForm		rrf1("Casa");
 	PresidentialPardonForm	ppf1("Casa");
+
 	b1.signForm(rrf1);
 	b1.executeForm(rrf1);
 	ppf1.beSigned(b1);

@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 00:07:53 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 19:38:52 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:12:02 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	PresidentialPardonForm : public Form
 		PresidentialPardonForm();
 		PresidentialPardonForm(const std::string &target);
 		PresidentialPardonForm(const PresidentialPardonForm &ppf);
-		~PresidentialPardonForm();
+		virtual ~PresidentialPardonForm();
 		PresidentialPardonForm	&operator=(const PresidentialPardonForm &ppf);
 
 		virtual void		execute(Bureaucrat const &executor) const;

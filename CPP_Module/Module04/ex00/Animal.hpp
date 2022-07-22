@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:42:46 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 14:57:33 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 13:35:02 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	Animal
 	public:
 		Animal();
 		Animal(Animal &animal);
-		~Animal();
+		virtual ~Animal();
 		Animal	&operator=(Animal const &animal);
 
 		const std::string	getType() const;

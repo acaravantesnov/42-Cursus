@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 23:51:59 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 19:50:47 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:03:49 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ Form(target, 145, 137)
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm \
-&scf)
+&scf) : Form(scf)
 {
-
+	*this = scf;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()

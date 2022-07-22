@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 14:29:27 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 22:43:33 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:23:53 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ class	Array
 };
 
 template<typename T>
-Array<T>::Array() : _size(0), _arr(new T[0]) {}
+Array<T>::Array() : _arr(new T[0]), _size(0) {}
 
 template<typename T>
-Array<T>::Array(unsigned int n) : _size(n), _arr(new T[n]) {}
+Array<T>::Array(unsigned int n) : _arr(new T[n]), _size(n) {}
 
 template<typename T>
 Array<T>::Array(const Array<T> &array) : _size(array._size)

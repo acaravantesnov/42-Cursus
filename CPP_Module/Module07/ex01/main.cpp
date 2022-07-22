@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 01:57:22 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 22:29:32 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:22:08 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int main(void)
 		arr[i] = (rand()%N) + 1;
 
 	int	*arrptr = arr;
-	void	(*funcptr)(const int &) = &print;
 	iter(arrptr, N, print);
 	std::cout << std::endl;
 	iter(arrptr, N, even_or_odd);

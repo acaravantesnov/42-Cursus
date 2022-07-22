@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:12:50 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 16:13:02 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 13:45:41 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Cat::Cat()
 Cat::Cat(Cat &cat)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
+	this->_Brainptr = new Brain;
 	*this = cat;
 }
 

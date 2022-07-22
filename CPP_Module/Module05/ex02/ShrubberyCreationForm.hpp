@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 23:51:57 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 19:49:54 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:05:41 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class	ShrubberyCreationForm : public Form
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(const std::string &target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &scf);
-		~ShrubberyCreationForm();
+		virtual ~ShrubberyCreationForm();
 		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &scf);
 
 		virtual void		execute(Bureaucrat const &executor) const;

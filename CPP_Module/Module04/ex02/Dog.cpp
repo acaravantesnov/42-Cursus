@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:13:09 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 16:13:21 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 13:48:38 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Dog::Dog()
 Dog::Dog(Dog &dog)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
+	this->_Brainptr = new Brain;
 	*this = dog;
 }
 

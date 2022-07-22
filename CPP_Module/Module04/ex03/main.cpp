@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:50:53 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/21 16:33:51 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 13:55:43 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ int main()
 	ch1.equip(&i);
 	ch1.unequip(0);
 	ch1.use(0, ch2);
+
+	//DEEP COPY
+	std::cout << std::endl;
+	Character	ch3(ch1);
+	std::cout << "ch3 uses item 0 against ch1 -> "; ch3.use(0, ch1);
+	ch1.equip(&c);
+	std::cout << "ch1 uses item 1 against ch2 -> "; ch1.use(1, ch2);
+	std::cout << "ch3 uses item 1 against ch2 -> "; ch3.use(1, ch2);
 
 	delete (ptr);
 	return (0);

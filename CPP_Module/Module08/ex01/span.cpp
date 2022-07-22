@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 18:11:37 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 19:24:47 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:26:01 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Span::Span() : _index(0)
 
 Span::Span(unsigned int N) : _max_size(N), _index(0)
 {
-	
+
 }
 
 Span::Span(Span const &span)
@@ -29,7 +29,7 @@ Span::Span(Span const &span)
 
 Span::~Span()
 {
-	
+
 }
 
 Span	&Span::operator=(Span const &span)
@@ -66,7 +66,7 @@ unsigned int	Span::shortestSpan()
 		for (std::vector<int>::iterator it = _integers.begin(); \
 		it != (_integers.end() - 1); it++)
 		{
-			if ((*(it + 1) - *it) < sS)
+			if ((*(it + 1) - *it) < static_cast<int>(sS))
 				sS = *(it + 1) - *it;
 		}
 	}

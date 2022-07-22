@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 20:04:11 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 20:31:13 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:13:13 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	Intern
 	public:
 		Intern();
 		Intern(Intern const &intern);
-		~Intern();
+		virtual ~Intern();
 		Intern	&operator=(Intern const &intern);
 
 		Form*	makeForm(const std::string &name, const std::string &target) const;

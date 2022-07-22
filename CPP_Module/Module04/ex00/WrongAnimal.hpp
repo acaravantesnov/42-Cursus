@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 14:50:37 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 15:45:07 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 13:41:57 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 
 class	WrongAnimal
 {
+	protected:
+		std::string	type;
 	public:
 		WrongAnimal();
 		WrongAnimal(WrongAnimal &wronganimal);
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 		WrongAnimal	&operator=(WrongAnimal const &wronganimal);
 
 		void	makeSound() const;

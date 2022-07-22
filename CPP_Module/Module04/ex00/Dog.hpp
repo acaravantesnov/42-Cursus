@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:13:07 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/18 15:04:37 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 13:35:08 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class	Dog : public Animal
 	public:
 		Dog();
 		Dog(Dog &dog);
-		~Dog();
+		virtual ~Dog();
 		Dog	&operator=(Dog const &dog);
 
 		virtual void	makeSound() const;

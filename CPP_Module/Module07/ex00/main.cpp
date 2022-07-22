@@ -6,11 +6,12 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 01:57:22 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 21:48:54 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:20:12 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "whatever.hpp"
+#include <iostream>
 
 /*
 class	Awesome {

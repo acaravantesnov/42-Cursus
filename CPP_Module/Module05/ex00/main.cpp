@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:32:45 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 16:43:32 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 13:57:46 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 int	main()
 {
-	try {Bureaucrat	*invalidbureaucrat = new Bureaucrat("JONNY", 250);}
+	try
+	{
+		Bureaucrat	*invalidbureaucrat = new Bureaucrat("JONNY", 250);
+		(void)invalidbureaucrat;
+	}
 	catch (Bureaucrat::GradeTooLowException &e)
 	{
 		std::cout << e.what() << std::endl;

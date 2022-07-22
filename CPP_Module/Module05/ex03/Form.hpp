@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 21:33:10 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 19:52:05 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:13:10 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ class	Form
 		Form(const std::string name, const int grade2besigned, \
 		const int grade2beexecuted);
 		Form(const Form &form);
-		~Form();
+		virtual ~Form();
 		Form				&operator=(const Form &form);
 
 		const std::string	getName() const;
-		const int			getGrade2besigned() const;
-		const int			getGrade2beexecuted() const;
+		int					getGrade2besigned() const;
+		int					getGrade2beexecuted() const;
 		bool				getIsItSigned() const;
 		void				setIsItSigned(const bool &is_it_signed);
 

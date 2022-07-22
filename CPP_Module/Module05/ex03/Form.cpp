@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 21:33:13 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/20 19:52:11 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:13:00 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ const std::string	Form::getName() const
 	return (_name);
 }
 
-const int	Form::getGrade2besigned() const
+int	Form::getGrade2besigned() const
 {
 	return (_grade2besigned);
 }
 
-const int	Form::getGrade2beexecuted() const
+int	Form::getGrade2beexecuted() const
 {
 	return (_grade2beexecuted);
 }
