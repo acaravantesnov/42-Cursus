@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:32:45 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/22 13:57:46 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/25 14:49:15 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ int	main()
 		(void)invalidbureaucrat;
 	}
 	catch (Bureaucrat::GradeTooLowException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	try
+	{
+		Bureaucrat	*invalidbureaucrat2 = new Bureaucrat("JONNY", 0);
+		(void)invalidbureaucrat2;
+	}
+	catch (Bureaucrat::GradeTooHighException &e)
 	{
 		std::cout << e.what() << std::endl;
 	}

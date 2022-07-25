@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:53:12 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/22 14:11:08 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:43:35 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,18 @@ int	main(void)
 
 	b1.signForm(rrf1);
 	b1.executeForm(rrf1);
+
+	std::cout << std::endl;
+
 	ppf1.beSigned(b1);
 	try {ppf1.execute(b1);}
+	catch (std::exception e)
+	{
+		std::cout << "Error" << std::endl;
+	}
+
+	scf1.beSigned(b1);
+	try {scf1.execute(b1);}
 	catch (std::exception e)
 	{
 		std::cout << "Error" << std::endl;
