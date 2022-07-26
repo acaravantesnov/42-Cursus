@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 18:11:37 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/22 14:26:01 by acaravan         ###   ########.fr       */
+/*   Updated: 2022/07/26 11:17:24 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ Span	&Span::operator=(Span const &span)
 	return (*this);
 }
 
+std::vector<int>	Span::getIntegers() const
+{
+	return (_integers);
+}
+
 void	Span::addNumber(int n)
 {
 	if (_index >= _max_size)
@@ -56,15 +61,16 @@ void	Span::addNumber(int n)
 
 unsigned int	Span::shortestSpan()
 {
-	unsigned int	sS;
+	std::vector<int>	aux = _integers;
+	unsigned int		sS;
 	if (_index < 2)
 		throw (std::exception());
 	else
 	{
 		sS = INT_MAX;
-		std::sort(_integers.begin(), _integers.end());
-		for (std::vector<int>::iterator it = _integers.begin(); \
-		it != (_integers.end() - 1); it++)
+		std::sort(aux.begin(), aux.end());
+		for (std::vector<int>::iterator it = aux.begin(); \
+		it != (aux.end() - 1); it++)
 		{
 			if ((*(it + 1) - *it) < static_cast<int>(sS))
 				sS = *(it + 1) - *it;
@@ -75,16 +81,29 @@ unsigned int	Span::shortestSpan()
 
 unsigned int	Span::longestSpan()
 {
-	unsigned int	lS;
+	std::vector<int>	aux = _integers;
+	unsigned int		lS;
 	if (_index < 2)
 		throw (std::exception());
 	else
 	{
 		lS = 0;
-		std::sort(_integers.begin(), _integers.end());
-		std::vector<int>::iterator	itb = _integers.begin();
-		std::vector<int>::iterator	ite = _integers.end();
+		std::vector<int>::iterator	itb = aux.begin();
+		std::vector<int>::iterator	ite = aux.end();
+		std::sort(itb, ite);
 		lS = *(ite - 1) - *itb;
 	}
 	return (lS);
+}
+
+std::ostream	&operator<<(std::ostream &stream, Span &span)
+{
+	std::vector<int> ints = span.getIntegers();
+	std::vector<int>::iterator	itb = ints.begin();
+	std::vector<int>::iterator	ite = ints.end();
+	stream << "[ ";
+	for(; itb != ite; itb++)
+		stream << *itb << " ";
+	stream << "]" << std::endl;
+	return (stream);
 }
