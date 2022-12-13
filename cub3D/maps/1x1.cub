@@ -1,0 +1,11 @@
+
+F 147, 159, 153
+SO ./textures/wood.xpm
+NO ./textures/minecraft_textures/tnt_side.xpm
+EA ./textures/colorstone.xpm
+WE ./textures/minecraft_textures/bricks.xpm
+C 219,213,26
+
+    111
+    1N1
+    111

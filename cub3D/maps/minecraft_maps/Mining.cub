@@ -1,0 +1,14 @@
+
+F 163, 163, 163
+SO ./textures/minecraft_textures/cobblestone.xpm
+NO ./textures/minecraft_textures/iron_ore.xpm
+EA ./textures/minecraft_textures/dirt.xpm
+WE ./textures/minecraft_textures/bedrock.xpm
+C 66, 66, 66
+
+11111111
+10000001
+10000001
+1000N001
+10000001
+11111111

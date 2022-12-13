@@ -1,0 +1,22 @@
+F 78,53,14
+C 78,127,217
+
+NO ./textures/minecraft_textures/furnace_front.xpm
+SO ./textures/minecraft_textures/grass_block_side.xpm
+WE ./textures/greystone.xpm
+EA ./textures/minecraft_textures/netherrack.xpm
+
+
+                      111
+                     11011
+                    1100011
+                   110000011
+                  11000000011
+                 1100000000011
+                110000000000011
+               11000000000000011
+              110000000N000000011
+             110000000000000000011
+            11000000000000000000011
+            10000000000000000000001
+            11111111111111111111111
