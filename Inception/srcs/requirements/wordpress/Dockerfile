@@ -1,25 +1,25 @@
 FROM debian:10.12-slim
 
-RUN apt update \
-	&& apt upgrade -y \
-	&& apt install -y php php-fpm php-opcache php-gd php-mysqli php-curl \
-	php-mbstring php-json wget
+RUN apt update && \
+	apt upgrade -y && \
+	mkdir run/php
 
-RUN wget https://wordpress.org/latest.tar.gz \
-	&& tar -xvf latest.tar.gz \
-	&& rm -rf latest.tar.gz \
-	&& mv wordpress /var/www/
+RUN apt install -y	php-fpm \
+					php-mysql \
+					php-mbstring \
+					php-zip \
+					php-gd \
+					php-xml \
+					php-pear \
+					php-gettext \
+					php-curl
+
+# php config
+RUN	adduser --system nginx && addgroup --system nginx
+COPY conf/php-fpm.conf /etc/php7/php-fpm.conf
+COPY conf/www.conf php/7.3/fpm/pool.d
 
 EXPOSE 9000
 
-# php config
-# RUN	adduser -S nginx &&	addgroup -S nginx
-# COPY conf/php-fpm.conf /etc/php7/php-fpm.conf
-# COPY conf/www.conf /etc/php7/php-fpm.d/www.conf
-
-# static website
-COPY conf/index.html /tmp/index.html
-
-WORKDIR /var/www/html/wordpress
-
-CMD [ "php-fpm7.3", "-F" ]
+COPY tools/configure.sh /tmp/configure.sh
+ENTRYPOINT [ "sh", "/tmp/configure.sh" ]
