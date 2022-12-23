@@ -1,10 +1,10 @@
 FROM debian:10.12-slim
 
+RUN mkdir run/php
+
 RUN apt update && \
 	apt upgrade -y && \
-	mkdir run/php
-
-RUN apt install -y	php-fpm \
+	apt install -y	php-fpm \
 					php-mysql \
 					php-mbstring \
 					php-zip \
@@ -12,12 +12,18 @@ RUN apt install -y	php-fpm \
 					php-xml \
 					php-pear \
 					php-gettext \
-					php-curl
+					php-curl \
+					curl
 
 # php config
 RUN	adduser --system nginx && addgroup --system nginx
 COPY conf/php-fpm.conf /etc/php7/php-fpm.conf
 COPY conf/www.conf php/7.3/fpm/pool.d
+
+# Installing WordPress Command Line Interface
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
 
 EXPOSE 9000
 
