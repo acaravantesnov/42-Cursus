@@ -13,7 +13,10 @@ RUN apt update && \
 					php-pear \
 					php-gettext \
 					php-curl \
-					curl
+					curl \
+					mariadb-client \
+					apt-utils \
+					wget
 
 # php config
 RUN	adduser --system nginx && addgroup --system nginx

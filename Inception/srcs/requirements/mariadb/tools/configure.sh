@@ -5,29 +5,29 @@ if [ ! -d "var/run/mysqld/" ]; then
 	mkdir -p var/run/mysqld/
 fi
 
+if [ ! -d "usr/bin/mysqld" ]; then
+	mkdir -p usr/bin/mysqld
+fi
+
 echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 chmod 777 /var/lib/mysql
 chmod 777 /var/run/mysqld
-mysql_install_db --user=mysql --datadir=/var/lib/mysql
+mysql_install_db --user=$MYSQL_USR --datadir=/var/lib/mysql > /dev/null
 
-# Start mysql
-service mysql start
+# Start mysqld and grant privileges
+touch temp
+cat << EOF > temp
+USE mysql;
+USE wordpress;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'acaravan.123' WITH GRANT OPTION;
+EOF
+/usr/sbin/mysqld --user=$MYSQL_USR --bootstrap < temp
+rm -f temp
 
-# Download MariaDB on the container
-wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+sed -i "s|skip-networking|# skip-networking|g" /etc/mysql/my.cnf
+sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/mysql/my.cnf
 
-# Install MariaDB on the container
-sh mariadb_repo_setup
+# Run mysqld
+exec /usr/sbin/mysqld --user=$MYSQL_USR --console
 
-# Create root user
-mysql -u root
-
-# Install mysqlclient
-apt install -y default-mysql-client
-
-# Give privileges to root user
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'Inceptiondb.123' WITH GRANT OPTION;
-
-# Create database
-exec /usr/bin/mysqld --user=mysql --console
 #tail -f /dev/null

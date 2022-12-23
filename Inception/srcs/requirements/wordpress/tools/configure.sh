@@ -1,12 +1,10 @@
 #!/bin/bash
 
 # Wait for MySQL to be ready
-while ! mariadb -u root -pInceptiondb.123 -e "show databases;" > /dev/null 2>&1; do
-	echo "Waiting for MySQL to be ready..."
-	sleep 1
+while ! mariadb -h$MYSQL_HOST -u$MYSQL_USR -p$WP_DB_PSSWD $WP_DB_NAME &>/dev/null; do
+    sleep 3
 done
 
-apt -y update && apt -y upgrade && apt -y install apt-utils wget
 echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
 # Install Wordpress
@@ -19,10 +17,10 @@ chown -R www-data:www-data /var/www/html/wordpress
 chmod -R 755 /var/www/html/wordpress
 
 wp core download --allow-root
-wp config create --dbname=database --dbuser=acaravan --dbpass=Inceptiondb.123 \
+wp config create --dbname=$WP_DB_NAME --dbuser=$WP_DB_USR --dbpass=$WP_DB_PSSWD \
 				--allow-root
 wp core install --url=acaravan.42.fr --title=acaravan_webpage \
-				--admin_user=acaravan --admin_password=Inception.123 \
+				--admin_user=acaravan --admin_password=acaravan.123 \
 				--admin_email=acaravan@student.42madrid.com --allow-root
 #wp user create notadmin --porcelain --allow-root
 

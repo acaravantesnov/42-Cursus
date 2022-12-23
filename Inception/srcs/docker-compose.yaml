@@ -13,6 +13,14 @@ services:
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
+    environment:
+      - MYSQL_USR=${MYSQL_USR}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - WP_DB_USR=${WP_DB_USR}
+      - WP_DB_PSSWD=${WP_DB_PSSWD}
+      - WP_DB_NAME=${WP_DB_NAME}
+    depends_on:
+      - mariadb
     volumes:
       - wordpress-data:/var/www/html
     networks:
@@ -21,6 +29,8 @@ services:
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
+    environment:
+      - MYSQL_USR=${MYSQL_USR}
     volumes:
       - mariadb-data:/var/lib/mysql
     networks:

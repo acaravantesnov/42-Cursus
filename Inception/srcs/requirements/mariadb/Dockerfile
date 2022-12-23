@@ -2,7 +2,8 @@ FROM debian:10.12-slim
 
 RUN apt update \
 	&& apt upgrade -y \
-	&& apt install -y mariadb-server mariadb-client wget apt-utils systemd
+	&& apt install -y mariadb-server mariadb-client wget apt-utils systemd \
+	sudo curl
 
 # Copying .sh and .sql files to /tmp/ and /var/local/bin/ respectively
 COPY tools/configure.sh /tmp/configure.sh
