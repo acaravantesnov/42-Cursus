@@ -14,8 +14,12 @@ chmod 777 /var/lib/mysql
 chmod 777 /var/run/mysqld
 mysql_install_db --user=$MYSQL_USR --datadir=/var/lib/mysql > /dev/null
 
-sed -i "s|skip-networking|# skip-networking|g" /etc/mysql/my.cnf
-sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/mysql/my.cnf
+cat /etc/mysql/mariadb.conf.d/50-server.cnf | sed -e "s/#port                   = 3306/port                    = 3306/g" \
+	-e "s/bind-address            = 127.0.0.1/bind-address            = 0.0.0.0/g" \
+	> /tmp.txt
+
+cat /tmp.txt > /etc/mysql/mariadb.conf.d/50-server.cnf
+rm -rf /tmp.txt
 
 # Start mysqld and grant privileges
 touch temp
@@ -31,7 +35,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PSSWD';
 CREATE DATABASE $WP_DB_NAME CHARACTER SET utf8 COLLATE utf8_general_ci;
 CREATE USER '$WP_DB_USR'@'%' IDENTIFIED by '$WP_DB_PSSWD';
 
-GRANT ALL PRIVILEGES ON $WP_DB_NAME.* TO '$WP_DB_USR'@'%';
+GRANT ALL PRIVILEGES ON $WP_DB_NAME.* TO '$WP_DB_USR'@'%' IDENTIFIED by '$WP_DB_PSSWD';
 
 FLUSH PRIVILEGES;
 EOF
@@ -41,4 +45,5 @@ rm -f temp
 # Run mysqld
 exec /usr/sbin/mysqld --user=$MYSQL_USR --console
 
-#tail -f /dev/null
+# Fix to keep container running
+# tail -f /dev/null

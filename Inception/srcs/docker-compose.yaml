@@ -7,6 +7,8 @@ services:
     build: ./requirements/nginx
     env_file: .env
     restart: always
+    depends_on:
+      - wordpress
     ports:
       - 443:443
     networks:
@@ -17,8 +19,6 @@ services:
     build: ./requirements/wordpress
     env_file: .env
     restart: always
-    ports:
-      - 9000:9000
     depends_on:
       - mariadb
     volumes:
@@ -31,8 +31,6 @@ services:
     build: ./requirements/mariadb
     env_file: .env
     restart: always
-    ports:
-      - 3306:3306
     volumes:
       - mariadb-data:/var/lib/mysql
     networks:
