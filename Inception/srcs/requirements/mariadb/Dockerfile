@@ -15,4 +15,3 @@ COPY tools/file.sql /var/local/bin/file.sql
 EXPOSE 3306
 
 ENTRYPOINT [ "sh", "/tmp/configure.sh" ]
-#CMD [ "tail", "-f", "/dev/null" ]

@@ -1,7 +1,5 @@
 FROM debian:10.12-slim
 
-RUN mkdir /run/php && mkdir /var/run/mysqld
-
 RUN apt update && \
 	apt upgrade -y && \
 	apt install -y	php-fpm \
@@ -17,6 +15,8 @@ RUN apt update && \
 					mariadb-client \
 					apt-utils \
 					wget
+
+RUN mkdir -p /run/php /var/run/mysqld
 
 # php config
 RUN	adduser --system nginx && addgroup --system nginx

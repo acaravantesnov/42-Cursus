@@ -21,11 +21,9 @@ cat wp-config-sample.php | sed -e "s/database_name_here/$WP_DB_NAME/g" \
 while ! mariadb -h$MYSQL_HOST -u$WP_DB_USR -p$WP_DB_PSSWD $WP_DB_NAME &>/dev/null; do
     sleep 3
 done
-# while ! mysql -h$MYSQL_HOST -u$MYSQL_USR -p$MYSQL_ROOT_PSSWD &>/dev/null; do
-# 	sleep 3
-# done
+
+mv /tmp/index.html /var/www/html/index.html
 
 #wp user create notadmin --porcelain --allow-root
 
 /usr/sbin/php-fpm7.3 -F -R
-#tail -f /dev/null
