@@ -6,13 +6,14 @@
 #    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 14:41:22 by acaravan          #+#    #+#              #
-#    Updated: 2023/08/15 14:59:26 by acaravan         ###   ########.fr        #
+#    Updated: 2023/08/15 18:10:02 by acaravan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	RPN
+NAME			=	PmergeMe
 
 SRCS			=	main.cpp \
+					PmergeMe.cpp
 
 OBJS			=	$(SRCS:.cpp=.o)
 

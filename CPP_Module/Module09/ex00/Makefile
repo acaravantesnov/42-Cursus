@@ -6,14 +6,14 @@
 #    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 14:41:22 by acaravan          #+#    #+#              #
-#    Updated: 2023/08/15 13:32:36 by acaravan         ###   ########.fr        #
+#    Updated: 2023/08/15 17:30:26 by acaravan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	btc
 
 SRCS			=	main.cpp \
-					Data.cpp
+					BitcoinExchange.cpp
 
 OBJS			=	$(SRCS:.cpp=.o)
 

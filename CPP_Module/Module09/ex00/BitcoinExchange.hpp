@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 21:09:36 by acaravan          #+#    #+#             */
-/*   Updated: 2023/08/15 13:43:18 by acaravan         ###   ########.fr       */
+/*   Updated: 2023/08/15 17:36:52 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,24 @@
 # include <vector>
 # include <algorithm>
 # include <ctime>
-#include <sstream>
+# include <sstream>
+
+class BitcoinExchange
+{
+    private:
+        std::string	_date;
+        float		_value;
+    public:
+        BitcoinExchange();
+        BitcoinExchange(const BitcoinExchange &data);
+        BitcoinExchange(const std::string date, const float value);
+        ~BitcoinExchange();
+        BitcoinExchange &operator=(BitcoinExchange &data);
+
+        std::string   getDate() const;
+        void          setDate(std::string date);
+        float         getValue() const;
+        void          setValue(float value);
+};
 
 #endif

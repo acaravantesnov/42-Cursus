@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.cpp                                           :+:      :+:    :+:   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/15 13:22:04 by acaravan          #+#    #+#             */
-/*   Updated: 2023/08/15 13:33:32 by acaravan         ###   ########.fr       */
+/*   Created: 2023/08/15 17:27:42 by acaravan          #+#    #+#             */
+/*   Updated: 2023/08/15 17:38:38 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Data.hpp"
+#include "BitcoinExchange.hpp"
 
-Data::Data()
+BitcoinExchange::BitcoinExchange()
 {}
 
-Data::Data(const std::string date, const float value) : _date(date), _value(value)
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &data) : \
+_date(data.getDate()), _value(data.getValue())
 {}
 
-Data::~Data()
+BitcoinExchange::BitcoinExchange(const std::string date, const float value) : \
+_date(date), _value(value)
 {}
 
-Data &Data::operator=(Data &data)
+BitcoinExchange::~BitcoinExchange()
+{}
+
+BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange &data)
 {
     if (this != &data)
     {
@@ -31,22 +36,22 @@ Data &Data::operator=(Data &data)
     return (*this);
 }
 
-std::string   Data::getDate() const
+std::string   BitcoinExchange::getDate() const
 {
     return (_date);
 }
 
-void Data::setDate(std::string date)
+void BitcoinExchange::setDate(std::string date)
 {
     _date = date;
 }
 
-float Data::getValue() const
+float BitcoinExchange::getValue() const
 {
     return (_value);
 }
 
-void Data::setValue(float value)
+void BitcoinExchange::setValue(float value)
 {
     _value = value;
 }

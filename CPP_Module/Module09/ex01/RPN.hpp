@@ -1,20 +1,28 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 15:23:49 by acaravan          #+#    #+#             */
-/*   Updated: 2023/03/20 17:25:28 by acaravan         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef RPN_HPP
 # define RPN_HPP
 
+# include <sstream>
 # include <iostream>
 # include <stack>
-# include <algorithm>
+# include <string>
+# include <stdlib.h>
 
-#endif
+class RPN
+{
+    private:
+	    std::stack<int>	*_st;
+
+    public:
+        RPN();
+        RPN(const RPN &rpn);
+        RPN(std::stack<int> *st);
+        ~RPN();
+        RPN &operator=(RPN &rpn);
+
+        std::stack<int> *getSt() const;
+        void            setSt(std::stack<int> *st);
+};
+
+bool    check_args(std::string argv1);
+
+# endif

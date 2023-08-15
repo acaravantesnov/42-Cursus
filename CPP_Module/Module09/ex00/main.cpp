@@ -6,12 +6,11 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 21:09:22 by acaravan          #+#    #+#             */
-/*   Updated: 2023/08/15 14:33:59 by acaravan         ###   ########.fr       */
+/*   Updated: 2023/08/15 17:30:10 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include "Data.hpp"
 
 int compareNext(int y2, int m2, int d2, int y3, int m3, int d3)
 {
@@ -32,11 +31,11 @@ int compareNext(int y2, int m2, int d2, int y3, int m3, int d3)
 
 int main(int argc, char **argv)
 {
-	std::vector<Data>			data; // Using vector, but can be changed by array or list.
-	std::vector<Data>::iterator	it;
-	std::ifstream				inputfile, datafile;
-	std::string					line, date;
-	float						number, value, realValue;
+	std::vector<BitcoinExchange>			data;
+	std::vector<BitcoinExchange>::iterator	it;
+	std::ifstream							inputfile, datafile;
+	std::string								line, date;
+	float									number, value, realValue;
 
 	if (argc != 2)
 	{
@@ -51,9 +50,9 @@ int main(int argc, char **argv)
 		std::cout << "Error: data.csv file missing." << std::endl;
 		return (1);
 	}
-	getline(datafile, line); //Just to forget about first line.
+	getline(datafile, line);
 	while (getline(datafile, line))
-		data.push_back(Data(line.substr(0, line.find(",")), stof(line.substr(11))));
+		data.push_back(BitcoinExchange(line.substr(0, line.find(",")), stof(line.substr(11))));
 	datafile.close();
 
 	inputfile.open(argv[1], std::ios::in);
@@ -62,7 +61,7 @@ int main(int argc, char **argv)
 		std::cout << "Error: Input file missing." << std::endl;
 		return (1);
 	}
-	getline(inputfile, line);  //Just to forget about first line.
+	getline(inputfile, line);
 	while (getline(inputfile, line))
 	{
 		if (line.find(" | ") == std::string::npos)
@@ -115,7 +114,6 @@ int main(int argc, char **argv)
 				std::istringstream ss3((it + 1)->getDate());
 				ss3 >> year3 >> dash1 >> month3 >> dash2 >> day3;
 			}
-			//for (it = data.begin(); it->getDate() < date; it++);
 			if (it != data.end())
 				value = (it)->getValue();
 			else
