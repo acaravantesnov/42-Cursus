@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:09:06 by acaravan          #+#    #+#             */
-/*   Updated: 2023/08/15 20:42:39 by acaravan         ###   ########.fr       */
+/*   Updated: 2023/08/16 15:09:15 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class PmergeMe
         std::deque<int> *getStl1() const;
         void            setStl1(std::deque<int> *stl1);
         std::list<int>  *getStl2() const;
-        void             setStl2(std::list<int>  *stl2);
+        void            setStl2(std::list<int>  *stl2);
 
         class	AlreadySorted : public std::exception
 		{
@@ -42,7 +42,7 @@ class PmergeMe
 };
 
 bool isSorted(const std::deque<int> &d);
-void mergeSortDeque(std::deque<int> &stl1, int left, int right);
-void merge(std::deque<int> &stl1, int left, int middle, int right);
+void mergeSortDeque(std::deque<int> *stl1, int l, int r);
+void merge(std::deque<int> *stl1, int l, int m, int r);
 
 # endif

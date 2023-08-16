@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:09:12 by acaravan          #+#    #+#             */
-/*   Updated: 2023/08/15 20:43:42 by acaravan         ###   ########.fr       */
+/*   Updated: 2023/08/16 15:11:31 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,12 @@ int main(int argc, char **argv)
     std::cout << std::endl;
 
     // Merge Sort Algorithm
-    mergeSortDeque(*pmergeme->getStl1(), 0, pmergeme->getStl1()->size());
-
-    std::deque<int>::iterator it;
-    it = pmergeme->getStl1()->begin();
-    
+    mergeSortDeque(pmergeme->getStl1(), 0, pmergeme->getStl1()->size());
 
     // 2. After.
     std::cout << "After: ";
     for (size_t i = 0; i < pmergeme->getStl1()->size(); i++)
-    {
         std::cout << (*pmergeme->getStl1())[i] << " ";
-        pmergeme->getStl2()->push_back((*pmergeme->getStl1())[i]);
-    }
     std::cout << std::endl;
 
     // Time to..

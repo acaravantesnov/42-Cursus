@@ -21,8 +21,19 @@ class RPN
 
         std::stack<int> *getSt() const;
         void            setSt(std::stack<int> *st);
-};
+        void            checkArgs(int argc, char *argv1);
 
-bool    check_args(std::string argv1);
+        class   InvalidNumberofArgs : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
+        class   InvalidArgs : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+};
 
 # endif

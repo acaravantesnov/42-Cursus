@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:09:09 by acaravan          #+#    #+#             */
-/*   Updated: 2023/08/15 20:42:24 by acaravan         ###   ########.fr       */
+/*   Updated: 2023/08/16 15:29:45 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,52 +88,49 @@ bool isSorted(const std::deque<int> &d)
     return true;
 }
 
-void merge(std::deque<int> &stl1, int left, int middle, int right)
+void mergeSortDeque(std::deque<int> *stl1, int l, int r)
 {
-    int n1 = middle - left + 1;
-    int n2 = right - middle;
-    std::deque<int> Left(n1);
-    std::deque<int> Right(n2);
+    if (l < r)
+    {
+        int m = (l + r) / 2;
 
-    for (size_t i = 0; i < Left.size(); i++)
-        Left[i] = stl1[left + i];
-    for(size_t j = 0; j < Right.size(); j++)
-        Right[j] = stl1[middle + 1 + j];
-
-    int i = 0, j = 0, k = left;
-
-    while (i < n1 && j < n2) {
-        if (Left[i] <= Right[j]) {
-            stl1[k] = Left[i];
-            i++;
-        } else {
-            stl1[k] = Right[j];
-            j++;
-        }
-        k++;
-    }
-
-    while (i < n1) {
-        stl1[k] = Left[i];
-        i++;
-        k++;
-    }
-
-    while (j < n2) {
-        stl1[k] = Right[j];
-        j++;
-        k++;
+        mergeSortDeque(stl1, l, m);
+        mergeSortDeque(stl1, m + 1, r);
+        merge(stl1, l, m, r);
     }
 }
 
-void mergeSortDeque(std::deque<int> &stl1, int left, int right)
+void merge(std::deque<int> *stl1, int l, int m, int r)
 {
-    if (left < right)
-    {
-        int middle = left + (right - left) / 2;
+    int i = l;
+    int j = m + 1;
+    int k = l;
 
-        mergeSortDeque(stl1, left, middle);
-        mergeSortDeque(stl1, middle + 1, right);
-        merge(stl1, left, middle, right);
+    std::deque<int> temp;
+    std::cout << "i = " << i << " j = " << j << " k = " << k << std::endl;
+    while ((i <= m) && (j <= r))
+    {
+        if ((*stl1)[i] <= (*stl1)[j])
+        {
+            temp.push_back((*stl1)[i]);
+            i++;
+        }
+        else
+        {
+            temp.push_back((*stl1)[j]);
+            j++;
+        }
     }
+    while (i <= m)
+    {
+        temp.push_back((*stl1)[i]);
+        i++;
+    }
+    while (j <= r)
+    {
+        temp.push_back((*stl1)[j]);
+        j++;
+    }
+    for (int p = l; p <= r; p++)
+        stl1->push_back(temp[p]);
 }

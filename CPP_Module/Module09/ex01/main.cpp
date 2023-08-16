@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 14:48:22 by acaravan          #+#    #+#             */
-/*   Updated: 2023/08/15 18:04:43 by acaravan         ###   ########.fr       */
+/*   Updated: 2023/08/15 22:30:43 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ int main(int argc, char **argv)
     RPN *rpn = new RPN;
 	int a, b, result;
 
-	if (argc != 2)
-	{
-		std::cout << "Error: Wrong number of arguments." << std::endl;
-		return (1);
-	}
-	else if(!check_args(std::string(argv[1])))
-	{
-		std::cout << "Error: Wrong input format." << std::endl;
-		return (1);
-	}
+    try
+    {
+        rpn->checkArgs(argc, argv[1]);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Error: " << e.what() << std::endl;
+        delete (rpn);
+        return (1);
+    }
 
     std::string argv1 = std::string(argv[1]);
     char        *args = new char[argv1.size() - (argv1.size() / 2)];
