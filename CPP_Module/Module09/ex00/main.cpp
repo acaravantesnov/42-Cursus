@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 21:09:22 by acaravan          #+#    #+#             */
-/*   Updated: 2023/08/15 23:00:54 by acaravan         ###   ########.fr       */
+/*   Updated: 2023/08/16 19:46:02 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int compareNext(int y2, int m2, int d2, int y3, int m3, int d3)
 
 int main(int argc, char **argv)
 {
-	std::vector<BitcoinExchange>			data;
-	std::vector<BitcoinExchange>::iterator	it;
+	std::list<BitcoinExchange>				data;
+	std::list<BitcoinExchange>::iterator	it;
 	std::ifstream							inputfile, datafile;
 	std::string								line, date;
 	float									number, value, realValue;
@@ -74,7 +74,7 @@ int main(int argc, char **argv)
 			it = data.begin();
 			std::istringstream ss1(it->getDate());
 			std::istringstream ss2(date);
-			std::istringstream ss3((it + 1)->getDate());
+			std::istringstream ss3(std::next(it)->getDate());
 
 			int year1, month1, day1;
 			int year2, month2, day2;
@@ -111,13 +111,13 @@ int main(int argc, char **argv)
 				it++;
 				std::istringstream ss1(it->getDate());
 				ss1 >> year1 >> dash1 >> month1 >> dash2 >> day1;
-				std::istringstream ss3((it + 1)->getDate());
+				std::istringstream ss3(std::next(it)->getDate());
 				ss3 >> year3 >> dash1 >> month3 >> dash2 >> day3;
 			}
 			if (it != data.end())
 				value = (it)->getValue();
 			else
-				value = (it - 1)->getValue();
+				value = std::prev(it)->getValue();
 			realValue = number * value;
 			if (number < 0)
 				std::cout << "Error: not a positive number." << std::endl;

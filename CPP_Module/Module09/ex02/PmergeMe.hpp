@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:09:06 by acaravan          #+#    #+#             */
-/*   Updated: 2023/08/16 15:09:15 by acaravan         ###   ########.fr       */
+/*   Updated: 2023/08/16 23:31:00 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,34 @@
 
 # include <iostream>
 # include <deque>
-# include <list>
+# include <vector>
 
 class PmergeMe
 {
     private:
-        std::deque<int> *_stl1;
-        std::list<int>  *_stl2;
+        std::deque<int>     _stl1;
+        std::vector<int>    _stl2;
     public:
         PmergeMe();
         PmergeMe(const PmergeMe &pmergeme);
-        PmergeMe(std::deque<int> *stl1, std::list<int>  *stl2);
+        PmergeMe(std::deque<int> stl1, std::vector<int> stl2);
         ~PmergeMe();
         PmergeMe &operator=(PmergeMe &pmergeme);
 
-        std::deque<int> *getStl1() const;
-        void            setStl1(std::deque<int> *stl1);
-        std::list<int>  *getStl2() const;
-        void            setStl2(std::list<int>  *stl2);
+        bool isSorted();
+        void mergeSortDeque(int l, int r);
+        void mergeDeque(int l, int m, int r);
+        void mergeSortVector(int l, int r);
+        void mergeVector(int l, int m, int r);
+        void pushStl1(int n);
+        void pushStl2(int n);
+        void displayStl1();
+        void displayStl2();
+
+        std::deque<int>             getStl1() const;
+        void                        setStl1(std::deque<int> stl1);
+        std::vector<int>            getStl2() const;
+        void                        setStl2(std::vector<int>  stl2);
 
         class	AlreadySorted : public std::exception
 		{
@@ -40,9 +50,5 @@ class PmergeMe
 				virtual const char* what() const throw();
 		};
 };
-
-bool isSorted(const std::deque<int> &d);
-void mergeSortDeque(std::deque<int> *stl1, int l, int r);
-void merge(std::deque<int> *stl1, int l, int m, int r);
 
 # endif
