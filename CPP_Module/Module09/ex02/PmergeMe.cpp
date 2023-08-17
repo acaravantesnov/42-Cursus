@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:09:09 by acaravan          #+#    #+#             */
-/*   Updated: 2023/08/17 00:04:20 by acaravan         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:24:26 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,28 @@ PmergeMe &PmergeMe::operator=(PmergeMe &pmergeme)
 }
 
 
-bool PmergeMe::isSorted()
+void PmergeMe::checkIsSorted()
 {
-    for (size_t i = 1; i < _stl1.size(); i++)
+    size_t i;
+    for (i = 1; i < _stl1.size(); i++)
     {
         if (_stl1[i] < _stl1[i - 1])
-            return false;
+            break;
     }
-    return true;
+    if (i == _stl1.size())
+        throw (AlreadySorted());
+}
+
+void PmergeMe::checkRepeatedNumbers()
+{
+    std::deque<int> seenNumbers;
+
+    for (std::deque<int>::iterator it = _stl1.begin(); it != _stl1.end(); ++it) {
+        if (std::find(seenNumbers.begin(), seenNumbers.end(), *it) != seenNumbers.end()) {
+            throw (RepeatedNumbers());
+        }
+        seenNumbers.push_back(*it);
+    }
 }
 
 void PmergeMe::mergeSortDeque(int l, int r)
@@ -74,42 +88,34 @@ void PmergeMe::mergeDeque(int l, int m, int r)
 {
     int i = l;
     int j = m + 1;
-    int k = l;
-    
-    int size = (r - l) + 1;
-    int *temp = new int[size];
+
+    std::vector<int> temp;
     while ((i <= m) && (j <= r))
     {
         if (_stl1[i] <= _stl1[j])
         {
-            temp[k] = _stl1[i];
+            temp.push_back(_stl1[i]);
             i++;
-            k++;
         }
         else
         {
-            temp[k] = _stl1[j];
+            temp.push_back(_stl1[j]);
             j++;
-            k++;
         }
     }
     while (i <= m)
     {
-        temp[k] = _stl1[i];
+        temp.push_back(_stl1[i]);
         i++;
-        k++;
     }
     while (j <= r)
     {
-        temp[k] = _stl1[j];
+        temp.push_back(_stl1[j]);
         j++;
-        k++;
     }
 
     for (int p = l; p <= r; p++)
-        _stl1.at(p) = temp[p];
-
-    delete[] (temp);
+        _stl1.at(p) = temp[p - l];
 }
 
 void PmergeMe::mergeSortVector(int l, int r)
@@ -132,42 +138,34 @@ void PmergeMe::mergeVector(int l, int m, int r)
 {
     int i = l;
     int j = m + 1;
-    int k = l;
-    
-    int size = (r - l) + 1;
-    int *temp = new int[size];
+
+    std::vector<int> temp;
     while ((i <= m) && (j <= r))
     {
         if (_stl2[i] <= _stl2[j])
         {
-            temp[k] = _stl2[i];
+            temp.push_back( _stl2[i]);
             i++;
-            k++;
         }
         else
         {
-            temp[k] = _stl2[j];
+            temp.push_back( _stl2[j]);
             j++;
-            k++;
         }
     }
     while (i <= m)
     {
-        temp[k] = _stl2[i];
+        temp.push_back( _stl2[i]);
         i++;
-        k++;
     }
     while (j <= r)
     {
-        temp[k] = _stl2[j];
+        temp.push_back( _stl2[i]);
         j++;
-        k++;
     }
 
     for (int p = l; p <= r; p++)
-        _stl2[p] = temp[p];
-
-    delete[] (temp);
+        _stl2[p] = temp[p - l];
 }
 
 void PmergeMe::pushStl1(int n)
@@ -217,4 +215,9 @@ void        PmergeMe::setStl2(std::vector<int>  stl2)
 const char *PmergeMe::AlreadySorted::what() const throw()
 {
     return("Numbers already sorted.");
+}
+
+const char *PmergeMe::RepeatedNumbers::what() const throw()
+{
+    return("Repeated numbers in the set.");
 }

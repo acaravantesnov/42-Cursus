@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:09:12 by acaravan          #+#    #+#             */
-/*   Updated: 2023/08/17 00:06:44 by acaravan         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:28:50 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv)
 {
-    PmergeMe pmergeme;
+    PmergeMe    pmergeme;
 
     if (argc <= 2)
     {
@@ -28,8 +28,8 @@ int main(int argc, char **argv)
         for (int i = 1; i < argc; i++)
             pmergeme.pushStl1(std::stoi(std::string(argv[i])));
         //Check if they are already sorted.
-        if (pmergeme.isSorted())
-            throw(PmergeMe::AlreadySorted());
+        pmergeme.checkIsSorted();
+        //pmergeme.checkRepeatedNumbers();
     }
     catch(const std::exception &e)
     {
@@ -37,25 +37,30 @@ int main(int argc, char **argv)
         return (1);
     }
 
-    // 1. Before Stl1.
-    std::cout << "Before stl1: "; pmergeme.displayStl1();
+    // 1. Before.
+    std::cout << "Before: "; pmergeme.displayStl1();
+    clock_t start1 = clock();
     pmergeme.mergeSortDeque(0, pmergeme.getStl1().size() - 1);
-    // 2. After Stl1.
-    std::cout << "After stl1: "; pmergeme.displayStl1();
+    clock_t end1 = clock();
+    // 2. After.
+    std::cout << "After: "; pmergeme.displayStl1();
 
     for (int i = 1; i < argc; i++)
         pmergeme.pushStl2(std::stoi(std::string(argv[i])));
 
-    // 1. Before Stl2.
-    std::cout << "Before stl2: "; pmergeme.displayStl2();
+    clock_t start2 = clock();
     pmergeme.mergeSortVector(0, pmergeme.getStl2().size() - 1);
-    // 2. After Stl2.
-    std::cout << "After stl2: "; pmergeme.displayStl2();
+    clock_t end2 = clock();
 
     // Time to..
-    /*std::cout << "Time to process a range of " << argc - 1 << " elements with \
-    std::deque : " << t1 << " us." << std::endl;
-    std::cout << "Time to process a range of " << argc - 1 << " elements with \
-    std::list : " << t2 << " us." << std::endl;*/
+    std::cout << "Time to process a range of " << argc - 1 << \
+    " elements with std::deque : " << \
+    static_cast<double>(end1 - start1) / CLOCKS_PER_SEC * 1000000 << \
+    " us." << std::endl;
+
+    std::cout << "Time to process a range of " << argc - 1 << \
+    " elements with std::list : " << \
+    static_cast<double>(end2 - start2) / CLOCKS_PER_SEC * 1000000 << \
+    " us." << std::endl;
     return (0);
 }

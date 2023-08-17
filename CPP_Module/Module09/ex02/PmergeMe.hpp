@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:09:06 by acaravan          #+#    #+#             */
-/*   Updated: 2023/08/16 23:31:00 by acaravan         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:21:38 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <deque>
 # include <vector>
+# include <ctime>
 
 class PmergeMe
 {
@@ -29,7 +30,8 @@ class PmergeMe
         ~PmergeMe();
         PmergeMe &operator=(PmergeMe &pmergeme);
 
-        bool isSorted();
+        void checkIsSorted();
+        void checkRepeatedNumbers();
         void mergeSortDeque(int l, int r);
         void mergeDeque(int l, int m, int r);
         void mergeSortVector(int l, int r);
@@ -45,6 +47,12 @@ class PmergeMe
         void                        setStl2(std::vector<int>  stl2);
 
         class	AlreadySorted : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
+        class	RepeatedNumbers : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
