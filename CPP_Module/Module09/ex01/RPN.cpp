@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 17:09:55 by acaravan          #+#    #+#             */
-/*   Updated: 2023/08/15 22:29:00 by acaravan         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:58:46 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ void RPN::setSt(std::stack<int> *st)
 
 void	RPN::checkArgs(int argc, char *argv)
 {
+    size_t nOperands = 0;
+    size_t nOperators = 0;
+    size_t nSpaces = 0;
+
     if (argc != 2)
     {
         throw(InvalidNumberofArgs());
@@ -70,7 +74,17 @@ void	RPN::checkArgs(int argc, char *argv)
         (argv1[i] != '*') && (argv1[i] != '/') && (argv1[i] != '+') && \
         (argv1[i] != '-') && (argv1[i] != ' '))
             throw(InvalidArgs());
+        if ((argv1[i] >= 48) && (argv1[i] <= 57))
+            nOperands++;
+        else if ((argv1[i] == '*') || (argv1[i] == '/') || (argv1[i] == '+') || \
+        (argv1[i] == '-'))
+            nOperators++;
+        else if (argv1[i] == ' ')
+            nSpaces++;
     }
+    if ((nOperands != (nOperators + 1)) || \
+    (nSpaces != argv1.size() - nOperands - nOperators))
+        throw (InvalidArgs());
 }
 
 const char *RPN::InvalidNumberofArgs::what() const throw()
