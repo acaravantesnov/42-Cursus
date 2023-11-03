@@ -1,9 +1,9 @@
 # 42-Cursus
 These are all my projects and exams in the 42-Cursus at Madrid Fundación Telefónica.
 
-# Proyects
+## Proyects
 
-- libft:
+- ### libft:
 
   Standard function library that replicates more than 42 different functions from the standard C library, as well as some other useful ones. Compiles with the use of a Makefile. Language: C.
 - get_next_line:
@@ -40,7 +40,7 @@ These are all my projects and exams in the 42-Cursus at Madrid Fundación Telef�
 
   10 different modules introducing the student to C++ programming language. OOP, casts, exceptions, STL containers and algorithms. Language: C++.
 
-# Exams
+## Exams
 
 - Exam_Rank_02
 - Exam_Rank_04
