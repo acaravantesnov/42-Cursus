@@ -3,8 +3,8 @@ These are all my projects and exams in the 42-Cursus at Madrid Fundaci√≥n Telef√
 
 # Proyects
 
-- libft
-- get_next_line
+- libft: Standard function library that replicates more than 42 different functions from the standard C library, as well as some other useful ones. Compiles with the use of a Makefile. Language: C.
+- get_next_line: 
 - ft_printf
 - Born2beroot
 - push_swap
