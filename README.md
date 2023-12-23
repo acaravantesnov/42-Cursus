@@ -39,6 +39,9 @@ These are all my projects and exams in the 42-Cursus at Madrid Fundaci√≥n Telef√
 - ### CPP_Module:
 
   10 different modules introducing the student to C++ programming language. OOP, casts, exceptions, STL containers and algorithms. Language: C++.
+- ### webserv
+
+  Build of a C++98 compatible web server capable of handling HTTP/1.1 GET, POST and DELETE requests, serving static files from an specific root directory or dynamic content using CGI. It can handle multiple concurrent client connections, showing a 100% availability under stress conditions (siege benchmarking).
 
 ## Exams
 
