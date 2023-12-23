@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sample Form</title>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <form action="/cgi-bin/upload_files.py" method="post">
+        <!-- Name field -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+
+        <!-- Email field -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <!-- Submit button -->
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

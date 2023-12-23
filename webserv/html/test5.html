@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload Form</title>
+</head>
+<body>
+    <h1>Upload a File</h1>
+    <form action="/cgi-bin/upload_files.py" method="post" enctype="multipart/form-data">
+        <!-- Name field -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+
+        <!-- Email field -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <!-- File upload field -->
+        <label for="file">Choose a File:</label>
+        <input type="file" id="file" name="file" required>
+        <br><br>
+
+        <!-- Submit button -->
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
