@@ -1,17 +1,23 @@
-FROM debian:10.12-slim
+# Build from penultimate stable Debian version (bullseye) image.
+FROM debian:bullseye
 
-RUN apt update \
-	&& apt upgrade -y \
-	&& apt install -y mariadb-server mariadb-client wget apt-utils systemd \
-	sudo curl
+# Commands to run during building process.
+RUN	apt-get update -y && \
+	apt-get upgrade -y && \
+	apt-get install mariadb-server -y
 
-# Copying .sh and .sql files to /tmp/ and /var/local/bin/ respectively
-COPY tools/configure.sh /tmp/configure.sh
-COPY tools/file.sql /var/local/bin/file.sql
+# Copy configuration files.
+COPY conf/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
 
-# Giving execution rights to daemon for mysql
-#RUN chmod +x mysqld
+RUN	mkdir -p /var/run/mysqld && \
+	mkdir -p /var/lib/mysql
 
-EXPOSE 3306
+COPY tools/configure.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/configure.sh
 
-ENTRYPOINT [ "sh", "/tmp/configure.sh" ]
+# Set permissions
+RUN chown -R mysql:mysql /var/run/mysqld && \
+	chown -R mysql:mysql /var/lib/mysql
+RUN chmod 777 /var/run/mysqld
+
+CMD [ "sh", "/usr/local/bin/configure.sh" ]

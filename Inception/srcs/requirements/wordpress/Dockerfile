@@ -1,38 +1,31 @@
-FROM debian:10.12-slim
+# Build from penultimate stable Debian version (bullseye) image.
+FROM debian:bullseye
 
-RUN apt update && \
+# Commands to run during building process.
+RUN apt update -y && \
 	apt upgrade -y && \
-	apt install -y	php-fpm \
-					php-mysql \
-					php-mbstring \
-					php-zip \
-					php-gd \
-					php-xml \
-					php-pear \
-					php-gettext \
-					php-curl \
-					curl \
-					mariadb-client \
-					apt-utils \
-					wget
+	apt install wget php7.4 php-fpm php-mysql mariadb-client -y
 
-RUN mkdir -p /run/php /var/run/mysqld
+# Uses the sed command to modify the www.conf file in the /etc/php/7.4/fpm/pool.d
+# directory. This changes the socket that PHP-FPM listens on from a Unix domain
+# socket to a TCP port.
+COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 
-# php config
-RUN	adduser --system nginx && addgroup --system nginx
-COPY conf/php-fpm.conf /etc/php7/php-fpm.conf
-COPY conf/www.conf php/7.3/fpm/pool.d/www.conf
-
-COPY conf/index.html /tmp/index.html
-
-# Installing WordPress Command Line Interface
-RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
-WORKDIR /var/www/html/wordpress
+# We copy the script, give the right to launch it in local on our computer.
+COPY ./tools/auto_config.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/auto_config.sh
 
-EXPOSE 9000
+# Copies the php.ini file from the conf directory to the /etc/php/7.4/fpm
+# COPY ./conf/php.ini /etc/php/7.4/fpm/
 
-COPY tools/configure.sh /tmp/configure.sh
-ENTRYPOINT [ "sh", "/tmp/configure.sh" ]
+# Creates the /run/php directory, which is used by PHP-FPM to store Unix domain
+# sockets.
+RUN mkdir /run/php
+
+WORKDIR /var/www/wordpress
+
+ENTRYPOINT [ "/usr/local/bin/auto_config.sh" ]
