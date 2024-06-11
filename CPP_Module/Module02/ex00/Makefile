@@ -6,7 +6,7 @@
 #    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/04 15:56:09 by acaravan          #+#    #+#              #
-#    Updated: 2022/07/10 23:57:22 by acaravan         ###   ########.fr        #
+#    Updated: 2024/06/11 18:40:10 by acaravan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,14 @@ SRCS			=	main.cpp \
 
 OBJS			=	$(SRCS:.cpp=.o)
 
-GCC				=	clang++
+CXX				=	c++
 RM				=	rm -f
-FLAGS			=	-Wall -Wextra -Werror -std=c++98 -pedantic
+CXXFLAGS		=	-Wall -Wextra -Werror -std=c++98
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(GCC) $(FLAGS) -g -o $(NAME) $(OBJS)
+				$(CXX) $(CXXFLAGS) -g -o $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)

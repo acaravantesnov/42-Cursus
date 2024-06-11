@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:16 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/15 16:42:01 by acaravan         ###   ########.fr       */
+/*   Updated: 2024/06/11 19:21:27 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ Default constructor called
 Int constructor called
 Float constructor called
 Copy constructor called
-Assignation operator called
+Copy assignment operator called
 Float constructor called
-Assignation operator called
+Copy assignment operator called
 Destructor called
 a is 1234.43
 b is 10
