@@ -6,7 +6,7 @@
 /*   By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 20:43:12 by acaravan          #+#    #+#             */
-/*   Updated: 2022/07/15 18:52:06 by acaravan         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:21:23 by acaravan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,18 @@
 /*-----------------ex00-----------------*/
 
 Fixed::Fixed() : _RawBits(0)
-{
-	std::cout << "Default constructor called" << std::endl;
-}
-
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+{}
 
 Fixed::Fixed(const Fixed &f)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	this->setRawBits(f.getRawBits());
 }
 
-Fixed	Fixed::operator=(const Fixed &f2)
+Fixed::~Fixed()
+{}
+
+Fixed	&Fixed::operator=(const Fixed &f2)
 {
-	std::cout << "Assignation operator called" << std::endl;
 	this->setRawBits(f2.getRawBits());
 	return (*this);
 }
@@ -49,29 +43,14 @@ void	Fixed::setRawBits(int const raw)
 
 /*-----------------ex01-----------------*/
 
-/*
-NUMBER 12
-integer:	0000 0000 0000 1100
-_RawBits:	0000 1100 0000 0000
-*/
-
 Fixed::Fixed(const int integer)
 {
-	std::cout << "Int constructor called" << std::endl;
-	this->setRawBits(integer << Fixed::_bits);
+	this->_RawBits = (integer << Fixed::_bits);
 }
-
-/*NUMBER 12.75
-integer:	0000 0000 0000 1100
-_RawBits:	x *\
-			0000 0001 0000 0000
-_RawBits:	0000 1100 1100 0000
-*/
 
 Fixed::Fixed(const float floating_point)
 {
-	std::cout << "Float constructor called" << std::endl;
-	this->setRawBits(std::roundf(floating_point * (1 << Fixed::_bits)));
+	this->_RawBits = std::roundf(floating_point * (1 << Fixed::_bits));
 }
 
 float	Fixed::toFloat(void) const
@@ -148,23 +127,13 @@ Fixed	Fixed::operator-(Fixed const &f)
 
 Fixed	Fixed::operator*(Fixed const &f)
 {
-	Fixed	ret(*this);
-	int		temp1, temp2;
-
-	temp1 = this->getRawBits();
-	temp2 = f.getRawBits();
-	ret.setRawBits(temp1 * temp2 / (1 << Fixed::_bits));
-	return (ret);
+	this->_RawBits = (this->toFloat() * f.toFloat()) * (1 << _bits);
+	return (*this);
 }
 
 Fixed	Fixed::operator/(Fixed const &f)
 {
-	Fixed	ret(*this);
-	int		temp1, temp2;
-
-	temp1 = this->getRawBits();
-	temp2 = f.getRawBits();
-	ret.setRawBits(temp1 * (1 << Fixed::_bits) / temp2);
+	this->_RawBits = (this->toFloat() / f.toFloat()) * (1 << _bits);
 	return (*this);
 }
 

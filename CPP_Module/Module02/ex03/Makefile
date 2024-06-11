@@ -1,24 +1,41 @@
-NAME = 
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: acaravan <acaravan@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/07/15 18:52:02 by acaravan          #+#    #+#              #
+#    Updated: 2024/06/11 20:20:08 by acaravan         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CXXFLAGS = -Wall -Werror -Wextra
+NAME			=	Fixed
 
-SRCS = 
+SRCS			=	main.cpp \
+					Fixed.cpp \
+					Point.cpp \
+					bsp.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+OBJS			= $(SRCS:.cpp=.o)
 
-CXX = c++
+CXX				= c++
+RM				= rm -f
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-all: $(NAME)
+all:			$(NAME)
 
-$(NAME): $(OBJS)
-	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME):		$(OBJS)
+				$(CXX) $(CXXFLAGS) -g -o $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS)
+				$(RM) $(OBJS)
 
-fclean:	clean
-	rm -f $(NAME)
+fclean:			clean
+				$(RM) $(NAME)
 
-re:	fclean all
+re:				fclean $(NAME)
 
-.PHONY: all clean fclean re
+test:			$(NAME)
+
+.PHONY:			all clean fclean re test
